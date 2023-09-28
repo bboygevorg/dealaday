@@ -1,0 +1,152 @@
+@import "../../../../styles/variables.scss";
+
+.oneCart {
+  background-color: $gray_100;
+  border-radius: 1rem;
+  border: 1px solid $gray_200;
+  width: $container_width_media_cart;
+  text-align: center;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+  position: relative;
+
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    width: $container_width_media_cart_mobile;
+    margin-bottom: 2rem;
+  }
+
+  .addTo {
+    display: grid;
+    grid-template-rows: 42px 42px;
+    row-gap: 1rem;
+    top: 15rem;
+    padding-top: 2rem;
+    position: absolute;
+    background-color: $rgba_white;
+    width: 100%;
+    height: 9.5rem;
+
+    @media screen and (max-width: 1200px) and (min-width: 767px) {
+      display: none;
+    }
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      display: none;
+    }
+
+    .addTo_top {
+      display: flex;
+      justify-content: center;
+    }
+
+    .addTo_bottom {
+      margin: 0 auto;
+    }
+  }
+
+  img {
+    width: 60%;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      width: 80%;
+    }
+  }
+
+  .oneCart_info {
+    margin: 0 auto;
+    margin-top: 6rem;
+    width: 60%;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1200px) and (min-width: 767px) {
+      margin-top: 2rem;
+      width: 80%;
+    }
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      margin-top: 1rem;
+    }
+
+    .oneCart_info_title {
+      font-size: 1.5rem;
+      font-weight: 500;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        font-size: 1rem;
+      }
+    }
+
+    .oneCart_info_raiting {
+      display: flex;
+      justify-content: center;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        display: flex;
+        align-items: center;
+      }
+
+      @media screen and(max-width: 767px) and (min-width: 320px) {
+        display: flex;
+        align-items: center;
+      }
+
+      .raiting_stars {
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          font-size: 0rem;
+        }
+      }
+
+      .review {
+        color: $gray_600;
+        margin-left: 0.5rem;
+
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          font-size: 0.6rem;
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .oneCart_info_price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 11rem;
+      margin: 0 auto;
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        width: 11rem;
+      }
+
+      .price {
+        font-size: 1.5rem;
+        font-weight: $font-weight_700;
+        color: $blue_01;
+      }
+
+      .price_center {
+        font-size: 1.5rem;
+        font-weight: $font-weight_700;
+        color: $blue_01;
+        margin: 0 auto;
+      }
+
+      .price_discount {
+        font-size: 1.1rem;
+        font-weight: $font-weight_500;
+        color: $gray_500;
+        position: relative;
+
+        &::after {
+          @include line_text;
+        }
+      }
+    }
+  }
+}

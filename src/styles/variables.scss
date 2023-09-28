@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+// color
+$white_01: white;
+
+$blue_01: #3598cc;
+$blue_02: #1e75a3;
+$blue_03: #3598cc;
+
+$gray_900: #111827;
+$gray_800: #1f2937;
+$gray_700: #374151;
+$gray_600: #4b5563;
+$gray_500: #6b7280;
+$gray_400: #9ca3af;
+$gray_300: #d1d5db;
+$gray_200: #e5e7eb;
+$gray_100: #f3f4f6;
+$gray_050: #f9fafb;
+
+// banner_color {
+$banner_01: #e2f0e6;
+
+// rgba
+$rgba_white: rgba(255, 255, 255, 0.5);
+
+// width
+$container_width: 71.25rem;
+$container_footer: 67rem;
+$container_width_sectionTodays: 88.2rem;
+$container_width_product: 16rem;
+$container_width_media_cart: calc(33.33% - 20px);
+$container_width_media_cart_mobile: calc(100.33% - 20px);
+$container_width_media: 100%;
+
+// transiotions
+$transition: 0.2s;
+
+// fonts
+$font-family: "Inter", sans-serif;
+
+// fonts_weight
+$font-weight_400: 400;
+$font-weight_500: 600;
+$font-weight_600: 600;
+$font-weight_700: 700;
+
+// position AddTo
+$top_1: 41%;
+$top_2: 30;
+
+// forms
+@mixin form_gray_variables {
+  background-color: inherit;
+  color: $gray_300;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+  border: 1px solid $gray_500;
+  border-right: none;
+  padding: 0.5rem 1rem;
+}
+
+@mixin form_white_variables {
+  background-color: inherit;
+  color: $gray_900;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+  border: 1px solid $gray_300;
+  padding: 0.5rem 1rem;
+  border-right: none;
+  z-index: 1;
+}
+
+@mixin logo_search_gray_variables {
+  width: 2.5rem;
+  height: 2.4rem;
+  background-color: $gray_800;
+  border: 1px solid $gray_500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+@mixin logo_search_white_variables {
+  width: 2.5rem;
+  height: inherit;
+  background-color: $gray_050;
+  border: 1px solid $gray_300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+  stroke: $blue_01;
+  cursor: pointer;
+}
+
+//
+@mixin menu_mobile_active {
+  width: 0;
+
+  background-color: white;
+  top: 0;
+  z-index: 2;
+  transition: 2s;
+
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    display: block;
+    width: 16.4rem;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    z-index: 2000;
+    transition: 0.3s ease;
+  }
+}
+
+@mixin menu_mobile_activeOff {
+  display: none;
+  width: 0;
+  height: 100vh;
+  background-color: white;
+  top: 0;
+  z-index: 2;
+  transition: 0.2s;
+}
+
+// line
+@mixin horizonal_line {
+  border: none;
+  height: 0.5px;
+  background-color: $gray_200;
+}
+
+@mixin line_text {
+  content: "";
+  background: #333333;
+  width: 100%;
+  height: 1px;
+  bottom: 9px;
+  right: 0;
+  position: absolute;
+}
+
+// arrow
+@mixin arrow {
+  width: 2.5rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  background-color: $gray_100;
+  border-radius: 10rem;
+  cursor: pointer;
+}

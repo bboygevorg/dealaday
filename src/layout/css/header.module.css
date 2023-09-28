@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .menu_nav {
+    display: flex;
+  }
+}
+
+.header {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+.header .container {
+  max-width: 71.25rem;
+  margin: 0 auto;
+  height: 9.5rem;
+  padding-top: 1.5rem;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header .container {
+    height: 3.5rem;
+    padding: 1rem 1rem;
+  }
+}
+.header .container .top_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+.header .container .top_header .top_header_left {
+  flex: 1;
+}
+@media screen and (max-width: 1200px) and (min-width: 767px) {
+  .header .container .top_header .top_header_left .logo {
+    width: 150px;
+    margin-left: 1rem;
+  }
+  .header .container .top_header .top_header_left .logo img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header .container .top_header .top_header_left .logo {
+    width: 100px;
+  }
+  .header .container .top_header .top_header_left .logo img {
+    width: 100%;
+  }
+}
+.header .container .top_header .top_header_middle {
+  flex: 2;
+}
+.header .container .top_header .top_header_right {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  height: auto;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header .container .top_header .top_header_right {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.header .container .top_header .top_header_right div {
+  margin-right: 2rem;
+  padding-top: 1rem;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header .container .top_header .top_header_right div {
+    margin-right: 1rem;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header .container .top_header .top_header_right div {
+    padding-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.header .container .top_header .top_header_right div:nth-child(3) {
+  display: none;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header .container .top_header .top_header_right div:nth-child(1) {
+    display: none;
+  }
+  .header .container .top_header .top_header_right div:nth-child(2) {
+    display: none;
+  }
+  .header .container .top_header .top_header_right div:nth-child(3) {
+    margin-top: -0.1rem;
+    display: block;
+    cursor: pointer;
+  }
+}
+.header .container .bottom_header {
+  padding: 0 5px;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header .container .bottom_header {
+    display: none;
+  }
+}
+.header .container .bottom_header .bottom_header_container {
+  display: flex;
+  justify-content: space-between;
+  width: 25rem;
+  margin: 0 20rem;
+}
+@media screen and (max-width: 1200px) and (min-width: 767px) {
+  .header .container .bottom_header .bottom_header_container {
+    width: 25rem;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+  }
+}
+.header .container .bottom_header .bottom_header_container div span {
+  color: #f3f4f6;
+}/*# sourceMappingURL=header.module.css.map */

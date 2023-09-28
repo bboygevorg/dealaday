@@ -1,0 +1,86 @@
+@import "../../styles/variables.scss";
+
+// InputGray
+
+.wrapper_inputGray {
+  display: flex;
+
+  @media screen and (max-width: 1200px) and (min-width: 767px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    display: none;
+  }
+
+  .input_gray {
+    width: 27rem;
+    @include form_gray_variables;
+
+    @media screen and (max-width: 1200px) and (min-width: 767px) {
+      width: 20rem;
+    }
+
+    &::placeholder {
+      color: $gray_400;
+      font-family: $font-family;
+    }
+
+    &:hover {
+      border-color: $gray_500;
+      transition: $transition;
+    }
+
+    &:hover + .logo_search {
+      background-color: $blue_02;
+      transition: $transition;
+    }
+
+    &:focus {
+      border-color: $blue_02;
+      transition: $transition;
+    }
+
+    &:focus + .logo_search {
+      background-color: $blue_02;
+      border-color: $blue_02;
+      transition: $transition;
+    }
+  }
+
+  .logo_search {
+    @include logo_search_gray_variables;
+  }
+}
+
+.wrapper_inputWhite {
+  display: none;
+
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    margin-top: 1rem;
+    margin-bottom: -2rem;
+  }
+
+  .input_white {
+    min-width: 80vw;
+    @include form_white_variables;
+
+    &:hover {
+      border-color: $blue_01;
+      transition: $transition;
+    }
+
+    &:hover + .logo_search {
+      border-color: $blue_01;
+      transition: $transition;
+    }
+  }
+
+  .logo_search {
+    @include logo_search_white_variables;
+  }
+}

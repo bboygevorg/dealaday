@@ -1,0 +1,86 @@
+@import "../../../styles/variables.scss";
+
+.banner {
+  margin-top: 3.75rem;
+
+  .wrapper {
+    max-width: $container_width;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    .bannerInfo {
+      width: 100%;
+      background-color: $banner_01;
+      height: 20rem;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      justify-content: space-between;
+      padding: 0 2.7rem;
+      border-radius: 1rem;
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        height: auto;
+        padding: 0 1rem;
+      }
+
+      .left_info {
+        margin-top: 4rem;
+        margin-left: 1.5rem;
+        margin-bottom: 5.6rem;
+        height: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          width: 100%;
+          margin-top: 2.3rem;
+          margin-bottom: 1rem;
+          height: auto;
+        }
+
+        .left_info_name {
+          font-weight: $font-weight_600;
+          font-size: 4rem;
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            font-size: 2rem;
+            font-weight: $font-weight_700;
+          }
+        }
+
+        .left_info_title {
+          font-weight: $font-weight_500;
+        }
+
+        .left_info_price {
+          font-size: 1.5rem;
+          margin-top: 1rem;
+          font-weight: $font-weight_700;
+          color: $blue_01;
+        }
+
+        .left_info_button {
+          margin-right: auto;
+          margin-top: 1rem;
+        }
+      }
+
+      .right_info {
+        margin-top: 1rem;
+        text-align: end;
+
+        img {
+          width: 80%;
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

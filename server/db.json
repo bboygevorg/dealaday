@@ -1,0 +1,136 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "AirPods Max",
+      "title": "",
+      "img": "https://i.imgur.com/LU6OquX.png",
+      "img_banner": "",
+      "img_dealOfDay": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 129,
+      "price_discount": null,
+      "rating": 2,
+      "isDealOfTheDay": true,
+      "bannerProduct": false
+    },
+    {
+      "id": 2,
+      "name": "Beats Studio Buds",
+      "title": "",
+      "img": "https://i.imgur.com/anHM0qn.png",
+      "img_banner": "",
+
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 186,
+      "price_discount": 189,
+      "rating": 3,
+      "isDealOfTheDay": true,
+      "bannerProduct": false
+    },
+    {
+      "id": 3,
+      "name": "Watch series 7",
+      "title": "",
+      "img": "https://i.imgur.com/cfBl31E.png",
+      "img_banner": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 43,
+      "price_discount": 79,
+      "rating": 4,
+      "isDealOfTheDay": true,
+      "bannerProduct": false
+    },
+    {
+      "id": 4,
+      "name": "Beats Solo",
+      "title": "",
+      "img": "https://i.imgur.com/ktDaIkx.png",
+      "img_banner": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 85,
+      "price_discount": 99,
+      "rating": 4,
+      "isDealOfTheDay": false,
+      "bannerProduct": false
+    },
+    {
+      "id": 5,
+      "name": "Pro Vector 5",
+      "title": "",
+      "img": "https://i.imgur.com/Vm5qGsQ.png",
+      "img_banner": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 85,
+      "price_discount": 99,
+      "rating": 4,
+      "isDealOfTheDay": false,
+      "bannerProduct": false
+    },
+    {
+      "id": 6,
+      "name": "DVD grundi ",
+      "title": "",
+      "img": "https://i.imgur.com/OH4XnnC.png",
+      "img_banner": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 85,
+      "price_discount": 99,
+      "rating": 4,
+      "isDealOfTheDay": false,
+      "bannerProduct": false
+    },
+    {
+      "id": 7,
+      "name": "Beats lima 3",
+      "title": "",
+      "img": "https://i.imgur.com/1QKxHFv.png",
+      "img_banner": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 85,
+      "price_discount": 99,
+      "rating": 4,
+      "isDealOfTheDay": false,
+      "bannerProduct": false
+    },
+    {
+      "id": 8,
+      "name": "Playstation 4",
+      "title": "",
+      "img": "https://i.imgur.com/mtO9sNO.png",
+      "img_banner": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 85,
+      "price_discount": 99,
+      "rating": 4,
+      "isDealOfTheDay": false,
+      "bannerProduct": false
+    },
+    {
+      "id": 9,
+      "name": "Sony Vita",
+      "title": "",
+      "img": "https://i.imgur.com/BANeCl3.png",
+      "img_banner": "",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 85,
+      "price_discount": 99,
+      "rating": 4,
+      "isDealOfTheDay": false,
+      "bannerProduct": false
+    },
+    {
+      "id": 10,
+      "name": "Beats fit pro",
+      "title": "Twist, Fit, Go.",
+      "img": "",
+      "img_banner": "https://i.imgur.com/yvKSSeZ.png",
+      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "price": 199,
+      "price_discount": 99,
+      "rating": 4,
+      "isDealOfTheDay": false,
+      "bannerProduct": true
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+@import "../../styles/variables.scss";
+
+.active {
+  @include menu_mobile_active;
+}
+
+.activeOff {
+  @include menu_mobile_activeOff;
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background color */
+  z-index: 1000; /* Place the overlay above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  background-color: $gray_900;
+  color: $gray_100;
+
+  .container {
+    max-width: $container_width;
+    margin: 0 auto;
+    height: 9.5rem;
+    padding-top: 1.5rem;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      height: 3.5rem;
+      padding: 1rem 1rem;
+    }
+
+    .top_header {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px;
+
+      .top_header_left {
+        flex: 1;
+
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          .logo {
+            width: 150px;
+            margin-left: 1rem;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          .logo {
+            width: 100px;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .top_header_middle {
+        flex: 2;
+      }
+
+      .top_header_right {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        height: auto;
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        div {
+          margin-right: 2rem;
+          padding-top: 1rem;
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            margin-right: 1rem;
+          }
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            padding-top: 5px;
+            display: flex;
+            justify-content: flex-end;
+          }
+
+          &:nth-child(3) {
+            display: none;
+          }
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            &:nth-child(1) {
+              display: none;
+            }
+            &:nth-child(2) {
+              display: none;
+            }
+            &:nth-child(3) {
+              margin-top: -0.1rem;
+              display: block;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom_header {
+      padding: 0 5px;
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        display: none;
+      }
+
+      .bottom_header_container {
+        display: flex;
+        justify-content: space-between;
+        width: 25rem;
+        margin: 0 20rem;
+
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          width: 25rem;
+          margin: 0 auto;
+          margin-top: 0.5rem;
+        }
+
+        div {
+          span {
+            color: $gray_100;
+
+            &:hover {
+              color: $blue_01;
+              transition: 0.2s ease-in;
+            }
+
+            &:not(:hover) {
+              color: $gray_100;
+              transition: 0.2s ease-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}

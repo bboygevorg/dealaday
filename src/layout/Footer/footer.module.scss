@@ -1,0 +1,313 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  background-color: $gray_900;
+  color: $gray_100;
+  margin-top: 4rem;
+  padding-bottom: 2.9rem;
+
+  .container {
+    max-width: $container_footer;
+    margin: 0 auto;
+    height: auto;
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: 1.9fr 0.9fr 0.9fr 0.9fr 2fr;
+    grid-gap: 10px;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 1fr);
+      text-align: center;
+      padding-top: 3rem;
+
+      div {
+        &:last-child {
+          grid-row: 2;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .footer_information {
+      img {
+        width: 30%;
+      }
+
+      .footer_information_text {
+        color: $gray_300;
+        margin-top: 1.3rem;
+        width: 15.5rem;
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          margin: 0 auto;
+          width: 100%;
+        }
+      }
+
+      .footer_information_socialMedia {
+        margin-top: 1.7rem;
+        display: flex;
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          display: flex;
+          justify-content: center;
+        }
+
+        span {
+          background-color: $gray_100;
+          width: 2.5rem;
+          height: 2.5rem;
+          margin-right: 1rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+
+          svg {
+            stroke: #374151;
+          }
+
+          &:hover {
+            background-color: $blue_03;
+            transition: 0.3s ease-in;
+          }
+
+          &:hover > svg {
+            stroke: $gray_050;
+            transition: 0.3s ease-in;
+          }
+        }
+      }
+    }
+
+    .footer_categories {
+      p {
+        color: $gray_200;
+        font-weight: $font-weight_500;
+        font-size: 1rem;
+      }
+
+      .categories {
+        margin-top: 1.2rem;
+
+        div {
+          padding-bottom: 0.8rem;
+        }
+
+        span {
+          color: $gray_300;
+          font-size: 1rem;
+
+          &:hover {
+            color: $blue_01;
+            transition: 0.2s ease-in;
+          }
+
+          &:not(:hover) {
+            color: $gray_300;
+            transition: 0.2s ease-out;
+          }
+        }
+      }
+    }
+
+    .footer_about {
+      p {
+        color: $gray_200;
+        font-weight: $font-weight_500;
+        font-size: 1rem;
+      }
+
+      .about {
+        margin-top: 1.2rem;
+
+        div {
+          padding-bottom: 0.8rem;
+        }
+
+        span {
+          color: $gray_300;
+          font-size: 1rem;
+
+          &:hover {
+            color: $blue_01;
+            transition: 0.2s ease-in;
+          }
+
+          &:not(:hover) {
+            color: $gray_300;
+            transition: 0.2s ease-out;
+          }
+        }
+      }
+    }
+
+    .footer_legal {
+      p {
+        color: $gray_200;
+        font-weight: $font-weight_500;
+        font-size: 1rem;
+      }
+
+      .legal {
+        margin-top: 1.2rem;
+
+        div {
+          padding-bottom: 0.8rem;
+        }
+
+        span {
+          color: $gray_300;
+          font-size: 1rem;
+
+          &:hover {
+            color: $blue_01;
+            transition: 0.2s ease-in;
+          }
+
+          &:not(:hover) {
+            color: $gray_300;
+            transition: 0.2s ease-out;
+          }
+        }
+      }
+    }
+
+    .footer_subscribe {
+      p {
+        color: $gray_200;
+        font-weight: $font-weight_500;
+        font-size: 1rem;
+
+        &:nth-child(2) {
+          font-size: 0.8rem;
+          margin-top: 1.2rem;
+          font-weight: normal;
+        }
+      }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        margin-top: 2rem;
+
+        p {
+          &:first-child {
+            display: none;
+          }
+        }
+      }
+
+      .subscribe {
+        margin-top: 1rem;
+        position: relative;
+
+        input {
+          width: 80%;
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          background-color: inherit;
+          border: none;
+          border: 1px solid $gray_400;
+          color: $gray_200;
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            background-color: $gray_050;
+            color: $gray_900;
+          }
+
+          &:hover {
+            border-color: $blue_01;
+            transition: 0.5s ease-in;
+          }
+
+          &:not(:hover) {
+            border-color: $gray_400;
+            transition: 0.5s ease-out;
+          }
+        }
+
+        button {
+          padding: 0.8rem;
+          border-radius: 0.5rem;
+          position: absolute;
+          right: 1.1rem;
+          background-color: $blue_01;
+          color: $white_01;
+          border: none;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $blue_02;
+            transition: 0.2s ease-in;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer_bottom {
+  background-color: $gray_800;
+  color: $gray_100;
+
+  .container {
+    max-width: $container_footer;
+    margin: 0 auto;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    grid-gap: 10px;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      justify-items: center;
+    }
+
+    div {
+      p {
+        color: $gray_400;
+      }
+    }
+
+    .pay {
+      display: flex;
+
+      span {
+        width: 2.2rem;
+        height: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.5rem;
+        border-radius: 15%;
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(5) {
+          background-color: $white_01;
+          border: 1px solid $gray_300;
+        }
+
+        &:nth-child(4) {
+          background-color: #1f72cd;
+          border: 1px solid #1f72cd;
+        }
+
+        &:nth-child(6) {
+          background-color: #b2fce5;
+          border: 1px solid $gray_300;
+        }
+      }
+    }
+  }
+}
