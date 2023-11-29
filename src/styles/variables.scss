@@ -22,18 +22,28 @@ $gray_050: #f9fafb;
 $banner_01: #e2f0e6;
 
 // rgba
-$rgba_white: rgba(255, 255, 255, 0.5);
+$rgba_white: rgba(255, 255, 255, 0.7);
+
+// colors filter
+$colors: #ebeae7, #202020, #f70000, #4f99cb, #e7bab5;
+
+// shadow
+$shadow_1: 0 0px 5px;
 
 // width
 $container_width: 71.25rem;
 $container_footer: 67rem;
+$container_pagination: 50rem;
 $container_width_sectionTodays: 88.2rem;
 $container_width_product: 16rem;
 $container_width_media_cart: calc(33.33% - 20px);
 $container_width_media_cart_mobile: calc(100.33% - 20px);
 $container_width_media: 100%;
 
-// transiotions
+// border-raduis
+$border-radius: 0.6rem;
+
+// transitions
 $transition: 0.2s;
 
 // fonts
@@ -99,7 +109,6 @@ $top_2: 30;
 //
 @mixin menu_mobile_active {
   width: 0;
-
   background-color: white;
   top: 0;
   z-index: 2;
@@ -125,6 +134,27 @@ $top_2: 30;
   top: 0;
   z-index: 2;
   transition: 0.2s;
+}
+
+@mixin menu_mobile_filteredActive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 100vw;
+  height: auto;
+  border: 1px solid $gray_200;
+  border-radius: $border-radius;
+  background-color: $white_01;
+  overflow: hidden;
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  z-index: 1;
+  transition: all 0.25s;
+}
+
+@mixin menu_mobile_filteredOff {
+  display: none;
 }
 
 // line
@@ -155,4 +185,16 @@ $top_2: 30;
   background-color: $gray_100;
   border-radius: 10rem;
   cursor: pointer;
+}
+
+// colors filter
+@mixin colors_filter {
+  content: "";
+  width: 1.9rem;
+  height: 1.9rem;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  border-radius: 50%;
+  transition: box-shadow 0.5s ease;
 }

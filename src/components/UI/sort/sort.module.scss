@@ -1,0 +1,80 @@
+@import "../../../styles/variables.scss";
+
+.dropdown {
+  position: relative;
+  display: block;
+  width: 200px;
+
+  .dropdown_trigger {
+    cursor: pointer;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid $gray_200;
+    border-radius: 0.5rem;
+    position: relative;
+
+    &:hover {
+      border-color: $blue_03;
+      transition: 0.2s ease-in;
+    }
+
+    &:not(:hover) {
+      border-color: $gray_200;
+      transition: 0.2s ease-out;
+    }
+
+    .arrow {
+      content: "";
+      position: absolute;
+      top: 38%;
+      right: 15px;
+      border: 1px solid #4b5563;
+      border-radius: 1px;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 4px;
+    }
+
+    .arrow_down {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+
+    .arrow_up {
+      transform: rotate(225deg);
+      -webkit-transform: rotate(225deg);
+    }
+  }
+
+  .dropdown_menu {
+    position: absolute;
+    top: 4rem;
+    margin: 0 auto;
+    width: 100%;
+    border: 1px solid $gray_200;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    cursor: pointer;
+    z-index: 5;
+    display: none;
+    background-color: $white_01;
+
+    &.open {
+      display: block;
+    }
+
+    li {
+      padding: 0.5rem 1rem;
+      color: $gray_600;
+
+      &:hover {
+        background-color: $gray_200;
+      }
+    }
+  }
+}
+
+.selectedColor {
+  color: $blue_03 !important;
+}

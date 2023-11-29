@@ -1,0 +1,79 @@
+@import "../../../../styles/variables.scss";
+
+.banner_product {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  height: auto;
+  justify-content: center;
+
+  box-shadow: 0 0px 5px;
+
+  .background_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .banner_info {
+    width: 90rem;
+    margin: 0 auto;
+    max-width: $container_width;
+    position: absolute;
+    top: 3.7rem;
+
+    @media screen and (max-width: 1270px) and (min-width: 767px) {
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      width: 100%;
+      top: 1.5rem;
+      padding: 0 1.5rem;
+    }
+  }
+
+  .banner_name {
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .banner_description {
+    background-color: $white_01;
+    opacity: 0.8;
+    width: 50%;
+    margin-top: 1.7rem;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    @media screen and (max-width: 1270px) and (min-width: 320px) {
+      display: none;
+    }
+  }
+}
+
+.banner_product_descriptionShow {
+  display: none;
+
+  @media screen and (max-width: 1270px) and (min-width: 767px) {
+    display: block;
+    margin: 1rem 1.5rem;
+    padding: 1rem;
+    background-color: $white_01;
+    opacity: 0.8;
+    border-radius: 1rem;
+    border: 1px solid $gray_200;
+  }
+
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    display: block;
+    margin: 1rem 1.5rem;
+    padding: 1rem;
+    background-color: $white_01;
+    opacity: 0.8;
+    border-radius: 1rem;
+    border: 1px solid $gray_200;
+  }
+}

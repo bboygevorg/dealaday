@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./oneCart.module.scss";
 import { getStarRaiting } from "../../../../helper/star";
 import { WatchGood, WishList } from "../../../AddWishList/AddWishList";
-import { ButtonBig } from "../../../UI/Button/Button";
+import Button from "../../../UI/Button/Button";
 
 const OneCart = ({ id, name, img, rating, price, price_discount }) => {
   const [active, setActive] = useState(false);
@@ -29,7 +29,9 @@ const OneCart = ({ id, name, img, rating, price, price_discount }) => {
             <WishList />
           </div>
           <div className={classes.addTo_bottom}>
-            <ButtonBig>Add To Cart</ButtonBig>
+            <Button size="big" color="blue">
+              Add to cart
+            </Button>
           </div>
         </div>
       )}

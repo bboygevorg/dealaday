@@ -1,18 +1,39 @@
 import React from "react";
 import classes from "./button.module.scss";
+import PropTypes from "prop-types";
 
-export const ButtonBig = ({ children }) => {
+const Button = ({ children, size, color, handleOfFilter }) => {
+  const sizeClass =
+    size === "big"
+      ? classes.buttonBig
+      : size === "small"
+      ? classes.buttonSmall
+      : size === "long"
+      ? classes.buttonLong
+      : "";
+
+  const colorClass =
+    color === "blue"
+      ? classes.colorBlue
+      : color === "gray"
+      ? classes.colorGray
+      : "";
   return (
     <>
-      <button className={classes.buttonBig}>{children}</button>
+      <button
+        className={`${classes.button} ${sizeClass} ${colorClass}`}
+        onClick={() => handleOfFilter()}
+      >
+        {children}
+      </button>
     </>
   );
 };
 
-export const ButtonSmall = ({ children }) => {
-  return (
-    <>
-      <button className={classes.buttonSmall}>{children}</button>
-    </>
-  );
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  size: PropTypes.oneOf(["big", "small", "long"]).isRequired,
+  color: PropTypes.oneOf(["blue", "gray"]),
 };
+
+export default Button;

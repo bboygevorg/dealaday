@@ -1,14 +1,31 @@
 @import "../../../styles/variables.scss";
 
-.buttonBig {
-  background-color: $blue_01;
+.button {
   border: none;
-  color: $white_01;
   border-radius: 0.4rem;
-  padding: 0.9rem 1.2rem;
+
   cursor: pointer;
   font-weight: 500;
   transition: 0.2s;
+}
+
+// size
+.buttonBig {
+  padding: 0.9rem 1.2rem;
+}
+
+.buttonSmall {
+  padding: 0.5rem 0.9rem;
+}
+
+.buttonLong {
+  padding: 0.7rem 3.4rem;
+}
+
+// color
+.colorBlue {
+  background-color: $blue_03;
+  color: $white_01;
 
   &:hover {
     background-color: $blue_02;
@@ -19,21 +36,17 @@
   }
 }
 
-.buttonSmall {
-  background-color: $blue_01;
-  border: none;
-  color: $white_01;
-  border-radius: 0.4rem;
-  padding: 0.5rem 0.9rem;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.2s;
+.colorGray {
+  background-color: $gray_300;
+  color: $gray_900;
 
   &:hover {
     background-color: $blue_02;
+    color: $white_01;
   }
 
   &:focus {
     background-color: $blue_03;
+    color: $white_01;
   }
 }

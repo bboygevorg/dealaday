@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import classes from "./productCart.module.scss";
 import { getStarRaiting } from "../../../helper/star";
 import { WatchGood, WishList } from "../../AddWishList/AddWishList";
-import { ButtonSmall } from "../../UI/Button/Button";
+import Button from "../../UI/Button/Button";
+// import img_test from "../../../assets/img/Product.png";
 
 const position = {
   top: `${10}rem`,
@@ -40,7 +41,9 @@ const ProductCart = ({
             <WishList />
           </div>
           <div className={classes.addTo_bottom}>
-            <ButtonSmall>Add to cart</ButtonSmall>
+            <Button size="small" color="blue">
+              Add to cart
+            </Button>
           </div>
         </div>
       )}

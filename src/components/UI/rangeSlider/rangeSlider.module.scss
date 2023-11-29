@@ -1,0 +1,109 @@
+@import "../../../styles/variables.scss";
+
+.slider_container {
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .slider {
+    position: relative;
+    width: 100%;
+
+    .slider_track,
+    .slider_range,
+    .slider_left_value,
+    .slider_right_value {
+      position: absolute;
+    }
+
+    .slider_track,
+    .slider_range {
+      border-radius: 3px;
+      height: 5px;
+    }
+
+    .slider_track {
+      background-color: $gray_200;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .slider_range {
+      background-color: $blue_03;
+      z-index: 2;
+    }
+
+    .slider_left_value,
+    .slider_right_value {
+      color: $gray_600;
+      font-weight: $font-weight_500;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .slider_left_value {
+      left: 6px;
+    }
+
+    .slider_right_value {
+      right: -4px;
+    }
+
+    /* Removing the default appearance */
+    .thumb,
+    .thumb::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .thumb {
+      pointer-events: none;
+      position: absolute;
+      height: 0;
+      width: 100%;
+      outline: none;
+    }
+
+    .thumb_zindex_3 {
+      z-index: 3;
+    }
+
+    .thumb_zindex_4 {
+      z-index: 4;
+    }
+
+    .thumb_zindex_5 {
+      z-index: 5;
+    }
+
+    /* For Chrome browsers */
+    .thumb::-webkit-slider-thumb {
+      background-color: $blue_03;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 0 1px 1px #ced4da;
+      cursor: pointer;
+      height: 18px;
+      width: 18px;
+      margin-top: 4px;
+      pointer-events: all;
+      position: relative;
+    }
+
+    /* For Firefox browsers */
+    .thumb::-moz-range-thumb {
+      background-color: $blue_03;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 0 1px 1px #ced4da;
+      cursor: pointer;
+      height: 18px;
+      width: 18px;
+      margin-top: 4px;
+      pointer-events: all;
+      position: relative;
+    }
+  }
+}

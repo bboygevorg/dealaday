@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./banner.module.scss";
 import { useSelector } from "react-redux";
-import { ButtonBig } from "../Button/Button";
+import Button from "../Button/Button";
 
 const Banner = () => {
   const banner = useSelector((state) => state.products.bannerProduct);
@@ -19,7 +19,9 @@ const Banner = () => {
                 ${banner[0].price}.00
               </span>
               <span className={classes.left_info_button}>
-                <ButtonBig>Add To Cart</ButtonBig>
+                <Button size="big" color="blue">
+                  Add to cart
+                </Button>
               </span>
             </div>
             <div className={classes.right_info}>

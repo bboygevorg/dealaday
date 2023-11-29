@@ -1,0 +1,69 @@
+@import "../../../styles/variables.scss";
+
+.pagination {
+  width: 100%;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+
+    .pagination_info {
+      font-size: $gray_600;
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        display: none;
+      }
+    }
+
+    .pagination_control {
+      display: flex;
+      align-items: center;
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      button {
+        background-color: $gray_200;
+        border: 1px solid $gray_400;
+        width: 2rem;
+        height: 2rem;
+        margin: 0 5px;
+        border-radius: 28px;
+        cursor: pointer;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+      }
+
+      button[disabled] {
+        background-color: #ccc;
+        border: 1px solid #ccc;
+        cursor: not-allowed;
+      }
+
+      .page.active {
+        background-color: $blue_03;
+        color: $white_01;
+        border: 1px solid $blue_03;
+      }
+
+      .page:not(.active):hover {
+        background-color: $blue_03;
+        border: 1px solid $blue_03;
+        color: $white_01;
+      }
+    }
+  }
+}
+
+.active {
+  background-color: $blue_03 !important;
+  color: $white_01;
+  border: 1px solid $blue_03;
+}
