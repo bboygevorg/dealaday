@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import classes from "./slider.module.scss";
 import { Link } from "react-router-dom";
-import ProductCart from "../../Cart/ProductCart/ProductCart";
-import CartColor from "../../Cart/cartColor/CartColor";
+
+import { ProductCart, CartColor } from "../../../helper/index";
 
 export const SliderTop = () => {
   const [sliderIndex, setSliderIndex] = useState(0);

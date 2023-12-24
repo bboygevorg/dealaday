@@ -2,8 +2,8 @@ import React from "react";
 import classes from "./product.module.scss";
 import { useSelector } from "react-redux";
 import { getStarRaiting } from "../../../../helper/star";
-import { SliderColor } from "../../../UI/slider/Slider";
-import ProductDetail from "../../productDetail/ProductDetail";
+
+import { SliderColor, ProductDetail } from "../../../../helper/index";
 
 const Product = () => {
   const { selectedProduct, iconOption } = useSelector(

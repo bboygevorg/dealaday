@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import classes from "./filter.module.scss";
 import { useSelector } from "react-redux";
-import RangeSlider from "../../../UI/rangeSlider/RangeSlider";
-import { handleOutsideClick } from "../../../../helper/handleOutsideClick";
-import Button from "../../../UI/Button/Button";
+
+import { RangeSlider, Button } from "../../../../helper/index";
 
 const colors = ["#ebeae7", "#202020", "#f70000", "#4f99cb", "#e7bab5"];
 

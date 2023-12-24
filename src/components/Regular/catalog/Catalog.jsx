@@ -14,11 +14,13 @@ import {
   getSortedProducts,
 } from "../../../redux/initialGoods/initialGoods";
 
-import Filter from "./filter/Filter";
-import Sort from "../../UI/sort/Sort";
-import ProductCart from "../../Cart/ProductCart/ProductCart";
-import Pagination from "../../UI/pagination/Pagination";
-import Loader from "../../UI/loader/Loader";
+import {
+  Filter,
+  Sort,
+  ProductCart,
+  Pagination,
+  Loader,
+} from "../../../helper/index";
 
 const Catalog = () => {
   const [toggleFilter, setToggleFilter] = useState(false);

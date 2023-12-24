@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import classes from "./productCart.module.scss";
 import { getStarRaiting } from "../../../helper/star";
-import { WatchGood, WishList } from "../../AddWishList/AddWishList";
+
+
+import { WatchGood, WishList } from "../../../helper/index";
 import Button from "../../UI/Button/Button";
 import Price from "../../Regular/price/Price";
 // import img_test from "../../../assets/img/Product.png";

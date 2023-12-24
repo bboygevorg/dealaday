@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGoods } from "../../../redux/initialGoods/initialGoods";
 import classes from "./cartTodays.module.scss";
-import OneCart from "./oneCart/OneCart";
+
+import { OneCart } from "../../../helper/index";
 
 const CartTodays = () => {
   const dispatch = useDispatch();

@@ -8,7 +8,7 @@ const BannerProduct = () => {
     <>
       <div className={classes.banner_product}>
         <img className={classes.background_image} src={bannerProduct} alt="" />
-        
+
         <div className={classes.banner_info}>
           <h1 className={classes.banner_name}>Watches</h1>
           <p className={classes.banner_description}>

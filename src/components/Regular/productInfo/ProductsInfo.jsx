@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import classes from "./productsInfo.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
-import Product from "./product/Product";
 import { getGoodsId } from "../../../redux/product/product";
+
+import { Product } from "../../../helper/index";
 
 const ProductsInfo = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,6 @@ const ProductsInfo = () => {
   useEffect(() => {
     dispatch(getGoodsId(id));
   }, [dispatch, id]);
-
-  
 
   return (
     <div className={classes.Products_info}>

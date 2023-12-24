@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./banner.module.scss";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+
+import { Button } from "../../../helper/index";
 
 const Banner = () => {
   const banner = useSelector((state) => state.products.bannerProduct);

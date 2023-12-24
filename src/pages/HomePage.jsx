@@ -1,10 +1,14 @@
 import React from "react";
-import CartTodays from "../components/Cart/CartTodays/CartTodays";
-import { InputWhite } from "../components/Input/input";
-import InfoBar from "../components/InfoBar/InfoBar";
-import { SliderMost, SliderTop } from "../components/UI/slider/Slider";
-import Banner from "../components/UI/Banner/Banner";
 import { Helmet } from "react-helmet-async";
+
+import {
+  CartTodays,
+  InputWhite,
+  InfoBar,
+  Banner,
+  SliderMost,
+  SliderTop,
+} from "../helper/index";
 
 const HomePage = () => {
   return (

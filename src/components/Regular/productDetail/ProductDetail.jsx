@@ -2,7 +2,8 @@ import React from "react";
 import classes from "./productDetail.module.scss";
 
 import frame from "../../../../public/assets/images/Frame.png";
-import Price from "../price/Price";
+
+import { Price } from "../../../helper/index";
 
 const ProductDetail = ({ selectedProduct }) => {
   return (

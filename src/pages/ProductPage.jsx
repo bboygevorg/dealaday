@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation, useParams, Link } from "react-router-dom";
-import { InputWhite } from "../components/Input/input";
-import ProductsInfo from "../components/Regular/productInfo/ProductsInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { getGoodsId, setSelectedProduct } from "../redux/product/product";
+
+import { InputWhite, ProductsInfo } from "../helper/index";
 
 const ProductPage = () => {
   const { id } = useParams();
