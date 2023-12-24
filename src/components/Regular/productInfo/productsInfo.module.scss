@@ -1,0 +1,11 @@
+@import "../../../styles/variables.scss";
+
+.Products_info {
+  margin-top: 3.5rem;
+
+  .container {
+    max-width: $container_width;
+    margin: 0 auto;
+    height: auto;
+  }
+}

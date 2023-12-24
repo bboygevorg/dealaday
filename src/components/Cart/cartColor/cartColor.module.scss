@@ -1,0 +1,18 @@
+@import "../../../styles/variables.scss";
+
+.cartColor {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 1.7rem;
+  background-color: $gray_100;
+  border-radius: 20px;
+  padding: 1rem;
+  cursor: pointer;
+
+  img {
+    max-width: 80%;
+
+    object-fit: cover;
+  }
+}

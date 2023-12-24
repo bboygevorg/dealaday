@@ -3,6 +3,7 @@ import classes from "./productCart.module.scss";
 import { getStarRaiting } from "../../../helper/star";
 import { WatchGood, WishList } from "../../AddWishList/AddWishList";
 import Button from "../../UI/Button/Button";
+import Price from "../../Regular/price/Price";
 // import img_test from "../../../assets/img/Product.png";
 
 const position = {
@@ -14,7 +15,7 @@ const ProductCart = ({
   img,
   rating,
   price,
-  price_discount,
+  price_previous,
   description,
 }) => {
   const [active, setActive] = useState(false);
@@ -37,7 +38,7 @@ const ProductCart = ({
       {active && (
         <div className={classes.addTo} style={position}>
           <div className={classes.addTo_top}>
-            <WatchGood />
+            <WatchGood productId={id} />
             <WishList />
           </div>
           <div className={classes.addTo_bottom}>
@@ -87,18 +88,7 @@ const ProductCart = ({
           </div>
           <span className={classes.delivery_info}>2-3 day(s)</span>
         </div>
-        <div className={classes.oneCart_info_price}>
-          <div>
-            <span className={classes.price}>${price}.00</span>
-            {price_discount > 0 ? (
-              <span className={classes.price_discount}>
-                ${price_discount}.00
-              </span>
-            ) : (
-              " "
-            )}
-          </div>
-        </div>
+        <Price price={price} price_previous={price_previous} margin="right" />
       </div>
     </div>
   );

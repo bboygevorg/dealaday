@@ -13,29 +13,38 @@ const CartTodays = () => {
   }, [dispatch]);
 
   return (
-    <div className={classes.todays}>
-      <div className={classes.container}>
-        <div className={classes.cartTodays}>
-          <h2>Today's Deals</h2>
-          <div className={classes.cartTodays_cart}>
-            {dealOfTheDayProducts?.map((product) => {
-              const { id, name, img, rating, price, price_discount } = product;
-              return (
-                <OneCart
-                  key={id}
-                  id={id}
-                  name={name}
-                  img={img}
-                  rating={rating}
-                  price={price}
-                  price_discount={price_discount}
-                />
-              );
-            })}
+    <>
+      (
+      <div className={classes.todays}>
+        <div className={classes.container}>
+          <div className={classes.cartTodays}>
+            <h2>Today's Deals</h2>
+            <div className={classes.cartTodays_cart}>
+              {dealOfTheDayProducts && dealOfTheDayProducts.length > 0 ? (
+                dealOfTheDayProducts.map((product) => {
+                  const { id, name, img, rating, price, price_previous } =
+                    product;
+                  return (
+                    <OneCart
+                      key={id}
+                      id={id}
+                      name={name}
+                      img={img}
+                      rating={rating}
+                      price={price}
+                      price_previous={price_previous}
+                    />
+                  );
+                })
+              ) : (
+                <p>No deals available</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      )
+    </>
   );
 };
 

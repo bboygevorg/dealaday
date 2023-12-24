@@ -11,6 +11,7 @@ module.exports = (env, options) => {
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "bundle.js",
+      publicPath: "/",
     },
     module: {
       rules: [
@@ -63,6 +64,10 @@ module.exports = (env, options) => {
           {
             from: "public/assets",
             to: "assets",
+          },
+          {
+            from: "server/db.json",
+            to: "db.json",
           },
         ],
       }),

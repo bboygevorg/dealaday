@@ -3,8 +3,9 @@ import classes from "./oneCart.module.scss";
 import { getStarRaiting } from "../../../../helper/star";
 import { WatchGood, WishList } from "../../../AddWishList/AddWishList";
 import Button from "../../../UI/Button/Button";
+import Price from "../../../Regular/price/Price";
 
-const OneCart = ({ id, name, img, rating, price, price_discount }) => {
+const OneCart = ({ id, name, img, rating, price, price_previous }) => {
   const [active, setActive] = useState(false);
 
   const handleHover = () => {
@@ -25,7 +26,7 @@ const OneCart = ({ id, name, img, rating, price, price_discount }) => {
       {active && (
         <div className={classes.addTo}>
           <div className={classes.addTo_top}>
-            <WatchGood />
+            <WatchGood productId={id} />
             <WishList />
           </div>
           <div className={classes.addTo_bottom}>
@@ -42,20 +43,7 @@ const OneCart = ({ id, name, img, rating, price, price_discount }) => {
           {getStarRaiting(rating)}
           <span className={classes.review}>(160 Reviews)</span>
         </div>
-        <div className={classes.oneCart_info_price}>
-          <span
-            className={
-              price_discount <= 0 ? classes.price_center : classes.price
-            }
-          >
-            ${price}.00
-          </span>
-          {price_discount > 0 ? (
-            <span className={classes.price_discount}>${price_discount}.00</span>
-          ) : (
-            " "
-          )}
-        </div>
+        <Price price={price} price_previous={price_previous} margin="center" />
       </div>
     </div>
   );

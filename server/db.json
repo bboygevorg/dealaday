@@ -3,98 +3,247 @@
     {
       "id": 1,
       "name": "AirPods Max",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
       "img": "https://i.imgur.com/LU6OquX.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/DdaQ3ph.jpg",
       "category": "Electronics",
       "brand": "Apple",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 129,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 4,
+      "sku": 11223,
       "isDealOfTheDay": true,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 2,
       "name": "Beats Studio Buds",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/anHM0qn.png",
-      "img_banner": "",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Red)",
+      "img": "https://i.imgur.com/XxRI3fG.png",
+      "img_banner": "https://i.imgur.com/yvKSSeZ.png",
+      "img_brand": "https://i.imgur.com/N0TKfZM.png",
       "category": "Electronics",
       "brand": "Beats",
       "color": 3,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 150,
-      "price_discount": 160,
+      "price_previous": 160,
       "rating": 3,
+      "sku": 11224,
       "isDealOfTheDay": true,
-      "bannerProduct": false
+      "bannerProduct": true,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 3,
       "name": "Watch series 7",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/YFZAeZG.png",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/nvjKUhS.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/TWS9LFZ.jpg",
       "category": "Electronics",
       "brand": "Apple",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 447,
-      "price_discount": 458,
+      "price_previous": 458,
       "rating": 5,
+      "sku": 11225,
       "isDealOfTheDay": true,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/Dm6WYR5.png",
+          "info": "Touch"
+        }
+      ]
     },
     {
       "id": 4,
       "name": "Hikvision DS-2CD3647G2T-LZS",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/o8tasFQ.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/97x2NwC.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/iDMrAhQ.jpg",
       "category": "Electronics",
       "brand": "Hikvision",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 150,
-      "price_discount": 170,
+      "price_previous": 170,
       "rating": 3,
+      "sku": 11226,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/YF88tqF.png",
+          "info": "Wireless",
+          "title": "connection"
+        }
+      ]
     },
     {
       "id": 5,
       "name": "Zuru X-Shot Insanity Manic",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/RTyXi17.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Blue)",
+      "img": "https://i.imgur.com/BTlIeZ7.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/VyAKPiC.jpg",
       "category": "Toys",
       "brand": "Zuru",
       "color": 4,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 23,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 3,
+      "sku": 11227,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        }
+      ]
     },
     {
       "id": 6,
       "name": "Zuru Smashers Mega Jurassic Light Up Surprise Dino Egg",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/moGYmw5.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Blue)",
+      "img": "https://i.imgur.com/v12c7qo.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/VyAKPiC.jpg",
       "category": "Toys",
       "brand": "Zuru",
       "color": 4,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 55,
-      "price_discount": 60,
+      "price_previous": 60,
       "rating": 3,
+      "sku": 11228,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        }
+      ]
     },
     {
       "id": 7,
@@ -102,351 +251,888 @@
       "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
       "img": "https://i.imgur.com/ktDaIkx.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/N0TKfZM.png",
       "category": "Electronics",
       "brand": "Beats",
       "color": 2,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 55,
-      "price_discount": 60,
+      "price_previous": 60,
       "rating": 3,
+      "sku": 11229,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 8,
       "name": "Beats Studio Buds",
       "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/s53mPPr.png",
+      "img": "https://i.imgur.com/in5wMvv.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/N0TKfZM.png",
       "category": "Electronics",
       "brand": "Beats",
       "color": 2,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 150,
-      "price_discount": 160,
+      "price_previous": 160,
       "rating": 3,
+      "sku": 11230,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 9,
       "name": "Apple Watch SE 1ST",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/RAmjbCD.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Gold)",
+      "img": "https://i.imgur.com/9Rxr9mH.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/TWS9LFZ.jpg",
       "category": "Electronics",
       "brand": "Apple",
       "color": 5,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 288,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 4,
+      "sku": 11231,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/Dm6WYR5.png",
+          "info": "Touch"
+        }
+      ]
     },
     {
       "id": 10,
       "name": "Hikvision 4G LTE",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/Ou5yEwl.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/pzdrW3R.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/iDMrAhQ.jpg",
       "category": "Electronics",
       "brand": "Hikvision",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 125,
-      "price_discount": 139,
+      "price_previous": 139,
       "rating": 4,
+      "sku": 11232,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/YF88tqF.png",
+          "info": "Wireless",
+          "title": "connection"
+        }
+      ]
     },
     {
       "id": 11,
       "name": "Apple iPhone 8 Plus",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/6vIhaPV.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/ZmXSy5L.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/HE6cWma.jpg",
       "category": "Electroncs",
       "brand": "Apple",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 410,
-      "price_discount": 450,
+      "price_previous": 450,
       "rating": 4,
+      "sku": 11233,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/HAMRDX5.png",
+          "info": "Touch"
+        }
+      ]
     },
     {
       "id": 12,
-      "name": "Beats Solo3",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/GO59NiT.jpg",
+      "name": "Beats Solo 3",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Red)",
+      "img": "https://i.imgur.com/dGmIseA.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/N0TKfZM.png",
       "category": "Electroncs",
       "brand": "Beats",
       "color": 3,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 82,
-      "price_discount": 90,
+      "price_previous": 90,
       "rating": 4,
+      "sku": 11234,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 13,
       "name": "Elegance 2200 Hair Dryer",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/zt6XfVX.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Gold)",
+      "img": "https://i.imgur.com/7L0pEtG.png",
       "img_banner": "",
       "category": "Homeware",
       "brand": "Elegance",
       "color": 5,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 72,
-      "price_discount": 90,
+      "price_previous": 90,
       "rating": 4,
+      "sku": 11235,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        }
+      ]
     },
     {
       "id": 14,
       "name": "Zuru Sparkle Girlz Fairy Princess and Unicorn",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/3N7YMyQ.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Red)",
+      "img": "https://i.imgur.com/5slsV0h.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/VyAKPiC.jpg",
       "category": "Toys",
       "brand": "Zuru",
       "color": 3,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 44,
-      "price_discount": 50,
+      "price_previous": 50,
       "rating": 4,
+      "sku": 11236,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        }
+      ]
     },
     {
       "id": 15,
       "name": "AirPods Max",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/PoJ6QR3.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Blue)",
+      "img": "https://i.imgur.com/le0RPDp.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/DdaQ3ph.jpg",
       "category": "Electronics",
       "brand": "Apple",
       "color": 4,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 129,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 3,
+      "sku": 11237,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 16,
       "name": "Apple iPad 10th Gen 64/256GB",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Blue)",
       "img": "https://i.imgur.com/1or2vNb.jpg",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/eSIwX13.png",
       "category": "Electronics",
       "brand": "Apple",
       "color": 4,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 773,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 4,
+      "sku": 11238,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/Dm6WYR5.png",
+          "info": "Touch"
+        }
+      ]
     },
     {
       "id": 17,
       "name": "Hikvision 4K 8MP",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/sZxzEdd.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Red)",
+      "img": "https://i.imgur.com/1musOw7.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/iDMrAhQ.jpg",
       "category": "Electronics",
       "brand": "Hikvision",
       "color": 2,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 173,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 3,
+      "sku": 11239,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/YF88tqF.png",
+          "info": "Wireless",
+          "title": "connection"
+        }
+      ]
     },
     {
       "id": 18,
       "name": "Beats Studio Buds",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/PIhBx6m.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Blue)",
+      "img": "https://i.imgur.com/fxkVHvt.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/N0TKfZM.png",
       "category": "Electronics",
       "brand": "Beats",
       "color": 4,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 150,
-      "price_discount": 160,
+      "price_previous": 160,
       "rating": 3,
+      "sku": 11240,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 19,
       "name": "Apple iPhone SE",
       "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/dmGnhqM.jpg",
+      "img": "https://i.imgur.com/mu16Rm5.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/HE6cWma.jpg",
       "category": "Electronics",
       "brand": "Apple",
       "color": 2,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 479,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 3,
+      "sku": 11241,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/Dm6WYR5.png",
+          "info": "Touch"
+        }
+      ]
     },
     {
       "id": 20,
-      "name": "Watch series 7",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/E1iQ7vN.jpg",
+      "name": "Watch series 8",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/MlzGX1G.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/TWS9LFZ.jpg",
       "category": "Electronics",
       "brand": "Apple",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 447,
-      "price_discount": 458,
+      "price_previous": 458,
       "rating": 5,
+      "sku": 11242,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/Dm6WYR5.png",
+          "info": "Touch"
+        }
+      ]
     },
     {
       "id": 21,
       "name": "Zuru 5 Surprise Mega Gross Minis",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/YIXGgZ0.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/4kK0My6.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/VyAKPiC.jpg",
       "category": "Toys",
       "brand": "Zuru",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 15,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 2,
+      "sku": 11243,
       "isDealOfTheDay": false,
       "bannerProduct": false
     },
     {
       "id": 22,
       "name": "Beats by Dr. Dre",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/WDecMaL.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/ZASCuww.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/N0TKfZM.png",
       "category": "Electronics",
       "brand": "Beats",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 62,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 3,
+      "sku": 11244,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 23,
       "name": "AirPods Max",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/ipfnGzD.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Red)",
+      "img": "https://i.imgur.com/DuIZDlY.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/DdaQ3ph.jpg",
       "category": "Electronics",
       "brand": "Apple",
       "color": 3,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 129,
-      "price_discount": null,
+      "price_previous": null,
       "rating": 4,
+      "sku": 11245,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/a3A8f0x.png",
+          "info": "Battery life",
+          "title": "3 years"
+        },
+        {
+          "id": 5,
+          "icon": "https://i.imgur.com/6kUvHfr.png",
+          "info": "device",
+          "title": "connected"
+        }
+      ]
     },
     {
       "id": 24,
       "name": "Beats By Dr. Dre Studio 2 3 Wireless/Wired",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/KnK2fXn.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/YAyp861.png",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/N0TKfZM.png",
       "category": "Electronics",
       "brand": "Beats",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 25,
-      "price_discount": 30,
+      "price_previous": 30,
       "rating": 3,
+      "sku": 11246,
       "isDealOfTheDay": false,
       "bannerProduct": false
     },
     {
       "id": 25,
       "name": "Hikvision ColorVu 5MP 8M",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
       "img": "https://i.imgur.com/5TLtBCm.gif",
       "img_banner": "",
+      "img_brand": "https://i.imgur.com/iDMrAhQ.jpg",
       "category": "Electronics",
       "brand": "Hikvision",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 89,
-      "price_discount": 103,
+      "price_previous": 103,
       "rating": 4,
+      "sku": 11247,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/W7ENfq8.png",
+          "info": "Warranty",
+          "title": "3 years"
+        },
+        {
+          "id": 2,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        },
+        {
+          "id": 3,
+          "icon": "https://i.imgur.com/XcG1G4K.png",
+          "info": "Waterproof",
+          "title": "Up to 30mm"
+        },
+        {
+          "id": 4,
+          "icon": "https://i.imgur.com/YF88tqF.png",
+          "info": "Wireless",
+          "title": "connection"
+        }
+      ]
     },
     {
       "id": 26,
       "name": "Elegance Plus After Shave Soothes Irritation",
       "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/XxGxVHh.jpg",
+      "img": "https://i.imgur.com/udFHQev.png",
       "img_banner": "",
       "category": "Homeware",
       "brand": "Elegance",
       "color": 2,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 12,
-      "price_discount": 15,
+      "price_previous": 15,
       "rating": 2,
+      "sku": 11248,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        }
+      ]
     },
     {
       "id": 27,
       "name": "Elegance Plus Shaving Gel Jupiter",
       "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/AxHpU2D.jpg",
+      "img": "https://i.imgur.com/ohSzM16.png",
       "img_banner": "",
       "category": "Homeware",
       "brand": "Elegance",
       "color": 2,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 27,
-      "price_discount": 33,
+      "price_previous": 33,
       "rating": 3,
+      "sku": 11249,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        }
+      ]
     },
     {
       "id": 28,
       "name": "Transparent case with thin",
-      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
-      "img": "https://i.imgur.com/Qyn8D87.jpg",
+      "title": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (White)",
+      "img": "https://i.imgur.com/4msYhsa.png",
       "img_banner": "",
       "category": "Electroncs",
       "brand": "Apple",
       "color": 1,
-      "description": "Kogan W Pro Active Noise Cancellation Earphones with Wireless Charging Case (Black)",
+      "description": "",
       "price": 21,
-      "price_discount": "",
+      "price_previous": "",
       "rating": 3,
+      "sku": 11250,
       "isDealOfTheDay": false,
-      "bannerProduct": false
+      "bannerProduct": false,
+      "icon_option": [
+        {
+          "id": 1,
+          "icon": "https://i.imgur.com/ijF0mt6.png",
+          "info": "Shipping time",
+          "title": "3-5 days"
+        }
+      ]
     }
   ]
 }

@@ -11,7 +11,6 @@ import {
   setSelectedColors,
   getFilteredProducts,
   setSortingCriterion,
-  setSortingOrder,
   getSortedProducts,
 } from "../../../redux/initialGoods/initialGoods";
 
@@ -54,11 +53,9 @@ const Catalog = () => {
   };
 
   const handleCategoryChange = (category, newPage) => {
-    const updatedSelecetedCategory = selectedCategory.includes(category)
-      ? selectedCategory.filter((c) => c !== category)
-      : [...selectedCategory, category];
+    dispatch(setSelectedCategories(category));
 
-    dispatch(setSelectedCategories(updatedSelecetedCategory));
+    const updatedSelecetedCategory = [...selectedCategory];
 
     const newCurrentPage = newPage || 1;
 
@@ -81,16 +78,10 @@ const Catalog = () => {
     dispatch(setCurrentPage({ page: newCurrentPage }));
   };
 
-  const handleBrandChange = (brand, newPage) => {
+  const handleBrandChange = (brand) => {
+    dispatch(setSelectedBrand(brand));
+
     const updatedSelecetedBrand = [...selectedBrand];
-
-    if (updatedSelecetedBrand.includes(brand)) {
-      updatedSelecetedBrand.splice(updatedSelecetedBrand.indexOf(brand), 1);
-    } else {
-      updatedSelecetedBrand.push(brand);
-    }
-
-    dispatch(setSelectedBrand(updatedSelecetedBrand));
 
     const newCurrentPage = 1;
 
@@ -112,15 +103,10 @@ const Catalog = () => {
     dispatch(setCurrentPage({ page: newCurrentPage }));
   };
 
-  const handleRatingChange = (rating, newPage) => {
-    const updatedSelecetedRating = [...selectedRating];
-    if (updatedSelecetedRating.includes(rating)) {
-      updatedSelecetedRating.splice(updatedSelecetedRating.indexOf(rating), 1);
-    } else {
-      updatedSelecetedRating.push(rating);
-    }
+  const handleRatingChange = (rating) => {
+    dispatch(setSelectedRating(rating));
 
-    dispatch(setSelectedRating(updatedSelecetedRating));
+    const updatedSelecetedRating = [...selectedRating];
 
     const newCurrentPage = 1;
 
@@ -141,11 +127,9 @@ const Catalog = () => {
   };
 
   const handleColorChange = (color, newPage) => {
-    const updatedSelecetedColors = selectedColors.includes(color)
-      ? selectedColors.filter((c) => c !== color)
-      : [...selectedColors, color];
+    dispatch(setSelectedColors(color));
 
-    dispatch(setSelectedColors(updatedSelecetedColors));
+    const updatedSelecetedColors = [...selectedColors];
 
     const newCurrentPage = newPage || 1;
 

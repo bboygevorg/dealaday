@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./addWishList.module.scss";
 
-export const WatchGood = () => {
+export const WatchGood = ({ productId }) => {
   return (
     <>
-      <Link to="/">
+      <Link to={`/products/${productId}`}>
         <div className={classes.watch}>
           <svg
             width="25"
