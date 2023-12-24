@@ -8,7 +8,7 @@
     "dev": "concurrently \"npm run server\" \"npm start\"",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server -w server/db.json -p 3500"
+    "server": "json-server -w public/assets/db.json -p 3500"
   },
   "keywords": [],
   "author": "",
