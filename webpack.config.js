@@ -65,10 +65,6 @@ module.exports = (env, options) => {
             from: "public/assets",
             to: "assets",
           },
-          {
-            from: "server/db.json",
-            to: "db.json",
-          },
         ],
       }),
     ],
