@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./productDetail.module.scss";
 
-import frame from "../../../assets/img/frame.png";
+import frame from "../../../../public/assets/images/Frame.png";
 import Price from "../price/Price";
 
 const ProductDetail = ({ selectedProduct }) => {
