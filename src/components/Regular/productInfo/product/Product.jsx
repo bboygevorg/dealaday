@@ -3,7 +3,7 @@ import classes from "./product.module.scss";
 import { useSelector } from "react-redux";
 import { getStarRaiting } from "../../../../helper/star";
 
-import { SliderColor, ProductDetail } from "../../../../helper/index";
+import { SliderColor, ProductDetail, Reviews } from "../../../../helper/index";
 
 const Product = () => {
   const { selectedProduct, iconOption } = useSelector(
@@ -11,7 +11,6 @@ const Product = () => {
   );
 
   const iconInfo = iconOption;
-  console.log(iconInfo.length);
 
   return (
     <div className={classes.product_info}>
@@ -22,7 +21,9 @@ const Product = () => {
           <div className={classes.product_info_top}>
             <div className={`${classes.rating_info} ${classes.info}`}>
               <div>{getStarRaiting(selectedProduct.rating)}</div>
-              <span className={classes.review}>(160 Reviews)</span>
+              <span className={classes.review}>
+                <Reviews />
+              </span>
             </div>
             <div className={classes.vertical_line}></div>
             <div className={`${classes.brand_info} ${classes.info}`}>

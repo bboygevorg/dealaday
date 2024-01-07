@@ -23,6 +23,10 @@ module.exports = (env, options) => {
           },
         },
         {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
+        {
           test: /\.scss$/,
           use: [
             isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,

@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   getGoods,
+  getProducts,
   setCurrentPage,
   setSelectedCategories,
   setSelectedBrand,
   setSelectedRating,
   setSelectedColors,
-  getFilteredProducts,
   setSortingCriterion,
-  getSortedProducts,
 } from "../../../redux/initialGoods/initialGoods";
 
 import {
@@ -20,11 +19,13 @@ import {
   ProductCart,
   Pagination,
   Loader,
+  DealsInformation,
 } from "../../../helper/index";
 
 const Catalog = () => {
   const [toggleFilter, setToggleFilter] = useState(false);
   const dispatch = useDispatch();
+
   const {
     products,
     currentPage,
@@ -49,23 +50,28 @@ const Catalog = () => {
   //   return () => clearTimeout(timeoutId);
   // };
 
+  const updateProducts = (newCurrentPage) => {
+    dispatch(getGoods(newCurrentPage));
+    dispatch(setCurrentPage({ page: newCurrentPage }));
+  };
+
   const handlePageChange = (newPage) => {
     dispatch(setCurrentPage({ page: newPage }));
     dispatch(getGoods(newPage));
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
 
   const handleCategoryChange = (category, newPage) => {
     dispatch(setSelectedCategories(category));
 
     const updatedSelecetedCategory = [...selectedCategory];
-
     const newCurrentPage = newPage || 1;
 
     if (updatedSelecetedCategory.length === 0) {
-      dispatch(getGoods(newCurrentPage));
+      updateProducts(newCurrentPage);
     } else {
       dispatch(
-        getFilteredProducts({
+        getProducts({
           category: updatedSelecetedCategory,
           brand: selectedBrand,
           rating: selectedRating,
@@ -76,22 +82,19 @@ const Catalog = () => {
         })
       );
     }
-
-    dispatch(setCurrentPage({ page: newCurrentPage }));
   };
 
   const handleBrandChange = (brand) => {
     dispatch(setSelectedBrand(brand));
 
     const updatedSelecetedBrand = [...selectedBrand];
-
     const newCurrentPage = 1;
 
     if (updatedSelecetedBrand.length === 0) {
-      dispatch(getGoods(newCurrentPage));
+      updateProducts(newCurrentPage);
     } else {
       dispatch(
-        getFilteredProducts({
+        getProducts({
           category: selectedCategory,
           brand: updatedSelecetedBrand,
           rating: selectedRating,
@@ -102,20 +105,18 @@ const Catalog = () => {
         })
       );
     }
-    dispatch(setCurrentPage({ page: newCurrentPage }));
   };
 
   const handleRatingChange = (rating) => {
     dispatch(setSelectedRating(rating));
 
     const updatedSelecetedRating = [...selectedRating];
-
     const newCurrentPage = 1;
 
     if (updatedSelecetedRating.length === 0) {
-      dispatch(getGoods(newCurrentPage));
+      updateProducts(newCurrentPage);
     } else {
-      getFilteredProducts({
+      getProducts({
         category: selectedCategory,
         brand: selectedBrand,
         rating: updatedSelecetedRating,
@@ -125,21 +126,18 @@ const Catalog = () => {
         page: newCurrentPage,
       });
     }
-    dispatch(setCurrentPage({ page: newCurrentPage }));
   };
 
   const handleColorChange = (color, newPage) => {
     dispatch(setSelectedColors(color));
-
     const updatedSelecetedColors = [...selectedColors];
-
     const newCurrentPage = newPage || 1;
 
     if (updatedSelecetedColors.length === 0) {
-      dispatch(getGoods(newCurrentPage));
+      updateProducts(newCurrentPage);
     } else {
       dispatch(
-        getFilteredProducts({
+        getProducts({
           category: selectedCategory,
           brand: selectedBrand,
           rating: selectedRating,
@@ -150,8 +148,6 @@ const Catalog = () => {
         })
       );
     }
-
-    dispatch(setCurrentPage({ page: newCurrentPage }));
   };
 
   const handleSortChange = (criterion, newPage) => {
@@ -160,8 +156,9 @@ const Catalog = () => {
 
     dispatch(setSortingCriterion(criterion));
     dispatch(setCurrentPage({ page: selectedPage }));
+
     dispatch(
-      getSortedProducts({
+      getProducts({
         criterion,
         page: selectedPage,
         sortingCriterion: currentSortingCriterion,
@@ -180,14 +177,17 @@ const Catalog = () => {
     ) {
       if (sortingCriterion) {
         dispatch(
-          getSortedProducts({ criterion: sortingCriterion, page: currentPage })
+          getProducts({
+            criterion: sortingCriterion,
+            page: currentPage,
+          })
         );
       } else {
         dispatch(getGoods(currentPage));
       }
     } else {
       dispatch(
-        getFilteredProducts({
+        getProducts({
           category: selectedCategory,
           brand: selectedBrand,
           rating: selectedRating,
@@ -236,16 +236,24 @@ const Catalog = () => {
               <Sort onSortChange={handleSortChange} />
             </div>
             {loading ? (
-              <Loader />
+              <Loader width="100%" />
             ) : (
               <div className={classes.poducts}>
-                {products.map((product) => {
-                  return <ProductCart key={product.id} {...product} />;
-                })}
+                {products && products.length > 0 ? (
+                  products.map((product) => {
+                    return <ProductCart key={product.id} {...product} />;
+                  })
+                ) : (
+                  <>
+                    <div className={classes.deals}>
+                      <DealsInformation />
+                    </div>
+                  </>
+                )}
               </div>
             )}
             <div className={classes.pagination}>
-              {!loading && (
+              {!loading && products && products.length > 0 && (
                 <Pagination
                   currentPage={currentPage}
                   onPageChange={handlePageChange}

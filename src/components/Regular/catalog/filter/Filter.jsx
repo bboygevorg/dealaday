@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import classes from "./filter.module.scss";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
 import { RangeSlider, Button } from "../../../../helper/index";
 
 const colors = ["#ebeae7", "#202020", "#f70000", "#4f99cb", "#e7bab5"];
@@ -20,6 +19,7 @@ const Filter = ({
   );
   const [selectedColor, setSelectedColor] = useState([]);
   const colorsContainerRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleChange = (category) => {
     onCategoryChange(category);
@@ -99,6 +99,7 @@ const Filter = ({
 
     return starIcon;
   };
+
   const handleClick = (index) => {
     setSelectedColor((prevSelectedColors) => {
       if (prevSelectedColors.includes(index)) {
@@ -168,9 +169,11 @@ const Filter = ({
                 <label>
                   <input
                     type="checkbox"
+                    className={classes.style_checkbox}
                     checked={selectedCategory.includes("Electronics")}
                     onChange={() => handleChange("Electronics")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Electronics</span>
                 </label>
               </li>
@@ -181,7 +184,7 @@ const Filter = ({
                     checked={selectedCategory.includes("Homeware")}
                     onChange={() => handleChange("Homeware")}
                   />
-
+                  <span className={classes.check_box}></span>
                   <span>Homeware</span>
                 </label>
               </li>
@@ -192,6 +195,7 @@ const Filter = ({
                     checked={selectedCategory.includes("Toys")}
                     onChange={() => handleChange("Toys")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Toys</span>
                 </label>
               </li>
@@ -207,7 +211,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Apple")}
                     onChange={() => handleBrandChange("Apple")}
                   />
-
+                  <span className={classes.check_box}></span>
                   <span>Apple</span>
                 </label>
               </li>
@@ -218,6 +222,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Beats")}
                     onChange={() => handleBrandChange("Beats")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Beats</span>
                 </label>
               </li>
@@ -228,6 +233,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Hikvision")}
                     onChange={() => handleBrandChange("Hikvision")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Hikvision</span>
                 </label>
               </li>
@@ -238,6 +244,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Elegance")}
                     onChange={() => handleBrandChange("Elegance")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Elegance</span>
                 </label>
               </li>
@@ -248,6 +255,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Zuru")}
                     onChange={() => handleBrandChange("Zuru")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Zuru</span>
                 </label>
               </li>
@@ -263,6 +271,7 @@ const Filter = ({
                     checked={selectedRating.includes(5)}
                     onChange={() => handleRatingChange(5)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(5)}</span>
                 </label>
               </li>
@@ -273,6 +282,7 @@ const Filter = ({
                     checked={selectedRating.includes(4)}
                     onChange={() => handleRatingChange(4)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(4)}</span>
                 </label>
               </li>
@@ -283,6 +293,7 @@ const Filter = ({
                     checked={selectedRating.includes(3)}
                     onChange={() => handleRatingChange(3)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(3)}</span>
                 </label>
               </li>
@@ -293,6 +304,7 @@ const Filter = ({
                     checked={selectedRating.includes(2)}
                     onChange={() => handleRatingChange(2)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(2)}</span>
                 </label>
               </li>
@@ -303,6 +315,7 @@ const Filter = ({
                     checked={selectedRating.includes(1)}
                     onChange={() => handleRatingChange(1)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(1)}</span>
                 </label>
               </li>
@@ -375,6 +388,7 @@ const Filter = ({
                     checked={selectedCategory.includes("Electronics")}
                     onChange={() => handleChange("Electronics")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Electronics</span>
                 </label>
               </li>
@@ -385,7 +399,7 @@ const Filter = ({
                     checked={selectedCategory.includes("Homeware")}
                     onChange={() => handleChange("Homeware")}
                   />
-
+                  <span className={classes.check_box}></span>
                   <span>Homeware</span>
                 </label>
               </li>
@@ -396,6 +410,7 @@ const Filter = ({
                     checked={selectedCategory.includes("Toys")}
                     onChange={() => handleChange("Toys")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Toys</span>
                 </label>
               </li>
@@ -411,6 +426,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Apple")}
                     onChange={() => handleBrandChange("Apple")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Apple</span>
                 </label>
               </li>
@@ -421,6 +437,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Beats")}
                     onChange={() => handleBrandChange("Beats")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Beats</span>
                 </label>
               </li>
@@ -431,6 +448,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Hikvision")}
                     onChange={() => handleBrandChange("Hikvision")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Hikvision</span>
                 </label>
               </li>
@@ -441,6 +459,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Elegance")}
                     onChange={() => handleBrandChange("Elegance")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Elegance</span>
                 </label>
               </li>
@@ -451,6 +470,7 @@ const Filter = ({
                     checked={selectedBrand.includes("Zuru")}
                     onChange={() => handleBrandChange("Zuru")}
                   />
+                  <span className={classes.check_box}></span>
                   <span>Zuru</span>
                 </label>
               </li>
@@ -466,6 +486,7 @@ const Filter = ({
                     checked={selectedRating.includes(5)}
                     onChange={() => handleRatingChange(5)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(5)}</span>
                 </label>
               </li>
@@ -476,6 +497,7 @@ const Filter = ({
                     checked={selectedRating.includes(4)}
                     onChange={() => handleRatingChange(4)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(4)}</span>
                 </label>
               </li>
@@ -486,6 +508,7 @@ const Filter = ({
                     checked={selectedRating.includes(3)}
                     onChange={() => handleRatingChange(2)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(3)}</span>
                 </label>
               </li>
@@ -496,6 +519,7 @@ const Filter = ({
                     checked={selectedRating.includes(2)}
                     onChange={() => handleRatingChange(2)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(2)}</span>
                 </label>
               </li>
@@ -506,6 +530,7 @@ const Filter = ({
                     checked={selectedRating.includes(1)}
                     onChange={() => handleRatingChange(1)}
                   />
+                  <span className={classes.check_box}></span>
                   <span>{stars(1)}</span>
                 </label>
               </li>

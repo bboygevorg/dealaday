@@ -84,8 +84,7 @@
 
     .oneCart_info_raiting {
       display: flex;
-      justify-content: center;
-
+      align-items: center;
       @media screen and (max-width: 1200px) and (min-width: 767px) {
         display: flex;
         align-items: center;

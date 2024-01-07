@@ -4,6 +4,7 @@ import { getStarRaiting } from "../../../../helper/star";
 import { WatchGood, WishList } from "../../../AddWishList/AddWishList";
 import Button from "../../../UI/Button/Button";
 import Price from "../../../Regular/price/Price";
+import { Reviews } from "../../../../helper";
 
 const OneCart = ({ id, name, img, rating, price, price_previous }) => {
   const [active, setActive] = useState(false);
@@ -39,9 +40,11 @@ const OneCart = ({ id, name, img, rating, price, price_previous }) => {
       <img src={img} alt={name} />
       <div className={classes.oneCart_info}>
         <h3 className={classes.oneCart_info_title}>{name}</h3>
-        <div className={classes.boneCart_info_raiting}>
+        <div className={classes.oneCart_info_raiting}>
           {getStarRaiting(rating)}
-          <span className={classes.review}>(160 Reviews)</span>
+          <span className={classes.review}>
+            <Reviews />
+          </span>
         </div>
         <Price price={price} price_previous={price_previous} margin="center" />
       </div>

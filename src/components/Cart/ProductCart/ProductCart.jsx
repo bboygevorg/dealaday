@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import classes from "./productCart.module.scss";
 import { getStarRaiting } from "../../../helper/star";
 
-
-import { WatchGood, WishList } from "../../../helper/index";
+import { Reviews, WatchGood, WishList } from "../../../helper/index";
 import Button from "../../UI/Button/Button";
 import Price from "../../Regular/price/Price";
 // import img_test from "../../../assets/img/Product.png";
@@ -57,7 +56,9 @@ const ProductCart = ({
         <p className={classes.product_cart_info_text}>{description}</p>
         <div className={classes.oneCart_info_raiting}>
           <div>{getStarRaiting(rating)}</div>
-          <span className={classes.review}>(160 Reviews)</span>
+          <span className={classes.review}>
+            <Reviews />
+          </span>
         </div>
         <div className={classes.oneCart_info_delivery}>
           <div>

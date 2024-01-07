@@ -19,10 +19,9 @@ export { default as Button } from "../components/UI/Button/Button";
 export { default as Loader } from "../components/UI/loader/Loader";
 export { default as Pagination } from "../components/UI/pagination/Pagination";
 export { default as RangeSlider } from "../components/UI/rangeSlider/RangeSlider";
-export {
-  SliderTop,
-  SliderMost,
-  SliderColor,
-} from "../components/UI/slider/Slider";
-
+export { default as Slider } from "../components/UI/slider/Slider";
+export { SliderColor } from "../components/UI/slider/Slider";
+export { default as DealsInformation } from "../components/Regular/DealsIformation/DealsInformation";
+export { default as Reviews } from "../components/Regular/Reviews/Reviews";
 export { default as Sort } from "../components/UI/sort/Sort";
+export { default as Cart } from "../components/Cart/Cart/Cart";

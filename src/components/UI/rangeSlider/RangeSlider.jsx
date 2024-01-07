@@ -2,8 +2,8 @@ import React, { useRef, useState, useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setSelectedPriceRange,
-  getFilteredProducts,
   setCurrentPage,
+  getProducts,
 } from "../../../redux/initialGoods/initialGoods";
 import classes from "./rangeSlider.module.scss";
 
@@ -33,7 +33,7 @@ const RangeSlider = ({ min, max }) => {
     const newPage = 1;
     dispatch(setSelectedPriceRange([minVal, maxVal]));
     dispatch(
-      getFilteredProducts({
+      getProducts({
         category: selectedCategory,
         brand: selectedBrand,
         rating: selectedRating,

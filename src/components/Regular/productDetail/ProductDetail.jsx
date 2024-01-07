@@ -3,7 +3,7 @@ import classes from "./productDetail.module.scss";
 
 import frame from "../../../../public/assets/images/Frame.png";
 
-import { Price } from "../../../helper/index";
+import { Cart, Price } from "../../../helper/index";
 
 const ProductDetail = ({ selectedProduct }) => {
   return (
@@ -24,7 +24,7 @@ const ProductDetail = ({ selectedProduct }) => {
         </div>
       </div>
       <div className={classes.product_detail_info_price}>
-        <div>1</div>
+        <Cart />
       </div>
     </div>
   );

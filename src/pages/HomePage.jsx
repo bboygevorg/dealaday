@@ -6,8 +6,7 @@ import {
   InputWhite,
   InfoBar,
   Banner,
-  SliderMost,
-  SliderTop,
+  Slider,
 } from "../helper/index";
 
 const HomePage = () => {
@@ -19,9 +18,9 @@ const HomePage = () => {
       <InputWhite />
       <CartTodays />
       <InfoBar />
-      <SliderTop />
+      <Slider title="Top Products" />
       <Banner />
-      <SliderMost />
+      <Slider title="Most Popular" />
     </div>
   );
 };
