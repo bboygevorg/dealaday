@@ -9,11 +9,6 @@
   transition: 0.2s;
 }
 
-// size
-.buttonBig {
-  padding: 0.9rem 1.2rem;
-}
-
 .buttonSmall {
   padding: 0.5rem 0.9rem;
 }
@@ -22,17 +17,13 @@
   padding: 0.7rem 3.4rem;
 }
 
-// color
-.colorBlue {
-  background-color: $blue_03;
-  color: $white_01;
-
+.hoverWhite {
   &:hover {
-    background-color: $blue_02;
+    background-color: $blue_02 !important;
   }
 
   &:focus {
-    background-color: $blue_03;
+    background-color: $blue_02 !important;
   }
 }
 
@@ -40,13 +31,8 @@
   background-color: $gray_300;
   color: $gray_900;
 
-  &:hover {
-    background-color: $blue_02;
-    color: $white_01;
-  }
-
   &:focus {
-    background-color: $blue_03;
+    background-color: $blue_01;
     color: $white_01;
   }
 }

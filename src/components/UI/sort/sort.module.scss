@@ -13,7 +13,7 @@
     position: relative;
 
     &:hover {
-      border-color: $blue_03;
+      border-color: $blue_01;
       transition: 0.2s ease-in;
     }
 
@@ -76,5 +76,5 @@
 }
 
 .selectedColor {
-  color: $blue_03 !important;
+  color: $blue_01 !important;
 }

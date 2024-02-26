@@ -48,14 +48,14 @@
       }
 
       .page.active {
-        background-color: $blue_03;
+        background-color: $blue_01;
         color: $white_01;
-        border: 1px solid $blue_03;
+        border: 1px solid $blue_01;
       }
 
       .page:not(.active):hover {
-        background-color: $blue_03;
-        border: 1px solid $blue_03;
+        background-color: $blue_01;
+        border: 1px solid $blue_01;
         color: $white_01;
       }
     }
@@ -63,7 +63,7 @@
 }
 
 .active {
-  background-color: $blue_03 !important;
+  background-color: $blue_01 !important;
   color: $white_01;
-  border: 1px solid $blue_03;
+  border: 1px solid $blue_01;
 }

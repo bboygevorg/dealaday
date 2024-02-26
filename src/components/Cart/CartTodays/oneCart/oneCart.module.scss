@@ -1,18 +1,55 @@
 @import "../../../../styles/variables.scss";
 
 .oneCart {
+  box-sizing: border-box;
   background-color: $gray_100;
   border-radius: 1rem;
   border: 1px solid $gray_200;
-  width: $container_width_media_cart;
-  text-align: center;
-  padding-top: 3.75rem;
-  padding-bottom: 3.75rem;
+  width: calc(33.33% - 20px);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   position: relative;
 
+  @media screen and (max-width: 1200px) and (min-width: 767px) {
+    padding-top: 0.7rem;
+    padding-bottom: 0.5rem;
+  }
+
   @media screen and (max-width: 767px) and (min-width: 320px) {
-    width: $container_width_media_cart_mobile;
-    margin-bottom: 2rem;
+    width: 100%;
+    margin-bottom: 2.1rem;
+  }
+
+  .oneCart_procent {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    right: 17px;
+    width: 7rem;
+    background-color: red;
+    padding: 0.2rem 0;
+    color: $white_01;
+    font-weight: $font-weight_500;
+    font-size: 1rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    @media screen and (max-width: 1200px) and (min-width: 767px) {
+      width: 5rem;
+      padding: 0.2rem 0;
+      font-size: 0.7rem;
+      top: 10px;
+    }
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      font-size: 1rem;
+    }
+
+    span {
+      font-weight: normal;
+    }
   }
 
   .addTo {
@@ -26,12 +63,8 @@
     width: 100%;
     height: 9.5rem;
 
-    @media screen and (max-width: 1200px) and (min-width: 767px) {
-      display: none;
-    }
-
-    @media screen and (max-width: 767px) and (min-width: 320px) {
-      display: none;
+    @media screen and(max-width: 1200px) and (min-width: 767px) {
+      top: 8rem;
     }
 
     .addTo_top {
@@ -44,13 +77,24 @@
     }
   }
 
-  img {
-    max-width: 60%;
-    height: 30vh;
-    object-fit: contain;
+  .oneCart_img {
+    width: 100%;
+    height: 20rem;
+    margin: 0 auto;
+    transition: 0.2s;
 
-    @media screen and (max-width: 767px) and (min-width: 320px) {
-      width: 80%;
+    @media screen and (max-width: 1200px) and (min-width: 768px) {
+      height: 15rem;
+    }
+
+    img {
+      width: 70%;
+      height: 100%;
+      object-fit: contain;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        width: 80%;
+      }
     }
   }
 
