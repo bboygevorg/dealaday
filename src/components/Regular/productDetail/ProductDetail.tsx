@@ -16,7 +16,6 @@ interface ProductDetailProps {
 }
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ selectedProduct }) => {
-  console.log(selectedProduct);
   return (
     <div className={classes.product_detail}>
       <div>

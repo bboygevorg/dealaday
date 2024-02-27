@@ -21,8 +21,6 @@ const Cart = () => {
     }
   };
 
-  console.log(dropdownRef.current);
-
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
 

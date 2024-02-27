@@ -15,13 +15,6 @@ const initialState: ProductState = {
   productColor: [],
 };
 
-// const initialState = {
-//   productColor: [],
-//   iconOption: [],
-//   loading: false,
-//   error: null,
-// };
-
 export const getProductInfo = createAsyncThunk(
   "products/getProductInfo",
   async (id: any, { rejectWithValue, dispatch }) => {
@@ -35,7 +28,6 @@ export const getProductInfo = createAsyncThunk(
       );
       const productsWithSameName = productsWithSameNameRes.data;
       dispatch(setProductColor(productsWithSameName));
-      console.log(productsWithSameName);
       return response.data;
     } catch (error) {
       return rejectWithValue("Failed to get product");

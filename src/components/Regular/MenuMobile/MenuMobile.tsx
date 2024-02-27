@@ -134,7 +134,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
                 strokeLinejoin="round"
               />
             </svg>
-            <Link path="/lk">
+            <Link to="/lk">
               <span>Account</span>
             </Link>
           </div>

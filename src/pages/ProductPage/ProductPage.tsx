@@ -35,7 +35,6 @@ const ProductPage: React.FC = () => {
   useEffect(() => {
     if (id) {
       dispatch(getProductInfo(id) as any);
-      console.log(id);
     }
 
     return () => {
