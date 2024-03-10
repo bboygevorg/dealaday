@@ -11,7 +11,7 @@ import {
   BannerProducts,
 } from "../../helper/index";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const [mostPopular, setMostPopular] = useState([]);
   const [topProducts, setTopProducts] = useState([]);
 

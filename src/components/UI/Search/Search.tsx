@@ -18,6 +18,8 @@ interface ProductSearch {
   _id: string;
   name: string;
   img: string;
+  category: string;
+  brand: string;
 }
 
 const Search: React.FC<SearchStyleProp> = ({
@@ -48,8 +50,14 @@ const Search: React.FC<SearchStyleProp> = ({
     setSearchTerm(event.target.value);
     const newFiltereData = data.filter(
       (item) =>
-        item.name &&
-        item.name.toLowerCase().includes(event.target.value.toLowerCase())
+        (item.name &&
+          item.name.toLowerCase().includes(event.target.value.toLowerCase())) ||
+        (item.category &&
+          item.category
+            .toLowerCase()
+            .includes(event.target.value.toLowerCase())) ||
+        (item.brand &&
+          item.brand.toLowerCase().includes(event.target.value.toLowerCase()))
     );
 
     setFilteredData(newFiltereData);

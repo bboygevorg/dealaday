@@ -154,7 +154,7 @@ const Header: React.FC = () => {
               </div>
               <div>
                 <Link to="basket">
-                  <svg
+                <svg
                     width="18"
                     height="20"
                     viewBox="0 0 18 20"
@@ -187,12 +187,12 @@ const Header: React.FC = () => {
               </div>
 
               <div>
-                <Link to="/">
+                <Link to="/brand">
                   <span>Brands</span>
                 </Link>
               </div>
               <div>
-                <Link to="/">
+                <Link to="/clearance">
                   <span>Clearance</span>
                 </Link>
               </div>

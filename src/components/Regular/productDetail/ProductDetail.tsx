@@ -23,10 +23,14 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ selectedProduct }) => {
         <Price {...selectedProduct} margin="right" />
       </div>
       <div className={classes.product_detail_info}>
-        <div>
+        <div className={classes.detail_info}>
           <p>Or 6 weekly intrest-free payment from $5.83 with</p>
-          <img src={frame} alt="" />
+
+          <div className={classes.logo}>
+            <img src={frame} alt="" />
+          </div>
         </div>
+
         <div className={classes.product_detail_info_href}>
           <a href="#" onClick={() => alert("not working yet")}>
             What's this?

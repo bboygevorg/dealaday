@@ -7,18 +7,55 @@
     max-width: $container_width;
     margin: 0 auto;
 
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      padding: 1rem;
+    }
+
     .product_info_name {
       font-weight: $font-weight_400;
       font-size: 1.6rem;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        text-align: center;
+      }
     }
     .product_info_title {
       margin-top: 1rem;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        text-align: center;
+      }
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        text-align: start;
+      }
     }
 
     .product_info_top {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       margin-top: 1.5rem;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        display: flex;
+        justify-content: center;
+      }
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        flex-wrap: wrap;
+
+        .sku_info {
+          margin-top: 0.3rem;
+        }
+
+        .vertical_line {
+          display: block;
+          width: 100%;
+          border-left: 1px solid $gray_300;
+          margin: 10px 0;
+        }
+      }
 
       div {
         padding-right: 1rem;
@@ -51,6 +88,18 @@
       margin-top: 2rem;
       overflow: hidden;
 
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+
       .info_picture {
         width: 100%;
         display: flex;
@@ -60,6 +109,10 @@
         .picture {
           img {
             width: 40%;
+
+            @media screen and (max-width: 767px) and (min-width: 320px) {
+              width: 80%;
+            }
           }
         }
 
@@ -74,10 +127,29 @@
           justify-content: space-between;
           margin-top: 2.5rem;
 
+          @media screen and (max-width: 1200px) and (min-width: 767px) {
+            display: flex;
+            justify-content: space-around;
+          }
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            display: flex;
+            flex-flow: wrap;
+            margin-top: 1.2rem;
+            text-align: center;
+          }
+
           div {
             text-align: center;
             justify-content: center;
             align-items: center;
+
+            @media screen and (max-width: 767px) and (min-width: 320px) {
+              &:nth-child(4),
+              &:nth-child(5) {
+                margin-top: 1rem;
+              }
+            }
           }
         }
 
@@ -96,9 +168,146 @@
           }
         }
       }
+    }
 
-      .info_price {
+    .accordeon_container {
+      border-top: 1px solid $gray_300;
+      margin-top: 2.5rem;
+      display: flex;
+      padding-top: 3.2rem;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        display: flex;
+        justify-content: center;
       }
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        width: 90%;
+        margin-top: 1rem;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .accordion_item {
+        margin-right: 2rem;
+        text-transform: uppercase;
+        font-weight: $font-weight_600;
+        color: $gray_500;
+        cursor: pointer;
+        position: relative;
+
+        @media screen and (max-width: 720px) and (min-width: 320px) {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          &:nth-child(4) {
+            flex: 0 0 100%;
+            margin-top: 0.5rem;
+          }
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -9px;
+          width: 0%;
+          height: 3px;
+          background-color: $blue_01;
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+          transition: width 0.3s ease;
+        }
+      }
+
+      .active {
+        margin-right: 1rem;
+        text-transform: uppercase;
+        font-weight: $font-weight_600;
+        color: $blue_01;
+        cursor: pointer;
+        position: relative;
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          margin-right: 0.5rem;
+
+          &:nth-child(4) {
+            margin-top: 0.5rem;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -9px;
+          width: 100%;
+          height: 3px;
+          background-color: $blue_01;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+
+    .accordion_content {
+      margin-top: 3rem;
+      margin-bottom: 1px solid;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        max-width: 40rem;
+        padding: 0 1rem;
+        height: auto;
+        margin: 0 auto;
+        overflow: auto;
+      }
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        max-width: 40rem;
+        padding: 0 1rem;
+        height: auto;
+        margin: 0 auto;
+        overflow: auto;
+      }
+
+      .contentItem {
+        width: 80%;
+        line-height: 1.5;
+
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          margin-top: 1.5rem;
+        }
+      }
+
+      .contentItem {
+        h3 {
+          margin-top: 1rem;
+        }
+        p {
+          margin-top: 1rem;
+        }
+
+        pre {
+          margin-top: 1rem;
+          line-height: 2;
+        }
+
+        .shipping {
+          position: relative;
+        }
+      }
+    }
+
+    .slider_recommended {
+      margin-top: 5rem;
+      margin-bottom: 2rem;
     }
   }
 }

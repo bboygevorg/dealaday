@@ -209,7 +209,7 @@ const Footer = () => {
             </p>
             <form className={classes.subscribe}>
               <input type="email" placeholder="Enter your mail" />
-              <button>Join Us</button>
+              <button onClick={() => alert("not working yet")}>Join Us</button>
             </form>
           </div>
         </div>

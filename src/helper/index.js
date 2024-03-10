@@ -20,7 +20,6 @@ export { default as Pagination } from "../components/UI/pagination/Pagination";
 export { default as RangeSlider } from "../components/UI/rangeSlider/RangeSlider";
 export { default as Slider } from "../components/UI/Slider/Slider";
 export { default as ProductColorSlider } from "../components/UI/ProductColorSlider/ProductColorSlider";
-// export { SliderColor } from "../components/UI/Slider/Slider";
 export { default as ProductEmpty } from "../components/Regular/ProductEmpty/ProductEmpty";
 export { default as Reviews } from "../components/Regular/Reviews/Reviews";
 export { default as Sort } from "../components/UI/Sort/Sort";

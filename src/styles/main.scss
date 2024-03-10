@@ -36,3 +36,12 @@
     padding: 1rem 1.5rem;
   }
 }
+
+.toastContainerBox {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  width: 300px;
+  z-index: 1000;
+  margin: 50px auto;
+}

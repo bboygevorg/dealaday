@@ -6,6 +6,11 @@
   padding: 1rem;
   position: relative;
 
+  @media screen and (max-width: 1200px) and (min-width: 767px) {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
   .cart_info {
     h3 {
       color: $gray_800;
@@ -68,6 +73,95 @@
         background-color: #fff;
         border-radius: 0.8rem;
       }
+    }
+
+    .subtotal {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      color: $gray_600;
+      border-top: 1px solid $gray_300;
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+
+      span {
+        &:nth-child(1) {
+          color: $gray_600;
+        }
+
+        &:nth-child(2) {
+          color: $gray_900;
+          font-weight: $font-weight_600;
+        }
+      }
+    }
+
+    .shipping {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      color: $gray_600;
+      border-top: 1px solid $gray_300;
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+
+      span {
+        &:nth-child(1) {
+          color: $gray_600;
+        }
+
+        &:nth-child(2) {
+          color: $gray_900;
+          font-weight: $font-weight_600;
+        }
+      }
+    }
+
+    .total {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      color: $gray_600;
+      border-top: 1px solid $gray_300;
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+
+      span {
+        &:nth-child(1) {
+          color: $gray_600;
+        }
+
+        &:nth-child(2) {
+          color: $gray_900;
+          font-weight: $font-weight_600;
+        }
+      }
+    }
+
+    .saved {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      color: $gray_600;
+      border-top: 1px solid $gray_300;
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+
+      span {
+        &:nth-child(1) {
+          color: green;
+        }
+
+        &:nth-child(2) {
+          color: green;
+          font-weight: $font-weight_600;
+        }
+      }
+    }
+
+    .button {
+      width: 100%;
+      margin-top: 1.8rem;
     }
   }
 }

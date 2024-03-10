@@ -19,6 +19,10 @@
         justify-content: space-between;
         width: 100%;
 
+        @media screen and (max-width: 1200px) and (min-width: 320px) {
+          display: none;
+        }
+
         .arrow_left {
           @include arrow;
           transition: 0.2s ease-in-out;
@@ -63,6 +67,18 @@
         grid-template-columns: repeat(9, 18rem);
         gap: 20px;
         transition: transform 0.3s ease-in-out;
+
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          display: flex;
+          padding: 0 1rem;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          display: flex;
+          padding: 0 1rem;
+          transition: transform 0.3s ease-in-out;
+        }
       }
     }
   }

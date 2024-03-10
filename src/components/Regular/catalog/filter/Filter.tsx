@@ -211,7 +211,7 @@ const Filter: React.FC<FilterProps> = ({
         <div className={classes.filter_product}>
           <div className={classes.categoriesFilter}>
             <h3>Categories</h3>
-            <ul>
+            <ul style={{ listStyleType: "none" }}>
               {filterCategory.map((elem, index) => (
                 <li key={index}>
                   <label>
@@ -230,7 +230,7 @@ const Filter: React.FC<FilterProps> = ({
           </div>
           <div className={classes.brandsFilter}>
             <h3>Brand</h3>
-            <ul>
+            <ul style={{ listStyleType: "none" }}>
               {filterBrands?.map((elem, index) => (
                 <li key={index}>
                   <label>
@@ -248,7 +248,7 @@ const Filter: React.FC<FilterProps> = ({
           </div>
           <div className={classes.ratingFilter}>
             <h3>Rating</h3>
-            <ul>
+            <ul style={{ listStyleType: "none" }}>
               {rating?.map((num, index) => (
                 <li key={index}>
                   <label>
