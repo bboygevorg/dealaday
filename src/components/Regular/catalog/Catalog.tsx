@@ -27,6 +27,26 @@ import {
 const Catalog: React.FC = () => {
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (toggleFilter && window.scrollY >= 350) {
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+      } else {
+        document.documentElement.style.overflow = "visible";
+        document.body.style.overflow = "visible";
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [toggleFilter]);
+
   const {
     product,
     loading,
@@ -168,6 +188,8 @@ const Catalog: React.FC = () => {
 
   const toggleActive = () => {
     setToggleFilter(!toggleFilter);
+
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
 
   const closeFilterBar = () => {
@@ -193,17 +215,26 @@ const Catalog: React.FC = () => {
             <div className={classes.sort}>
               <Sort onSortChange={handleSortChange} />
             </div>
+
             {loading === "pending" ? (
               <Loader width="100%" />
             ) : (
               <div className={classes.poducts}>
                 {product && product.length > 0 ? (
                   product.map((product: any) => {
-                    const { _id, title, img, rating, price, price_previous } =
-                      product;
+                    const {
+                      _id,
+                      name,
+                      title,
+                      img,
+                      rating,
+                      price,
+                      price_previous,
+                    } = product;
                     return (
                       <ProductCart
                         key={product._id}
+                        name={name}
                         id={_id}
                         img={img}
                         rating={rating}
@@ -222,15 +253,17 @@ const Catalog: React.FC = () => {
                 )}
               </div>
             )}
-            <div className={classes.pagination}>
-              {product.length > 0 && (
-                <Pagination
-                  currentPage={currentPage}
-                  onPageChange={handlePageChange}
-                  totalProductsCount={totalProductsCount}
-                />
-              )}
-            </div>
+            {loading === "succeeded" && (
+              <div className={classes.pagination}>
+                {product.length > 0 && (
+                  <Pagination
+                    currentPage={currentPage}
+                    onPageChange={handlePageChange}
+                    totalProductsCount={totalProductsCount}
+                  />
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

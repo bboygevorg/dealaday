@@ -3,8 +3,11 @@ import classes from "./bannerProducts.module.scss";
 
 import { Button, Price } from "../../../helper/index";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/cartSlice/cartSlice";
 
 interface BannerProduct {
+  productId: string;
   name: string;
   title: string;
   price: number;
@@ -14,6 +17,27 @@ interface BannerProduct {
 
 const BannerProducts: React.FC = () => {
   const [bannerProduct, setBannerProduct] = useState<BannerProduct[]>([]);
+
+  const dispatch = useDispatch();
+
+  console.log(bannerProduct);
+
+  const handleAddToCart = (bannerProduct: BannerProduct) => {
+    if (bannerProduct) {
+      const { productId, name, price, bannerPicture } = bannerProduct;
+      const productToAdd = { _id: productId, name, price, img: bannerPicture };
+      const selectedOption = 1;
+      const subtotal = price * selectedOption;
+
+      dispatch(
+        addToCart({
+          productToAdd,
+          selectedOption,
+          subtotal,
+        })
+      );
+    }
+  };
 
   const getBanner = async () => {
     try {
@@ -53,7 +77,9 @@ const BannerProducts: React.FC = () => {
                   backgroundButton="#3598cc"
                   padding="0.5rem 0.8rem"
                   hover="blue"
-                  handleOfFilter={() => console.log("worked")}
+                  buttonFunction={() =>
+                    bannerProduct.map((product) => handleAddToCart(product))
+                  }
                 >
                   Add to cart
                 </Button>

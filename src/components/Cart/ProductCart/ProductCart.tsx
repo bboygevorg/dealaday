@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import classes from "./productCart.module.scss";
 import { getStarRaiting } from "../../../helper/star";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/cartSlice/cartSlice";
 import { Reviews, WatchGood, WishList } from "../../../helper/index";
 import Button from "../../UI/Button/Button";
 import Price from "../../Regular/price/Price";
@@ -12,6 +13,7 @@ const position = {
 
 interface SliderProduct {
   id: string;
+  name: string;
   title: string;
   img: string;
   rating: number;
@@ -21,6 +23,7 @@ interface SliderProduct {
 
 const ProductCart: React.FC<SliderProduct> = ({
   id,
+  name,
   title,
   img,
   rating,
@@ -28,6 +31,21 @@ const ProductCart: React.FC<SliderProduct> = ({
   price_previous,
 }) => {
   const [active, setActive] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const productToAdd = { _id: id, name, price, img };
+    const selectedOption = 1;
+    const subtotal = price * selectedOption;
+
+    dispatch(
+      addToCart({
+        productToAdd,
+        selectedOption,
+        subtotal,
+      })
+    );
+  };
 
   const handleHover = () => {
     setActive(true);
@@ -55,7 +73,7 @@ const ProductCart: React.FC<SliderProduct> = ({
               backgroundButton="#3598cc"
               padding="0.5rem 0.8rem"
               hover="blue"
-              handleOfFilter={() => console.log("worked")}
+              buttonFunction={handleAddToCart}
             >
               Add to cart
             </Button>

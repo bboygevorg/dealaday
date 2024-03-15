@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import classes from "./header.module.scss";
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import Search from "../../components/UI/Search/Search";
 
 import logo from "../../assets/img/dealaday_logo.png";
 import MenuMobile from "../../components/Regular/MenuMobile/MenuMobile";
+import { RootState } from "../../redux/store/store";
 
 const Header: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
+  const cartItems = useSelector(
+    (state: RootState) => state.cartSlice.cartItems
+  );
+
 
   const toggleSidebar = () => {
     setToggleMenu(!toggleMenu);
@@ -77,7 +84,13 @@ const Header: React.FC = () => {
             </div>
             <div className={classes.top_header_right}>
               <div>
-                <Link to="wishtlist">
+                <Link
+                  to="wishtlist"
+                  onClick={(event) => {
+                    alert("not content yet");
+                    event.preventDefault();
+                  }}
+                >
                   <svg
                     width="20"
                     height="18"
@@ -96,7 +109,13 @@ const Header: React.FC = () => {
                 </Link>
               </div>
               <div>
-                <Link to="lk">
+                <Link
+                  to="lk"
+                  onClick={(event) => {
+                    alert("not content yet");
+                    event.preventDefault();
+                  }}
+                >
                   <svg
                     width="16"
                     height="20"
@@ -154,7 +173,7 @@ const Header: React.FC = () => {
               </div>
               <div>
                 <Link to="basket">
-                <svg
+                  <svg
                     width="18"
                     height="20"
                     viewBox="0 0 18 20"
@@ -169,6 +188,9 @@ const Header: React.FC = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
+                  {cartItems.length > 0 && (
+                    <span className={classes.quantity}>{cartItems.length}</span>
+                  )}
                 </Link>
               </div>
             </div>
@@ -176,7 +198,13 @@ const Header: React.FC = () => {
           <div className={classes.bottom_header}>
             <div className={classes.bottom_header_container}>
               <div>
-                <Link to="/">
+                <Link
+                  to="/"
+                  onClick={(event) => {
+                    alert("not content yet");
+                    event.preventDefault();
+                  }}
+                >
                   <span>Today's Deals</span>
                 </Link>
               </div>
@@ -187,12 +215,24 @@ const Header: React.FC = () => {
               </div>
 
               <div>
-                <Link to="/brand">
+                <Link
+                  to="/brand"
+                  onClick={(event) => {
+                    alert("not content yet");
+                    event.preventDefault();
+                  }}
+                >
                   <span>Brands</span>
                 </Link>
               </div>
               <div>
-                <Link to="/clearance">
+                <Link
+                  to="/clearance"
+                  onClick={(event) => {
+                    alert("not content yet");
+                    event.preventDefault();
+                  }}
+                >
                   <span>Clearance</span>
                 </Link>
               </div>

@@ -33,6 +33,7 @@
 
     @media screen and (max-width: 1200px) and (min-width: 767px) {
       max-width: 14rem;
+      margin-top: 3rem;
     }
 
     @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -68,20 +69,59 @@
           margin-right: 1rem;
           cursor: pointer;
           position: relative;
+          @media screen and (max-width: 1200px) and (min-width: 767px) {
+            height: 1.2rem;
+          }
 
           @for $i from 1 through length($colors) {
             &:nth-child(#{$i}) {
               &.selected {
                 &::after {
-                  @include colors_filter;
+                  content: "";
+                  width: 1.9rem;
+                  height: 1.9rem;
+                  position: absolute;
+                  top: -2px;
+                  left: -2px;
+                  border-radius: 50%;
+                  transition: box-shadow 0.5s ease;
                   opacity: 1;
                   box-shadow: 0 0 0 4px nth($colors, $i);
+
+                  @media screen and (max-width: 1200px) and (min-width: 767px) {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    top: -2px;
+                    left: -2px;
+                    border-radius: 50%;
+                    transition: box-shadow 0.5s ease;
+                    opacity: 1;
+                    box-shadow: 0 0 0 4px nth($colors, $i);
+                  }
                 }
               }
 
               &::after {
-                @include colors_filter;
+                content: "";
+                width: 1.9rem;
+                height: 1.9rem;
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                border-radius: 50%;
+                transition: box-shadow 0.5s ease;
                 opacity: 0;
+
+                @media screen and (max-width: 1200px) and (min-width: 767px) {
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  position: absolute;
+                  top: -2px;
+                  left: -2px;
+                  border-radius: 50%;
+                  transition: box-shadow 0.5s ease;
+                  opacity: 0;
+                }
               }
 
               &:hover {
@@ -113,6 +153,9 @@
 }
 
 .filter_product_mobile {
+  ul {
+    list-style-type: none;
+  }
   display: none;
   @media screen and (max-width: 767px) and (min-width: 320px) {
     .mobile {

@@ -129,7 +129,7 @@ const Cart: React.FC = () => {
             color="#ffffff"
             padding="1rem 0.8rem"
             hover="blue"
-            handleOfFilter={() => handleAddToCart(selectedProduct)}
+            buttonFunction={() => handleAddToCart(selectedProduct)}
           >
             Add To Cart
           </Button>

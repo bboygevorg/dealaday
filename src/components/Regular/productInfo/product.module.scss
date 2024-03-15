@@ -2,7 +2,6 @@
 
 .product_info {
   margin-top: 3.5rem;
-  // max-width: 71.25rem;
   .container {
     max-width: $container_width;
     margin: 0 auto;
@@ -108,8 +107,11 @@
         text-align: center;
         .picture {
           img {
-            width: 40%;
+            width: 60%;
 
+            @media screen and (max-width: 1200px) and (min-width: 767px) {
+              width: 45%;
+            }
             @media screen and (max-width: 767px) and (min-width: 320px) {
               width: 80%;
             }
@@ -182,11 +184,8 @@
       }
 
       @media screen and (max-width: 767px) and (min-width: 320px) {
-        width: 90%;
-        margin-top: 1rem;
-        margin: 0 auto;
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
       }
 
       .accordion_item {
@@ -197,17 +196,19 @@
         cursor: pointer;
         position: relative;
 
-        @media screen and (max-width: 720px) and (min-width: 320px) {
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          margin-right: 1rem;
+
           &:nth-child(1),
           &:nth-child(2),
           &:nth-child(3) {
-            display: flex;
-            justify-content: space-between;
           }
 
           &:nth-child(4) {
+            order: 2;
             flex: 0 0 100%;
-            margin-top: 0.5rem;
+            max-width: 100%;
+            margin-top: 1rem;
           }
         }
 
@@ -229,7 +230,7 @@
       }
 
       .active {
-        margin-right: 1rem;
+        margin-right: 2rem;
         text-transform: uppercase;
         font-weight: $font-weight_600;
         color: $blue_01;
@@ -237,7 +238,7 @@
         position: relative;
 
         @media screen and (max-width: 767px) and (min-width: 320px) {
-          margin-right: 0.5rem;
+          margin-right: 1rem;
 
           &:nth-child(4) {
             margin-top: 0.5rem;
@@ -283,6 +284,9 @@
 
         @media screen and (max-width: 1200px) and (min-width: 767px) {
           margin-top: 1.5rem;
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
         }
       }
 

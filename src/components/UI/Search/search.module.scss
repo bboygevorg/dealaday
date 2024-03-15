@@ -55,6 +55,10 @@
   overflow-y: scroll;
   padding: 1rem;
 
+  @media screen and (max-width: 1200px) and (min-width: 767px) {
+    width: 75%;
+  }
+
   .product_dont {
     width: 100%;
     text-align: center;

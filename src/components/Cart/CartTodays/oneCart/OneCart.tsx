@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./oneCart.module.scss";
 import { getStarRaiting } from "../../../../helper/star";
+import { addToCart } from "../../../../redux/cartSlice/cartSlice";
 import {
   Reviews,
   WatchGood,
@@ -8,6 +9,7 @@ import {
   Price,
   Button,
 } from "../../../../helper";
+import { useDispatch } from "react-redux";
 
 interface CartTodays {
   id: any;
@@ -27,6 +29,21 @@ const OneCart: React.FC<CartTodays> = ({
   price_previous,
 }) => {
   const [active, setActive] = useState<boolean>(false);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const productToAdd = { _id: id, name, price, img };
+    const selectedOption = 1;
+    const subtotal = price * selectedOption;
+
+    dispatch(
+      addToCart({
+        productToAdd,
+        selectedOption,
+        subtotal,
+      })
+    );
+  };
 
   const handleHover = () => {
     setActive(true);
@@ -63,7 +80,7 @@ const OneCart: React.FC<CartTodays> = ({
               padding="0.9rem 1.2rem"
               backgroundButton="#3598cc"
               color="#ffffff"
-              handleOfFilter={() => console.log("worked")}
+              buttonFunction={handleAddToCart}
               hover="blue"
             >
               Add to cart

@@ -18,7 +18,7 @@ interface ProductDetailProps {
 const ProductDetail: React.FC<ProductDetailProps> = ({ selectedProduct }) => {
   return (
     <div className={classes.product_detail}>
-      <div>
+      <div className={classes.product_detail_price}>
         <p>From</p>
         <Price {...selectedProduct} margin="right" />
       </div>

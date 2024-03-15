@@ -65,6 +65,13 @@ const Search: React.FC<SearchStyleProp> = ({
 
   const toggleSearchBlock = () => {
     setIsSearchBlockOpen(!isSearchBlockOpen);
+
+    if (!isSearchBlockOpen && searchRef.current) {
+      const inputElement = searchRef.current.querySelector("input");
+      if (inputElement) {
+        inputElement.focus();
+      }
+    }
   };
 
   const clearSearchText = () => {
@@ -134,6 +141,7 @@ const Search: React.FC<SearchStyleProp> = ({
             }}
             onMouseOver={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            onClick={toggleSearchBlock}
           >
             <svg
               width="18"

@@ -13,6 +13,10 @@
     margin: 0 auto;
     padding: 0 2rem;
 
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      padding: 0 0;
+    }
+
     .slider_navigate {
       display: grid;
       grid-template-columns: auto auto;

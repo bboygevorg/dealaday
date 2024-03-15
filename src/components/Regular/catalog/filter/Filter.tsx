@@ -161,28 +161,6 @@ const Filter: React.FC<FilterProps> = ({
     });
   };
 
-  // useEffect(() => {
-  //   const removeClickListener = handleOutsideClick(colorsContainerRef, () => {
-  //     setSelectedColor(null);
-  //   });
-
-  //   return () => {
-  //     removeClickListener();
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   if (toggleFilter) {
-  //     document.body.classList.add("no-scroll");
-  //   } else {
-  //     document.body.classList.remove("no-scroll");
-  //   }
-
-  //   return () => {
-  //     document.body.classList.remove("no-scroll");
-  //   };
-  // }, [toggleFilter]);
-
   return (
     <>
       <div className={classes.filter}>
@@ -492,13 +470,6 @@ const Filter: React.FC<FilterProps> = ({
                 <span
                   key={index}
                   data-index={index}
-                  // onClick={() => {
-                  //   handleColorsChange(index);
-                  //   handleClick(index);
-                  // }}
-                  // className={`${
-                  //   selectedColor.includes(index) ? classes.selected : ""
-                  // }`}
                   style={{ backgroundColor: color }}
                 />
               ))}
@@ -513,7 +484,7 @@ const Filter: React.FC<FilterProps> = ({
               padding="0.6rem 3.5rem"
               backgroundButton="#dedddd"
               hover=""
-              handleOfFilter={() => console.log("worked")}
+              buttonFunction={() => console.log("worked")}
             >
               Clear
             </Button>
@@ -524,7 +495,7 @@ const Filter: React.FC<FilterProps> = ({
               padding="0.6rem 3.5rem"
               backgroundButton="#3598cc"
               hover="blue"
-              handleOfFilter={() => console.log("worked")}
+              buttonFunction={closeFilterBar}
             >
               Apply
             </Button>

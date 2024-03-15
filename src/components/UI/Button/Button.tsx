@@ -9,7 +9,7 @@ interface Button {
   padding: string;
   color: string;
   hover: string;
-  handleOfFilter: () => void;
+  buttonFunction: () => void;
 }
 
 const Button: React.FC<Button> = ({
@@ -18,7 +18,7 @@ const Button: React.FC<Button> = ({
   backgroundButton,
   color,
   hover,
-  handleOfFilter,
+  buttonFunction,
 }) => {
   const hoverClass =
     hover == "blue"
@@ -35,7 +35,7 @@ const Button: React.FC<Button> = ({
           backgroundColor: backgroundButton,
           color: color,
         }}
-        onClick={() => handleOfFilter()}
+        onClick={() => buttonFunction()}
       >
         {children}
       </button>
