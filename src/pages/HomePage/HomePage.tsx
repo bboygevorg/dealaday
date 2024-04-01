@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
 
   const getMostPopularProduct = async () => {
     try {
-      const { data } = await axios("http://localhost:5000/mostpopular");
+      const { data } = await axios("http://localhost:5000/product/mostpopular");
       setMostPopular(data);
     } catch (error) {
       console.log("Error fetching deals mostPopular:", error);
@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
 
   const getTopProducts = async () => {
     try {
-      const { data } = await axios("http://localhost:5000/topproducts");
+      const { data } = await axios("http://localhost:5000/product/topproducts");
       setTopProducts(data);
     } catch (error) {
       console.log("Error fetching deals topProduct:", error);

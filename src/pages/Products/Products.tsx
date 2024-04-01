@@ -18,7 +18,7 @@ const Products = () => {
 
   const getBanner = async () => {
     try {
-      const { data } = await axios("http://localhost:5000/banner");
+      const { data } = await axios("http://localhost:5000/product/banner");
       setBanner(data);
     } catch (error) {
       console.log("Error fetching deals banner:", error);

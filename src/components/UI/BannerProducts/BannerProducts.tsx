@@ -20,8 +20,6 @@ const BannerProducts: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  console.log(bannerProduct);
-
   const handleAddToCart = (bannerProduct: BannerProduct) => {
     if (bannerProduct) {
       const { productId, name, price, bannerPicture } = bannerProduct;
@@ -41,7 +39,9 @@ const BannerProducts: React.FC = () => {
 
   const getBanner = async () => {
     try {
-      const { data } = await axios("http://localhost:5000/bannerproduct");
+      const { data } = await axios(
+        "http://localhost:5000/product/bannerproduct"
+      );
       setBannerProduct(data);
     } catch (error) {
       console.log("Error fetching deals bannerProduct:", error);

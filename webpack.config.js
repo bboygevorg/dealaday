@@ -73,7 +73,13 @@ module.exports = (env, options) => {
       }),
     ],
     devServer: {
-      historyApiFallback: true,
+      historyApiFallback: {
+        disableDotRule: true,
+        // rewrites: [
+        //   { from: /^\/$/, to: "/index.html" }, // Rewrite root URL
+        //   { from: /./, to: "/index.html" },     // Rewrite all other URLs to index.html
+        // ],
+      },
       static: path.resolve(__dirname, "src"),
       port: 3000,
       open: true,

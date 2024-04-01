@@ -16,6 +16,7 @@ const Header: React.FC = () => {
     (state: RootState) => state.cartSlice.cartItems
   );
 
+  const auth = localStorage.getItem("Authorization");
 
   const toggleSidebar = () => {
     setToggleMenu(!toggleMenu);
@@ -109,13 +110,7 @@ const Header: React.FC = () => {
                 </Link>
               </div>
               <div>
-                <Link
-                  to="lk"
-                  onClick={(event) => {
-                    alert("not content yet");
-                    event.preventDefault();
-                  }}
-                >
+                <Link to={auth ? "/lk" : "/login"}>
                   <svg
                     width="16"
                     height="20"

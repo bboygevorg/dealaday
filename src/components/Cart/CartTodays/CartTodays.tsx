@@ -10,7 +10,9 @@ const CartTodays = () => {
 
   const getDealsProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/dealsproducts");
+      const { data } = await axios.get(
+        "http://localhost:5000/product/dealsproducts"
+      );
       setDealsProducts(data);
       setLoading(false);
     } catch (error) {

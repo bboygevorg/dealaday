@@ -39,7 +39,9 @@ const Search: React.FC<SearchStyleProp> = ({
 
   const getAllProduct = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/products");
+      const { data } = await axios.get(
+        "http://localhost:5000/product/products"
+      );
       setData(data);
     } catch (error) {
       console.log(error);

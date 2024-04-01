@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../styles/variables.scss","../price/price.module.scss"],"names":[],"mappings":"AAAQ;ACER;EACE;EACA;EACA;EACA;;AAEA;EANF;IAOI;;;AAGF;EACE;EACA,aDkCc;ECjCd,ODVM;;ACaR;EACE;EACA,aD4Bc;EC3Bd,ODhBM;ECiBN;;AAGF;EACE;EACA,aDmBc;EClBd,ODhBO;ECiBP;EACA;;AAEA;EDqDF;EACA;EACA;EACA;EACA;EACA;EACA","file":"price.module.css"}

@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+.pagination {
+  width: 100%;
+}
+.pagination .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+.pagination .container .pagination_info {
+  font-size: #4b5563;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .pagination .container .pagination_info {
+    display: none;
+  }
+}
+.pagination .container .pagination_control {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .pagination .container .pagination_control {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+.pagination .container .pagination_control button {
+  background-color: #e5e7eb;
+  border: 1px solid #9ca3af;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 5px;
+  border-radius: 28px;
+  cursor: pointer;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+.pagination .container .pagination_control button[disabled] {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+.pagination .container .pagination_control .page.active {
+  background-color: #3598cc;
+  color: rgb(255, 255, 255);
+  border: 1px solid #3598cc;
+}
+.pagination .container .pagination_control .page:not(.active):hover {
+  background-color: #3598cc;
+  border: 1px solid #3598cc;
+  color: rgb(255, 255, 255);
+}
+
+.active {
+  background-color: #3598cc !important;
+  color: rgb(255, 255, 255);
+  border: 1px solid #3598cc;
+}/*# sourceMappingURL=pagination.module.css.map */

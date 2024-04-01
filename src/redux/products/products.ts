@@ -78,7 +78,7 @@ export const fetchProducts = createAsyncThunk(
     { rejectWithValue, dispatch }
   ) => {
     try {
-      let url = `http://localhost:5000/products?pageLimit=${PAGE_LIMIT}&currentPage=${page}`;
+      let url = `http://localhost:5000/product/products?pageLimit=${PAGE_LIMIT}&currentPage=${page}`;
 
       const filters = [];
 

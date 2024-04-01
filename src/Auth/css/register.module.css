@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9fafb;
+  height: 100vh;
+}
+@media screen and (max-width: 1200px) and (min-width: 767px) {
+  .container {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .container {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+}
+.container .create {
+  margin-top: 2rem;
+  height: 30rem;
+  width: 33rem;
+  border: 1px solid #e5e7eb;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.8rem;
+}
+.container .create .create_icon {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.container .create .create_info {
+  margin-top: 1rem;
+  padding: 0 2rem;
+}
+.container .create .create_info .create_info_email {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.container .create .create_info .create_info_email span {
+  font-weight: 600;
+}
+.container .create .create_info .create_info_email input {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  transition: 0.2s ease-in;
+}
+.container .create .create_info .create_info_email input:hover, .container .create .create_info .create_info_email input:focus {
+  border: 1px solid #3598cc;
+}
+.container .create .create_info .create_info_password {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  position: relative;
+}
+.container .create .create_info .create_info_password span {
+  font-weight: 600;
+}
+.container .create .create_info .create_info_password input {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  transition: 0.2s ease-in;
+}
+.container .create .create_info .create_info_password input:hover, .container .create .create_info .create_info_password input:focus {
+  border: 1px solid #3598cc;
+}
+.container .create .create_info .create_info_password .icon_pass {
+  position: absolute;
+  right: 0;
+  top: 3.3rem;
+  right: 1rem;
+}
+.container .create .create_info .create_info_button {
+  margin-top: 2rem;
+}
+.container .create .create_info .create_info_button input {
+  width: 100%;
+  padding: 0.8rem 0;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #3598cc;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+.container .create .create_info .login {
+  margin-top: 1rem;
+  font-size: 13px;
+  color: #f9fafb;
+}
+.container .create .create_info .login span {
+  color: #3598cc;
+}/*# sourceMappingURL=register.module.css.map */

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./basket.module.scss";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import logo from "../../assets/img/logo_nav.png";
@@ -30,6 +30,18 @@ const Basket: React.FC = () => {
   const cartItems = useSelector(
     (state: RootState) => state.cartSlice.cartItems
   );
+
+  const navigate = useNavigate();
+
+  const auth = localStorage.getItem("Authorization");
+
+  const handleCheckout = () => {
+    if (!auth) {
+      navigate("/login", { state: { from: "/basket" } });
+    } else {
+      navigate("/");
+    }
+  };
 
   const location = useLocation();
   const pathSegments = location.pathname
@@ -201,7 +213,7 @@ const Basket: React.FC = () => {
                 </Link>
               </div>
               <div>
-                <Link to="lk">
+                <Link to={auth ? "/lk" : "/login"}>
                   <svg
                     width="16"
                     height="20"
@@ -452,7 +464,7 @@ const Basket: React.FC = () => {
                   backgroundButton="#46a1d0"
                   color="#fff"
                   hover="blue"
-                  buttonFunction={() => alert("working")}
+                  buttonFunction={handleCheckout}
                 >
                   Checkout
                 </Button>
@@ -583,7 +595,7 @@ const Basket: React.FC = () => {
                   backgroundButton="#46a1d0"
                   color="#fff"
                   hover="blue"
-                  buttonFunction={() => alert("working")}
+                  buttonFunction={handleCheckout}
                 >
                   Checkout
                 </Button>

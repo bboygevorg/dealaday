@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+.oneCart_info_price {
+  align-items: center;
+  width: 11rem;
+  display: flex;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .oneCart_info_price {
+    width: 11rem;
+  }
+}
+.oneCart_info_price .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3598cc;
+}
+.oneCart_info_price .price_center {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3598cc;
+  margin: 0 auto;
+}
+.oneCart_info_price .price_discount {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b7280;
+  position: relative;
+  margin-left: 0.4rem;
+}
+.oneCart_info_price .price_discount::after {
+  content: "";
+  background: #333333;
+  width: 100%;
+  height: 1px;
+  bottom: 9px;
+  right: 0;
+  position: absolute;
+}/*# sourceMappingURL=price.module.css.map */

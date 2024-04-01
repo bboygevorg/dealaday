@@ -21,6 +21,10 @@ const Product: React.FC = () => {
     (state: RootState) => state.productInfo
   );
 
+  function haya() {
+    
+  } 
+
   const toggleAccordion = (index: number) => {
     setActiveAccordion(index === activeAccordion ? index : index);
   };

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+.button {
+  border: none;
+  width: 100%;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.buttonSmall {
+  padding: 0.5rem 0.9rem;
+}
+
+.buttonLong {
+  padding: 0.7rem 3.4rem;
+}
+
+.hoverWhite:hover {
+  background-color: #1e75a3 !important;
+}
+.hoverWhite:focus {
+  background-color: #1e75a3 !important;
+}
+
+.colorGray {
+  background-color: #d1d5db;
+  color: #111827;
+}
+.colorGray:focus {
+  background-color: #3598cc;
+  color: rgb(255, 255, 255);
+}/*# sourceMappingURL=button.module.css.map */

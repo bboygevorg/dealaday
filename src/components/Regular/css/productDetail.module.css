@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+.product_detail {
+  display: flex;
+  flex-direction: column;
+}
+.product_detail .product_detail_price {
+  margin-top: 0.7rem;
+}
+@media screen and (max-width: 1200px) and (min-width: 767px) {
+  .product_detail .product_detail_price {
+    margin-left: 1.7rem;
+  }
+}
+.product_detail .product_detail_price div {
+  width: 37%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product_detail .product_detail_price .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3598cc;
+}
+.product_detail .product_detail_price .price_center {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3598cc;
+}
+.product_detail .product_detail_price .price_discount {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b7280;
+  position: relative;
+}
+.product_detail .product_detail_price .price_discount::after {
+  content: "";
+  background: #333333;
+  width: 100%;
+  height: 1px;
+  bottom: 9px;
+  right: 0;
+  position: absolute;
+}
+.product_detail .product_detail_info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.75rem;
+  background-color: #f9fafb;
+  max-width: 32rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+@media screen and (max-width: 1200px) and (min-width: 767px) {
+  .product_detail .product_detail_info {
+    margin-left: 1.5rem;
+  }
+}
+.product_detail .product_detail_info .detail_info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .product_detail .product_detail_info .detail_info {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.product_detail .product_detail_info .detail_info .logo {
+  width: 70px;
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .product_detail .product_detail_info .detail_info .logo {
+    margin-top: 0.3rem;
+  }
+}
+.product_detail .product_detail_info .detail_info .logo img {
+  width: 90%;
+}
+.product_detail .product_detail_info .product_detail_info_href {
+  width: 100px;
+  margin-top: 5px;
+}
+.product_detail .product_detail_info .product_detail_info_href a {
+  color: #3598cc;
+  border-bottom: 1px solid #3598cc;
+}
+.product_detail .product_detail_info_price {
+  margin-top: 1.6rem;
+  width: 100%;
+}/*# sourceMappingURL=productDetail.module.css.map */
