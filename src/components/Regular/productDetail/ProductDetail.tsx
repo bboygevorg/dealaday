@@ -5,14 +5,28 @@ import frame from "../../../../public/assets/images/Frame.png";
 
 import { Cart, Price } from "../../../helper/index";
 
-interface ProductInfo {
+export interface Product {
+  _id: string;
+  name: string;
+  icon_option: Icon;
+  title: string;
+  rating: number;
+  brand: string;
+  sku: number;
+  img: string;
+  description: string;
   price: number;
   price_previous: number;
-  margin: string;
+}
+
+export interface Icon {
+  icon: string;
+  info: string;
+  title: string;
 }
 
 interface ProductDetailProps {
-  selectedProduct: ProductInfo;
+  selectedProduct: Product;
 }
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ selectedProduct }) => {
@@ -20,7 +34,11 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ selectedProduct }) => {
     <div className={classes.product_detail}>
       <div className={classes.product_detail_price}>
         <p>From</p>
-        <Price {...selectedProduct} margin="right" />
+        <Price
+          price={selectedProduct.price}
+          price_previous={selectedProduct.price_previous}
+          margin="right"
+        />
       </div>
       <div className={classes.product_detail_info}>
         <div className={classes.detail_info}>

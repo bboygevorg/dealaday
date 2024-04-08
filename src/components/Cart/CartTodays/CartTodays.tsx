@@ -4,15 +4,27 @@ import axios from "axios";
 
 import { OneCart, ProductEmpty, Loader } from "../../../helper/index";
 
-const CartTodays = () => {
-  const [dealsProducts, setDealsProducts] = useState([]);
+interface Product {
+  productId: {
+    _id: string;
+    name: string;
+    img: string;
+    rating: number;
+    price: number;
+    price_previous: number;
+  };
+}
+
+const CartTodays: React.FC = () => {
+  const [dealsProducts, setDealsProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const getDealsProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/product/dealsproducts"
+        "http://192.168.1.68:5000/product/dealsproducts"
       );
+      console.log(data);
       setDealsProducts(data);
       setLoading(false);
     } catch (error) {
@@ -35,12 +47,12 @@ const CartTodays = () => {
               <Loader width="100%" />
             ) : dealsProducts && dealsProducts.length > 0 ? (
               dealsProducts.map((product, index) => {
-                const { productId, name, img, rating, price, price_previous } =
-                  product;
+                const { _id, name, img, rating, price, price_previous } =
+                  product.productId;
                 return (
                   <OneCart
                     key={index}
-                    id={productId}
+                    id={_id}
                     name={name}
                     img={img}
                     rating={rating}

@@ -56,7 +56,7 @@ const Register: React.FC = () => {
         });
       } else if (credentials.email && credentials.password) {
         const sendAuth = await axios.post(
-          `http://localhost:5000/user/auth/register`,
+          `http://192.168.1.68:5000/user/auth/register`,
           {
             email: credentials.email,
             password: credentials.password,

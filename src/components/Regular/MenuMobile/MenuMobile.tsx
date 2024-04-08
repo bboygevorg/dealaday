@@ -19,6 +19,8 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
     closeSlideBar();
   };
 
+  const auth = localStorage.getItem("Authorization");
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 726 && toggleMenu) {
@@ -134,7 +136,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
                 strokeLinejoin="round"
               />
             </svg>
-            <Link to="/lk">
+            <Link to={auth ? "/lk" : "/login"} onClick={handleClose}>
               <span>Account</span>
             </Link>
           </div>

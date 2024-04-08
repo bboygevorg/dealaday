@@ -47,7 +47,7 @@ const Filter: React.FC<FilterProps> = ({
   const fetchAllProducts = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/product/products?page_limit=${totalProductsCount}`
+        `http://192.168.1.68:5000/product/products?page_limit=${totalProductsCount}`
       );
       const allProducts = response.data;
 

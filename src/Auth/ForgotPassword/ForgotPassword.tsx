@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     event.preventDefault();
     try {
       const sendEmail = await axios.post(
-        "http://localhost:5000/user/password/forgot-password",
+        "http://192.168.1.68:5000/user/password/forgot-password",
         { email: email }
       );
       toast.success(sendEmail.data.msg, { autoClose: 900, theme: "colored" });

@@ -33,7 +33,7 @@ const AddNewPassword: React.FC = () => {
       }
 
       const { data } = await axios.post(
-        `http://localhost:5000/user/password/forgot-password/${id}/${token}`,
+        `http://192.168.1.68:5000/user/password/forgot-password/${id}/${token}`,
         { newPassword: password }
       );
 

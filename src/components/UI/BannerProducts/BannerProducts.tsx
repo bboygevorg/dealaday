@@ -7,12 +7,15 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/cartSlice/cartSlice";
 
 interface BannerProduct {
-  productId: string;
-  name: string;
-  title: string;
-  price: number;
-  price_previous: number;
-  bannerPicture: string;
+  productId: {
+    _id: string;
+    name: string;
+    img: string;
+    title: string;
+    price: number;
+    price_previous: number;
+    bannerPicture: string;
+  };
 }
 
 const BannerProducts: React.FC = () => {
@@ -22,8 +25,8 @@ const BannerProducts: React.FC = () => {
 
   const handleAddToCart = (bannerProduct: BannerProduct) => {
     if (bannerProduct) {
-      const { productId, name, price, bannerPicture } = bannerProduct;
-      const productToAdd = { _id: productId, name, price, img: bannerPicture };
+      const { _id, name, price, img } = bannerProduct.productId;
+      const productToAdd = { _id: _id, name, price, img };
       const selectedOption = 1;
       const subtotal = price * selectedOption;
 
@@ -40,7 +43,7 @@ const BannerProducts: React.FC = () => {
   const getBanner = async () => {
     try {
       const { data } = await axios(
-        "http://localhost:5000/product/bannerproduct"
+        "http://192.168.1.68:5000/product/bannerproduct"
       );
       setBannerProduct(data);
     } catch (error) {
@@ -59,15 +62,12 @@ const BannerProducts: React.FC = () => {
           <div className={classes.bannerInfo}>
             <div className={classes.left_info}>
               <h1 className={classes.left_info_name}>
-                {bannerProduct[0].name}
+                {bannerProduct[0].productId.name}
               </h1>
-              <h3 className={classes.left_info_title}>
-                {bannerProduct[0].title}
-              </h3>
               <span className={classes.left_info_price}>
                 <Price
-                  price={bannerProduct[0].price}
-                  price_previous={bannerProduct[0].price_previous}
+                  price={bannerProduct[0].productId.price}
+                  price_previous={bannerProduct[0].productId.price_previous}
                   margin="right"
                 />
               </span>
@@ -86,7 +86,7 @@ const BannerProducts: React.FC = () => {
               </span>
             </div>
             <div className={classes.right_info}>
-              <img src={bannerProduct[0].bannerPicture} alt="" />
+              <img src={bannerProduct[0].productId.img} alt="" />
             </div>
           </div>
         </div>

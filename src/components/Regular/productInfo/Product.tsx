@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./product.module.scss";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../redux/store/hook";
 import { getStarRaiting } from "../../../helper/star";
 
 import {
@@ -10,30 +10,27 @@ import {
   Reviews,
   Slider,
 } from "../../../helper/index";
-import { RootState } from "../../../redux/store/store";
 import axios from "axios";
 
 const Product: React.FC = () => {
   const [activeAccordion, setActiveAccordion] = useState<number>(1);
   const [recommendedProduct, setRecommendedProduct] = useState([]);
 
-  const { selectedProduct, productColor, loading } = useSelector(
-    (state: RootState) => state.productInfo
+  const { selectedProduct, productColor, loading } = useAppSelector(
+    (state) => state.productInfo
   );
-
-  function haya() {
-    
-  } 
-
+  console.log(selectedProduct);
   const toggleAccordion = (index: number) => {
     setActiveAccordion(index === activeAccordion ? index : index);
   };
 
-  const iconOptions = selectedProduct?.icon_option;
+  const iconOptions = selectedProduct?.icon_option ?? "";
 
   const getRecommended = async () => {
     try {
-      const { data } = await axios("http://localhost:5000/recommended");
+      const { data } = await axios(
+        "http://192.168.1.68:5000/product/recommended"
+      );
       setRecommendedProduct(data);
     } catch (error) {
       console.log("Error fetching deals recommended:", error);
@@ -95,16 +92,13 @@ const Product: React.FC = () => {
 
                     <div
                       className={
-                        iconOptions.length > 2
+                        Array.isArray(iconOptions) && iconOptions.length > 2
                           ? classes.icon_information
                           : classes.icon_information_start
                       }
                     >
-                      {iconOptions?.map(
-                        (
-                          info: { icon: string; info: string; title: string },
-                          index: number
-                        ) => {
+                      {Array.isArray(iconOptions) &&
+                        iconOptions?.map((info, index) => {
                           return (
                             <div key={index}>
                               <img src={info.icon} alt="" />
@@ -112,8 +106,7 @@ const Product: React.FC = () => {
                               <p>{info.title}</p>
                             </div>
                           );
-                        }
-                      )}
+                        })}
                     </div>
                   </div>
                   <div className={classes.info_price}>

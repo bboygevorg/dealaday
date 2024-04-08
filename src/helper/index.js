@@ -1,5 +1,3 @@
-export { WatchGood } from "../components/AddWishList/AddWishList";
-export { WishList } from "../components/AddWishList/AddWishList";
 export { default as CartColor } from "../components/Cart/CartColor/CartColor";
 export { default as CartTodays } from "../components/Cart/CartTodays/CartTodays";
 export { default as ProductCart } from "../components/Cart/ProductCart/ProductCart";

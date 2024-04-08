@@ -1,30 +1,54 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
+type Icon = {
+  icon: string;
+  info: string;
+  title: string;
+};
+
+interface Product {
+  _id: string;
+  name: string;
+  icon_option: Icon;
+  title: string;
+  rating: number;
+  brand: string;
+  sku: number;
+  img: string;
+  description: string;
+  price: number;
+  price_previous: number;
+}
+
 interface ProductState {
-  selectedProduct: any | null;
-  loading: "idle" | "pending" | "succeeded" | "failed";
+  selectedProduct: Product | any;
+  loading: string;
   error: string | null;
   productColor: [];
 }
 
 const initialState: ProductState = {
-  selectedProduct: null,
+  selectedProduct: {},
   loading: "idle",
   error: null,
   productColor: [],
 };
 
-export const getProductInfo = createAsyncThunk(
+export const getProductInfo = createAsyncThunk<
+  Product,
+  string,
+  { rejectValue: string }
+>(
   "products/getProductInfo",
-  async (id: any, { rejectWithValue, dispatch }) => {
+  async (id: string, { rejectWithValue, dispatch }) => {
     try {
-      let url = `http://localhost:5000/product/products/${id}`;
+      let url = `http://192.168.1.68:5000/product/products/${id}`;
       const response = await axios.get(url);
       const productName = response.data.name;
 
       const productsWithSameNameRes = await axios.get(
-        `http://localhost:5000/product/products?name=${productName}`
+        `http://192.168.1.68:5000/product/products?name=${productName}`
       );
       const productsWithSameName = productsWithSameNameRes.data;
       dispatch(setProductColor(productsWithSameName));
@@ -39,10 +63,10 @@ const productInfoSlice = createSlice({
   name: "productInfo",
   initialState,
   reducers: {
-    setSelectedProduct: (state, action) => {
+    setSelectedProduct: (state, action: PayloadAction<Product | null>) => {
       state.selectedProduct = action.payload;
     },
-    setProductColor: (state, action) => {
+    setProductColor: (state, action: PayloadAction<[]>) => {
       state.productColor = action.payload;
     },
   },
@@ -53,8 +77,8 @@ const productInfoSlice = createSlice({
         state.error = null;
       })
       .addCase(getProductInfo.fulfilled, (state, action) => {
-        state.loading = "succeeded";
         state.selectedProduct = action.payload;
+        state.loading = "succeeded";
       })
       .addCase(getProductInfo.rejected, (state, action) => {
         state.loading = "failed";

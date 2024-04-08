@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import classes from "./header.module.scss";
+import { useAppDisptach, useAppSelector } from "../../redux/store/hook";
 import { useSelector } from "react-redux";
-
+import { fetchWishlist } from "../../redux/userSlice/userSlice";
 import { Link } from "react-router-dom";
 import Search from "../../components/UI/Search/Search";
 
 import logo from "../../assets/img/dealaday_logo.png";
 import MenuMobile from "../../components/Regular/MenuMobile/MenuMobile";
 import { RootState } from "../../redux/store/store";
+import axios from "axios";
 
 const Header: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const dispatch = useAppDisptach();
+
+  const wishtlist = useAppSelector((state) => state.userSlice.wishlist);
 
   const cartItems = useSelector(
     (state: RootState) => state.cartSlice.cartItems
@@ -25,6 +30,10 @@ const Header: React.FC = () => {
   const closeSlideBar = () => {
     setToggleMenu(false);
   };
+
+  useEffect(() => {
+    dispatch(fetchWishlist());
+  }, [dispatch]);
 
   useEffect(() => {
     if (toggleMenu) {

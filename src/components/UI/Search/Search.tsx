@@ -40,7 +40,7 @@ const Search: React.FC<SearchStyleProp> = ({
   const getAllProduct = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/product/products"
+        "http://192.168.1.68:5000/product/products"
       );
       setData(data);
     } catch (error) {

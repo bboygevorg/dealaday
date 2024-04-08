@@ -8,15 +8,17 @@ import "slick-carousel/slick/slick-theme.css";
 import { ProductCart, CartColor } from "../../../helper/index";
 
 interface SliderType {
-  _id: string;
-  productId: string;
-  title: string;
-  img: string;
-  rating: number;
-  number: number;
-  price: number;
-  price_previous: number;
-  createdAt: string;
+  productId: {
+    _id: string;
+    productId: string;
+    title: string;
+    img: string;
+    rating: number;
+    number: number;
+    price: number;
+    price_previous: number;
+    createdAt: string;
+  };
 }
 
 const Slider: React.FC<{
@@ -140,13 +142,13 @@ const Slider: React.FC<{
               rating,
               price,
               price_previous,
-            } = product;
+            } = product.productId;
             return (
               <div key={index} className={classes.slider_carousel}>
                 <div className={classes.carousel}>
                   <ProductCart
-                    key={product._id}
-                    id={productId}
+                    key={_id}
+                    id={_id}
                     img={img}
                     rating={rating}
                     title={title}

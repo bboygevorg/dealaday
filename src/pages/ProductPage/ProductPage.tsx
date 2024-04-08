@@ -2,25 +2,23 @@ import React, { useEffect } from "react";
 import classes from "./productPage.module.scss";
 import { Helmet } from "react-helmet-async";
 import { useLocation, useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDisptach, useAppSelector } from "../../redux/store/hook";
+
 import {
   setSelectedProduct,
   getProductInfo,
 } from "../../redux/productInfo/productInfo";
 
 import { Product, Search } from "../../helper/index";
-import { RootState } from "../../redux/store/store";
 
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDisptach();
 
-  const { selectedProduct } = useSelector(
-    (state: RootState) => state.productInfo
-  );
+  const { selectedProduct } = useAppSelector((state) => state.productInfo);
 
-  const productName = selectedProduct?.name;
+  const productName = selectedProduct?.name ?? "";
 
   const pathSegments = location.pathname
     .split("/")
@@ -34,7 +32,7 @@ const ProductPage: React.FC = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(getProductInfo(id) as any);
+      dispatch(getProductInfo(id));
     }
 
     return () => {
