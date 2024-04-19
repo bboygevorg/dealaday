@@ -10,6 +10,7 @@ import {
   Search,
   BannerProducts,
 } from "../../helper/index";
+import { apiUrl } from "../../helper/env";
 
 const HomePage: React.FC = () => {
   const [mostPopular, setMostPopular] = useState([]);
@@ -17,9 +18,8 @@ const HomePage: React.FC = () => {
 
   const getMostPopularProduct = async () => {
     try {
-      const { data } = await axios(
-        "http://192.168.1.68:5000/product/mostpopular"
-      );
+      const { data } = await axios.get(`${apiUrl}/product/mostpopular`);
+      setTopProducts(data);
       setMostPopular(data);
     } catch (error) {
       console.log("Error fetching deals mostPopular:", error);
@@ -28,9 +28,7 @@ const HomePage: React.FC = () => {
 
   const getTopProducts = async () => {
     try {
-      const { data } = await axios(
-        "http://192.168.1.68:5000/product/topproducts"
-      );
+      const { data } = await axios.get(`${apiUrl}/product/topproducts`);
       setTopProducts(data);
     } catch (error) {
       console.log("Error fetching deals topProduct:", error);

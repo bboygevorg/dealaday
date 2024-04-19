@@ -7,6 +7,7 @@ import Search from "../../components/UI/Search/Search";
 import BannerProduct from "../../components/UI/Banner/Banner";
 import Catalog from "../../components/Regular/catalog/Catalog";
 import axios from "axios";
+import { apiUrl } from "../../helper/env";
 
 const Products = () => {
   const [banner, setBanner] = useState([]);
@@ -18,7 +19,8 @@ const Products = () => {
 
   const getBanner = async () => {
     try {
-      const { data } = await axios("http://192.168.1.68:5000/product/banner");
+      const { data } = await axios.get(`${apiUrl}/product/banner`);
+
       setBanner(data);
     } catch (error) {
       console.log("Error fetching deals banner:", error);

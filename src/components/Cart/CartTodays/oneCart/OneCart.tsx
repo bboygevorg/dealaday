@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./oneCart.module.scss";
 import { getStarRaiting } from "../../../../helper/star";
 import { addToCart } from "../../../../redux/cartSlice/cartSlice";
 import { Reviews, Price, Button } from "../../../../helper";
-import { useDispatch } from "react-redux";
+import { useAppDisptach } from "../../../../redux/store/hook";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  fetchReview,
+  postWishlist,
+} from "../../../../redux/userSlice/userSlice";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { apiUrl } from "../../../../helper/env";
 
 interface CartTodays {
   id: any;
@@ -26,7 +30,9 @@ const OneCart: React.FC<CartTodays> = ({
   price_previous,
 }) => {
   const [active, setActive] = useState<boolean>(false);
-  const dispatch = useDispatch();
+  const [filteredReviews, setFilteredReviews] = useState<any[]>([]);
+
+  const dispatch = useAppDisptach();
   const navigate = useNavigate();
 
   let authToken = localStorage.getItem("Authorization");
@@ -46,30 +52,23 @@ const OneCart: React.FC<CartTodays> = ({
     );
   };
 
-  const addToWishList = async () => {
+  const getReview = async () => {
+    try {
+      const { data } = await axios.get(`${apiUrl}/user/review/getreview/${id}`);
+
+      setFilteredReviews(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getReview();
+  }, []);
+
+  const addToWishList = async (id: string) => {
     if (setProceed) {
-      try {
-        const { data } = await axios.post(
-          "http://192.168.1.68:5000/user/wishlist/addwishlist",
-          {
-            _id: id,
-          },
-          {
-            headers: {
-              Authorization: authToken,
-            },
-          }
-        );
-        toast.success("Added To WishList", {
-          autoClose: 500,
-          theme: "colored",
-        });
-      } catch (error: any) {
-        toast.error(error.response.data.msg, {
-          autoClose: 500,
-          theme: "colored",
-        });
-      }
+      dispatch(postWishlist(id));
     } else {
       navigate("/login");
     }
@@ -126,7 +125,7 @@ const OneCart: React.FC<CartTodays> = ({
                 </svg>
               </div>
             </Link>
-            <div className={classes.wish} onClick={addToWishList}>
+            <div className={classes.wish} onClick={() => addToWishList(id)}>
               <svg
                 width="20"
                 height="18"
@@ -173,7 +172,7 @@ const OneCart: React.FC<CartTodays> = ({
         <div className={classes.oneCart_info_raiting}>
           {getStarRaiting(rating)}
           <span className={classes.review}>
-            <Reviews />
+            <span>({filteredReviews.length} Reviews)</span>
           </span>
         </div>
         <Price price={price} price_previous={price_previous} margin="center" />

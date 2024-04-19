@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./reviews.module.scss";
+import { useAppDisptach, useAppSelector } from "../../../redux/store/hook";
+import { fetchReview } from "../../../redux/userSlice/userSlice";
 
-const Reviews = () => {
+const Reviews: React.FC = () => {
   return (
     <>
-      <span>(0 Reviews)</span>
+      
     </>
   );
 };

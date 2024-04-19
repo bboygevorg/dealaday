@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { apiUrl } from "../../helper/env";
 
 type Icon = {
   icon: string;
@@ -43,13 +44,15 @@ export const getProductInfo = createAsyncThunk<
   "products/getProductInfo",
   async (id: string, { rejectWithValue, dispatch }) => {
     try {
-      let url = `http://192.168.1.68:5000/product/products/${id}`;
+      let url = `${apiUrl}/product/products/${id}`;
+
       const response = await axios.get(url);
       const productName = response.data.name;
 
       const productsWithSameNameRes = await axios.get(
-        `http://192.168.1.68:5000/product/products?name=${productName}`
+        `${apiUrl}/product/products?name=${productName}`
       );
+
       const productsWithSameName = productsWithSameNameRes.data;
       dispatch(setProductColor(productsWithSameName));
       return response.data;

@@ -7,6 +7,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { apiUrl } from "../../helper/env";
 
 const Login: React.FC = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -34,6 +35,7 @@ const Login: React.FC = () => {
     event: FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
+
     let emailRegax =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -54,13 +56,11 @@ const Login: React.FC = () => {
           theme: "colored",
         });
       } else if (credentials.email && credentials.password) {
-        const sendAuth = await axios.post(
-          "http://192.168.1.68:5000/user/auth/login",
-          {
-            email: credentials.email,
-            password: credentials.password,
-          }
-        );
+        const sendAuth = await axios.post(`${apiUrl}/user/auth/login`, {
+          email: credentials.email,
+          password: credentials.password,
+        });
+
         const receive = await sendAuth.data;
         if (receive.success === true) {
           toast.success("Login Succesfully", {
@@ -68,6 +68,13 @@ const Login: React.FC = () => {
             theme: "colored",
           });
           localStorage.setItem("Authorization", receive.authToken);
+
+          const expirationTime = new Date().getTime() + 3600 * 1000;
+          localStorage.setItem("tokenExpiration", expirationTime.toString());
+
+          const currentTime = new Date().getTime().toString();
+          localStorage.setItem("lastActivity", currentTime);
+
           if (from === "/basket") {
             navigate("/basket");
           } else {

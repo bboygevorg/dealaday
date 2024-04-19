@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import classes from "./menuMobile.module.scss";
+import { useAppSelector } from "../../../redux/store/hook";
 
 import logo_nav from "../../../assets/img/logo_nav.png";
 
@@ -19,7 +20,10 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
     closeSlideBar();
   };
 
+  const { wishlist } = useAppSelector((state) => state.userSlice);
+
   const auth = localStorage.getItem("Authorization");
+  let setProceed = auth ? true : false;
 
   useEffect(() => {
     const handleResize = () => {
@@ -156,8 +160,11 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
                 strokeLinejoin="round"
               />
             </svg>
-            <Link to="/wishtlist">
-              <span>Favorinte (0)</span>
+            <Link to={auth ? "/lk" : "/login"} onClick={handleClose}>
+              <span>
+                Favorinte (
+                {setProceed && wishlist?.length > 0 && wishlist.length})
+              </span>
             </Link>
           </div>
         </div>

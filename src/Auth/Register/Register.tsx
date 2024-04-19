@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+import { apiUrl } from "../../helper/env";
 
 const Register: React.FC = () => {
   const [credentials, setCredentials] = useState({
@@ -55,13 +56,10 @@ const Register: React.FC = () => {
           theme: "colored",
         });
       } else if (credentials.email && credentials.password) {
-        const sendAuth = await axios.post(
-          `http://192.168.1.68:5000/user/auth/register`,
-          {
-            email: credentials.email,
-            password: credentials.password,
-          }
-        );
+        const sendAuth = await axios.post(`${apiUrl}/user/auth/register`, {
+          email: credentials.email,
+          password: credentials.password,
+        });
         const recieve = await sendAuth.data;
         if (recieve.success === true) {
           toast.success("Registered Successfully", {

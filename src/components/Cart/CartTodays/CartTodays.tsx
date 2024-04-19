@@ -3,6 +3,8 @@ import classes from "./cartTodays.module.scss";
 import axios from "axios";
 
 import { OneCart, ProductEmpty, Loader } from "../../../helper/index";
+import { apiUrl } from "../../../helper/env";
+import { useAppDisptach } from "../../../redux/store/hook";
 
 interface Product {
   productId: {
@@ -21,10 +23,7 @@ const CartTodays: React.FC = () => {
 
   const getDealsProducts = async () => {
     try {
-      const { data } = await axios.get(
-        "http://192.168.1.68:5000/product/dealsproducts"
-      );
-      console.log(data);
+      const { data } = await axios.get(`${apiUrl}/product/dealsproducts`);
       setDealsProducts(data);
       setLoading(false);
     } catch (error) {

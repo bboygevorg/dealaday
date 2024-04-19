@@ -47,14 +47,12 @@ const ProductColorSlider: React.FC<{ productColor: ColorType[] }> = ({
     if (sliderRef.current) {
       sliderRef.current.slickNext();
     }
-    console.log(sliderRef.current);
   };
 
   const handlePrev = () => {
     if (sliderRef.current) {
       sliderRef.current.slickPrev();
     }
-    console.log(sliderRef.current);
   };
 
   return (

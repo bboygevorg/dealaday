@@ -42,6 +42,7 @@
       flex-direction: column;
       box-sizing: border-box;
       transition: 0.2s;
+      height: 25.5rem;
 
       @media screen and (max-width: 1200px) and (min-width: 767px) {
         height: 26rem;
@@ -158,6 +159,15 @@
         @media screen and (max-width: 767px) and (min-width: 320px) {
           width: 90%;
           margin: 0 auto;
+        }
+
+        .wishlist_empty {
+          width: 80%;
+          margin: 0 auto;
+
+          img {
+            width: 100%;
+          }
         }
         .profile {
           width: 100%;
@@ -288,5 +298,175 @@
         width: 60%;
       }
     }
+  }
+}
+
+.wishlist {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 3.1rem;
+
+  .product_cart {
+    width: calc(33.333% - 10px);
+    margin-bottom: 20px;
+    margin-right: 12px;
+    box-sizing: border-box;
+    width: 17rem;
+    background-color: white;
+    border: 1px solid $gray_300;
+    border-radius: 1rem;
+    position: relative;
+
+    @media screen and (max-width: 1200px) and (min-width: 767px) {
+      min-width: 10rem;
+      margin: 0.5rem;
+    }
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      width: 100%;
+      min-width: 82.5vw;
+    }
+
+    .addTo {
+      display: grid;
+      grid-template-rows: 42px 42px;
+      row-gap: 1rem;
+      padding-top: 2rem;
+      position: absolute;
+      background-color: $rgba_white;
+      width: 100%;
+      height: 9.5rem;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        top: 7rem !important;
+      }
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        top: 7rem !important;
+      }
+
+      .addTo_top {
+        display: flex;
+        justify-content: center;
+
+        .watch {
+          background-color: $white_01;
+          padding: 0.48rem 0.7rem;
+          display: flex;
+          align-items: center;
+          border-radius: 0.5rem;
+          transition: 0.2s;
+
+          svg {
+            fill: $gray_900;
+          }
+
+          &:hover {
+            background-color: $blue_01;
+
+            svg {
+              fill: $white_01;
+            }
+          }
+        }
+
+        .wish {
+          background-color: $white_01;
+          padding: 0.7rem 0.9rem;
+          display: flex;
+          align-items: center;
+          border-top-right-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+          transition: 0.2s;
+          cursor: pointer;
+
+          svg {
+            stroke: $gray_900;
+          }
+
+          &:hover {
+            background-color: $blue_01;
+
+            svg {
+              stroke: $white_01;
+            }
+          }
+        }
+      }
+
+      .addTo_bottom {
+        margin: 0 auto;
+      }
+    }
+
+    .product_cart_picture {
+      width: 100%;
+      height: 20rem;
+      transition: 0.2s;
+      display: flex;
+      justify-content: center;
+
+      @media screen and (max-width: 1200px) and (min-width: 768px) {
+        height: 15rem;
+      }
+
+      img {
+        width: 80%;
+        height: 100%;
+        object-fit: contain;
+
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          width: 80%;
+        }
+      }
+    }
+
+    .product_cart_info {
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 1rem;
+      width: 12.7;
+
+      .product_cart_info_text {
+        font-size: 0.9rem;
+        font-weight: $font-weight_400;
+        line-height: 1.5;
+      }
+
+      .oneCart_info_raiting {
+        display: flex;
+        align-items: center;
+        margin-top: 0.8rem;
+
+        .review {
+          color: $gray_600;
+          font-size: 0.8rem;
+          margin-left: 0.5rem;
+        }
+      }
+
+      .oneCart_info_delivery {
+        display: flex;
+        margin-top: 0.6rem;
+
+        .delivery_info {
+          color: $gray_600;
+          margin-left: 0.5rem;
+          margin-top: 0.1rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .wishlist_button {
+    border: none;
+    font-weight: $font-weight_500;
+    color: $blue_01;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+    background-color: #fff;
   }
 }

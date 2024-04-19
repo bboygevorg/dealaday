@@ -6,6 +6,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { apiUrl } from "../../helper/env";
 
 const AddNewPassword: React.FC = () => {
   const [password, setPassword] = useState("");
@@ -33,7 +34,7 @@ const AddNewPassword: React.FC = () => {
       }
 
       const { data } = await axios.post(
-        `http://192.168.1.68:5000/user/password/forgot-password/${id}/${token}`,
+        `${apiUrl}/user/password/forgot-password/${id}/${token}`,
         { newPassword: password }
       );
 

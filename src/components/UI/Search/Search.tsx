@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import product_dont_found from "../../../assets/img/product_dont_found.jpg";
+import { apiUrl } from "../../../helper/env";
 
 interface SearchStyleProp {
   inputbackgroundColor: string;
@@ -39,9 +40,7 @@ const Search: React.FC<SearchStyleProp> = ({
 
   const getAllProduct = async () => {
     try {
-      const { data } = await axios.get(
-        "http://192.168.1.68:5000/product/products"
-      );
+      const { data } = await axios.get(`${apiUrl}/product/products`);
       setData(data);
     } catch (error) {
       console.log(error);

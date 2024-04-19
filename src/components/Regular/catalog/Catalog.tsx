@@ -234,7 +234,6 @@ const Catalog: React.FC = () => {
                     return (
                       <ProductCart
                         key={product._id}
-                        name={name}
                         id={_id}
                         img={img}
                         rating={rating}

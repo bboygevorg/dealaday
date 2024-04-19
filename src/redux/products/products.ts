@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { apiUrl } from "../../helper/env";
 
 interface ProductState {
   product: Product[];
@@ -78,7 +79,7 @@ export const fetchProducts = createAsyncThunk(
     { rejectWithValue, dispatch }
   ) => {
     try {
-      let url = `http://192.168.1.68:5000/product/products?pageLimit=${PAGE_LIMIT}&currentPage=${page}`;
+      let url = `${apiUrl}/product/products?pageLimit=${PAGE_LIMIT}&currentPage=${page}`;
 
       const filters = [];
 

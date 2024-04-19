@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = (env, options) => {
   const isDevelopment = options.mode === "development";
@@ -70,6 +71,10 @@ module.exports = (env, options) => {
             to: "assets",
           },
         ],
+      }),
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: "development",
+        API_URL: "http://192.168.10.16:5000",
       }),
     ],
     devServer: {

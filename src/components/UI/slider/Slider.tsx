@@ -56,14 +56,12 @@ const Slider: React.FC<{
     if (sliderRef.current) {
       sliderRef.current.slickNext();
     }
-    console.log(sliderRef.current);
   };
 
   const handlePrev = () => {
     if (sliderRef.current) {
       sliderRef.current.slickPrev();
     }
-    console.log(sliderRef.current);
   };
 
   return (
@@ -134,15 +132,8 @@ const Slider: React.FC<{
         </div>
         <SliderSlick ref={sliderRef} {...settings}>
           {sliderProduct?.map((product, index) => {
-            const {
-              _id,
-              productId,
-              img,
-              title,
-              rating,
-              price,
-              price_previous,
-            } = product.productId;
+            const { _id, img, title, rating, price, price_previous } =
+              product.productId;
             return (
               <div key={index} className={classes.slider_carousel}>
                 <div className={classes.carousel}>

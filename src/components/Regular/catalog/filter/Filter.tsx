@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store/store";
 import { RangeSlider, Button } from "../../../../helper/index";
 import axios from "axios";
+import { apiUrl } from "../../../../helper/env";
 
 interface FilterProps {
   toggleActive: () => void;
@@ -47,8 +48,9 @@ const Filter: React.FC<FilterProps> = ({
   const fetchAllProducts = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.1.68:5000/product/products?page_limit=${totalProductsCount}`
+        `${apiUrl}/product/products?page_limit=${totalProductsCount}r`
       );
+
       const allProducts = response.data;
 
       const allCategories = allProducts.map((item: any) => item.category);

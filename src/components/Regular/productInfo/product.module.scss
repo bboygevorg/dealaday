@@ -288,6 +288,122 @@
 
         @media screen and (max-width: 767px) and (min-width: 320px) {
         }
+
+        .review_info {
+          width: 100%;
+          height: 12.5rem;
+          margin-top: 2rem;
+          display: flex;
+
+          .rating {
+            width: 15rem;
+            display: flex;
+            flex-direction: column;
+
+            .rating_top {
+              display: flex;
+              align-items: center;
+
+              &:nth-child(1) {
+                font-size: 2rem;
+                font-weight: $font-weight_600;
+              }
+            }
+
+            .rating_bottom {
+              margin-top: auto;
+
+              button {
+                background: $white_01;
+                border: 1px solid $blue_01;
+                color: $blue_01;
+                padding: 0.8rem 1rem;
+                border-radius: 0.5rem;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .line {
+            height: 100%;
+            width: 1px;
+            background-color: $gray_200;
+          }
+
+          .rating_calculate {
+            flex: 100%;
+            margin-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .rating_calculate_info {
+              display: flex;
+              align-items: center;
+
+              .line_filter {
+                margin-left: 2rem;
+                width: 35%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+              }
+            }
+
+            // .star_filter {
+            //   display: flex;
+            //   flex-direction: column;
+            //   justify-content: space-between;
+            // }
+          }
+        }
+
+        .review_comment {
+          margin-top: 2rem;
+
+          .comment_review {
+            width: 53%;
+            margin-top: 1rem;
+
+            input {
+              padding: 1rem;
+              width: 30rem;
+              border-radius: 0.5rem;
+              border: 1px solid $gray_300;
+              transition: 0.2s ease;
+
+              &:hover,
+              &:focus {
+                border: 1px solid $blue_01;
+              }
+            }
+          }
+          .button_review {
+            width: 10%;
+            margin-top: 1rem;
+          }
+        }
+
+        .review {
+          margin-top: 2rem;
+          div {
+            display: flex;
+            flex-direction: column;
+            padding-top: 2rem;
+            border-top: 1px solid $gray_200;
+
+            span {
+              height: 2rem;
+              &:nth-child(2) {
+                font-weight: $font-weight_600;
+              }
+              &:nth-child(3) {
+                font-size: 13px;
+                color: $gray_500;
+              }
+            }
+          }
+        }
       }
 
       .contentItem {

@@ -1,15 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./productCart.module.scss";
 import { getStarRaiting } from "../../../helper/star";
-import { useDispatch } from "react-redux";
+import { useAppDisptach } from "../../../redux/store/hook";
 import { addToCart } from "../../../redux/cartSlice/cartSlice";
 import { Reviews } from "../../../helper/index";
 import Button from "../../UI/Button/Button";
 import Price from "../../Regular/price/Price";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { setSelectedWishlist } from "../../../redux/userSlice/userSlice";
+import {
+  fetchWishlist,
+  postWishlist,
+  setSelectedWishlist,
+} from "../../../redux/userSlice/userSlice";
 import { toast } from "react-toastify";
+import { apiUrl } from "../../../helper/env";
 
 const position = {
   top: `${10}rem`,
@@ -42,31 +47,16 @@ const ProductCart: React.FC<SliderProduct> = ({
   price_previous,
 }) => {
   const [active, setActive] = useState(false);
-  const dispatch = useDispatch();
+  const [filteredReviews, setFilteredReviews] = useState<any[]>([]);
+
+  const dispatch = useAppDisptach();
+  const navigate = useNavigate();
 
   let authToken = localStorage.getItem("Authorization");
   let setProceed = authToken ? true : false;
 
-  const addToWishList = async () => {
-    if (setProceed) {
-      try {
-        const { data } = await axios.post(
-          "http://192.168.1.68:5000/user/wishlist/addwishlist",
-          {
-            _id: id,
-          },
-          {
-            headers: {
-              Authorization: authToken,
-            },
-          }
-        );
-      } catch (error) {}
-    }
-  };
-
   const handleAddToCart = () => {
-    const productToAdd = { _id: id, name, price, img };
+    const productToAdd = { _id: id, price, img };
     const selectedOption = 1;
     const subtotal = price * selectedOption;
 
@@ -79,12 +69,34 @@ const ProductCart: React.FC<SliderProduct> = ({
     );
   };
 
+  const getReview = async () => {
+    try {
+      const { data } = await axios.get(`${apiUrl}/user/review/getreview/${id}`);
+
+      setFilteredReviews(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getReview();
+  }, []);
+
   const handleHover = () => {
     setActive(true);
   };
 
   const handleMouseLeave = () => {
     setActive(false);
+  };
+
+  const addToWishList = (id: string) => {
+    if (setProceed) {
+      dispatch(postWishlist(id));
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -120,7 +132,7 @@ const ProductCart: React.FC<SliderProduct> = ({
                 </svg>
               </div>
             </Link>
-            <div className={classes.wish} onClick={addToWishList}>
+            <div className={classes.wish} onClick={() => addToWishList(id)}>
               <svg
                 width="20"
                 height="18"
@@ -159,7 +171,7 @@ const ProductCart: React.FC<SliderProduct> = ({
         <div className={classes.oneCart_info_raiting}>
           <div>{getStarRaiting(rating)}</div>
           <span className={classes.review}>
-            <Reviews />
+            <span>({filteredReviews.length} Reviews)</span>
           </span>
         </div>
         <div className={classes.oneCart_info_delivery}>

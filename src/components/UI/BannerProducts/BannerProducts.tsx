@@ -5,6 +5,7 @@ import { Button, Price } from "../../../helper/index";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/cartSlice/cartSlice";
+import { apiUrl } from "../../../helper/env";
 
 interface BannerProduct {
   productId: {
@@ -42,9 +43,8 @@ const BannerProducts: React.FC = () => {
 
   const getBanner = async () => {
     try {
-      const { data } = await axios(
-        "http://192.168.1.68:5000/product/bannerproduct"
-      );
+      const { data } = await axios.get(`${apiUrl}/product/bannerproduct`);
+
       setBannerProduct(data);
     } catch (error) {
       console.log("Error fetching deals bannerProduct:", error);

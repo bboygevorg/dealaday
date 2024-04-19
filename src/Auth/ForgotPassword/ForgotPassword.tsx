@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo_nav.png";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { apiUrl } from "../../helper/env";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const ForgotPassword = () => {
     event.preventDefault();
     try {
       const sendEmail = await axios.post(
-        "http://192.168.1.68:5000/user/password/forgot-password",
+        `${apiUrl}/user/password/forgot-password`,
         { email: email }
       );
       toast.success(sendEmail.data.msg, { autoClose: 900, theme: "colored" });
