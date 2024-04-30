@@ -28,7 +28,8 @@
     "react-slider": "^2.0.6",
     "react-toastify": "^10.0.4",
     "slick-carousel": "^1.8.1",
-    "start": "^5.1.0"
+    "start": "^5.1.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

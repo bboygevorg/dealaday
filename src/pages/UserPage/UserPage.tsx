@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import classes from "./user.module.scss";
 import { Helmet } from "react-helmet-async";
-import { Button, Loader, Price, Reviews, Search } from "../../helper";
+import {
+  Button,
+  Loader,
+  Price,
+  Reviews,
+  Search,
+  DeliveryAddress,
+  UserAllDate,
+} from "../../helper";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useAppSelector, useAppDisptach } from "../../redux/store/hook";
-import { removeStateWishlist } from "../../redux/userSlice/userSlice";
-import axios from "axios";
 import {
-  deleteWishlist,
-  setSelectedUser,
+  getUserData,
+  removeStateWishlist,
 } from "../../redux/userSlice/userSlice";
+
+import { deleteWishlist } from "../../redux/userSlice/userSlice";
 
 import icon from "../../assets/img/logo_nav.png";
 import { getStarRaiting } from "../../helper/star";
 
 import img from "../../assets/img/product_dont_found.jpg";
 import { addToCart } from "../../redux/cartSlice/cartSlice";
-import { apiUrl } from "../../helper/env";
 
 const position = {
   top: `${10}rem`,
@@ -27,22 +34,21 @@ const position = {
 const UserPage: React.FC = () => {
   const [activeAccordion, setActiveAccordion] = useState<number>(1);
   const [activeSign, setActiveSign] = useState<boolean>(false);
-  const [userData, setUserData] = useState<[]>([]);
-  const [userDetails, setUserDetails] = useState({
-    email: "",
-    phone: "",
-    firstName: "",
-    lastName: "",
-  });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [active, setActive] = useState<boolean>(false);
 
-  const { wishlist } = useAppSelector((state) => state.userSlice);
+  const { wishlist, status } = useAppSelector((state) => state.userSlice);
   const dispatch = useAppDisptach();
   const navigate = useNavigate();
 
   let authToken = localStorage.getItem("Authorization");
   let setProceed = authToken !== null ? true : false;
+
+  useEffect(() => {
+    if (setProceed) {
+      dispatch(getUserData());
+    }
+  }, [dispatch]);
 
   const location = useLocation();
   const pathSegments = location.pathname
@@ -68,105 +74,9 @@ const UserPage: React.FC = () => {
     setActive(false);
   };
 
-  const getUser = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(`${apiUrl}/user/auth/getuser`, {
-        headers: {
-          Authorization: authToken,
-        },
-      });
-
-      const user = response.data;
-      dispatch(setSelectedUser(user));
-      setUserData(user);
-      userDetails.email = user.email;
-      userDetails.phone = user.phone;
-      userDetails.firstName = user.firstName;
-      userDetails.lastName = user.lastName;
-      setIsLoading(false);
-    } catch (error) {
-      toast.error("Something went wrong", { autoClose: 500, theme: "colored" });
-    }
-  };
-
   const handleDeleteWishlist = (id: string) => {
     dispatch(deleteWishlist(id));
     dispatch(removeStateWishlist(id));
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value;
-
-    if (e.target.value === "phone") {
-      const cleaned = value.replace(/[^\d\s]/g, "");
-
-      let formattedPhone = "+";
-      for (let i = 0; i < cleaned.length; i++) {
-        if (i === 1 || i === 4 || i === 7 || i === 10) {
-          formattedPhone += " " + cleaned[i];
-        } else {
-          formattedPhone += cleaned[i];
-        }
-      }
-      setUserDetails({ ...userDetails, [e.target.name]: formattedPhone });
-    }
-
-    setUserDetails({ ...userDetails, [e.target.name]: value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      if (
-        !userDetails.email &&
-        !userDetails.phone &&
-        !userDetails.firstName &&
-        !userDetails.lastName
-      ) {
-        toast.error("Please Fill the all Fields", {
-          autoClose: 900,
-          theme: "colored",
-        });
-      } else if (
-        userDetails.firstName.length < 3 ||
-        userDetails.lastName.length < 3
-      ) {
-        toast.error("Please enter name with more than 3 characters", {
-          autoClose: 900,
-          theme: "colored",
-        });
-      } else {
-        const { data } = await axios.put(
-          `${apiUrl}/user/auth/updateuser`,
-          { userDetails: JSON.stringify(userDetails) },
-          {
-            headers: {
-              Authorization: authToken,
-            },
-          }
-        );
-        if (data.success === true) {
-          toast.success("Update Successfuly", {
-            autoClose: 900,
-            theme: "colored",
-          });
-          getUser();
-        } else {
-          toast.error("Something went wrong", {
-            autoClose: 500,
-            theme: "colored",
-          });
-        }
-      }
-    } catch (error: any) {
-      console.log(error);
-      toast.error(error.response.data, { autoClose: 900, theme: "colored" });
-    }
   };
 
   const handleLogOut = () => {
@@ -177,15 +87,7 @@ const UserPage: React.FC = () => {
       theme: "colored",
     });
     navigate("/");
-    // dispatch(setSelectedUser());
-    setUserData([]);
-    setUserDetails({
-      email: "",
-      phone: "",
-      firstName: "",
-      lastName: "",
-    });
-    window.location.reload();
+    // dispatch(getUserData({}));
   };
 
   const handleAddToCart = (_id: string, price: number, img: string) => {
@@ -684,62 +586,31 @@ const UserPage: React.FC = () => {
                 <div className={classes.content_item}>
                   <h2>My Profile</h2>
 
-                  <div className={classes.profile}>
-                    <form onSubmit={handleSubmit}>
-                      <div>
-                        <div>
-                          <span>Email</span>
-                          <input
-                            type="text"
-                            placeholder="Email"
-                            value={userDetails.email}
-                            onChange={handleOnChange}
-                          />
-                        </div>
-                        <div>
-                          <span>Phone</span>
-                          <input
-                            name="phone"
-                            placeholder="Phone"
-                            value={userDetails.phone}
-                            onChange={handleOnChange}
-                          />
-                        </div>
-                        <div>
-                          <span>First Name</span>
-                          <input
-                            type="text"
-                            placeholder="First Name"
-                            name="firstName"
-                            value={userDetails.firstName}
-                            onChange={handleOnChange}
-                          />
-                        </div>
-                        <div>
-                          <span>Last Name</span>
-                          <input
-                            type="text"
-                            placeholder="Last Name"
-                            name="lastName"
-                            value={userDetails.lastName}
-                            onChange={handleOnChange}
-                          />
-                        </div>
-                      </div>
-                      <div className={classes.button}>
-                        <Button
-                          backgroundButton="#3598cc"
-                          padding="0.9rem 1.2rem"
-                          color="#ffffff"
-                          hover="blue"
-                          buttonFunction={() => {}}
-                        >
-                          Save
-                        </Button>
-                      </div>
-                    </form>
-                  </div>
+                  {status === "loading" ? (
+                    <Loader width={"100%"} />
+                  ) : (
+                    <div className={classes.profile}>
+                      <UserAllDate />
+                    </div>
+                  )}
                 </div>
+              )}
+
+              {activeAccordion === 2 && (
+                <>
+                  <div className={classes.content_item}>
+                    <div className={classes.delivery}>
+                      <h2>Delivery Address</h2>
+                      <span onClick={() => setActive(!active)}>
+                        <p style={{ fontSize: "1.8rem" }}>+</p> Add New Address
+                      </span>
+                    </div>
+
+                    <div className={classes.delivery_address}>
+                      <DeliveryAddress active={active} />
+                    </div>
+                  </div>
+                </>
               )}
               {activeAccordion === 5 && (
                 <div className={classes.content_item}>

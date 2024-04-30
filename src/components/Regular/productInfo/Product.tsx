@@ -14,7 +14,12 @@ import {
 } from "../../../helper/index";
 import axios from "axios";
 import { apiUrl } from "../../../helper/env";
-import { fetchReview } from "../../../redux/userSlice/userSlice";
+import {
+  deleteReview,
+  editReview,
+  fetchReview,
+  removeStateReview,
+} from "../../../redux/userSlice/userSlice";
 
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router";
@@ -27,6 +32,9 @@ const Product: React.FC = () => {
   const [reviewComment, setReviewComment] = useState<string>("");
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
+  const [users, setUsers] = useState();
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [edit, setEdit] = useState<boolean>(false);
 
   const dispatch = useAppDisptach();
   const navigate = useNavigate();
@@ -35,9 +43,7 @@ const Product: React.FC = () => {
     (state) => state.productInfo
   );
   const { review } = useAppSelector((state) => state.userSlice);
-  const productId = review.map((item) => item.productId);
-
-  console.log(selectedProduct);
+  const userId = review.filter((item) => item.user._id);
 
   const auth = localStorage.getItem("Authorization");
   const setProceed = auth ? true : false;
@@ -56,6 +62,24 @@ const Product: React.FC = () => {
   };
 
   const iconOptions = selectedProduct?.icon_option ?? "";
+
+  const getUser = async () => {
+    const { data } = await axios.get(`${apiUrl}/user/auth/getuser`, {
+      headers: {
+        Authorization: auth,
+      },
+    });
+    setUsers(data._id);
+  };
+
+  useEffect(() => {
+    setProceed && getUser();
+  }, []);
+
+  const handleDeleteReview = (id: string) => {
+    dispatch(deleteReview(id));
+    dispatch(removeStateReview(id));
+  };
 
   const getRecommended = async () => {
     try {
@@ -156,6 +180,10 @@ const Product: React.FC = () => {
     setActiveReview(!activeReview);
   };
 
+  const handleClickisHovered = () => {
+    setIsHovered(!isHovered);
+  };
+
   const handleClick = (star: number) => {
     setRating(star);
   };
@@ -168,6 +196,36 @@ const Product: React.FC = () => {
     setHoverRating(0);
   };
 
+  const handleEditReview = async (id: string) => {
+    if (auth) {
+      if (!rating && !reviewComment) {
+        toast.error("Please Fill the all Fields", {
+          theme: "colored",
+          autoClose: 500,
+        });
+      } else if (reviewComment.length <= 4) {
+        toast.error("Please add more than 4 characters", {
+          theme: "colored",
+          autoClose: 500,
+        });
+      } else if (rating <= 0) {
+        toast.error("Please add rating", { theme: "colored", autoClose: 600 });
+      } else if (reviewComment.length >= 4 && rating > 0) {
+        await dispatch(
+          editReview({
+            _id: id,
+            comment: reviewComment,
+            rating: rating,
+          })
+        );
+        await dispatch(fetchReview(selectedProduct._id));
+        setReviewComment("");
+        setRating(0);
+        setEdit(false);
+      }
+    }
+  };
+
   const handleSendReview = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
@@ -178,9 +236,12 @@ const Product: React.FC = () => {
           autoClose: 500,
         });
       } else if (reviewComment.length <= 4) {
-        toast.error("Please add rating", { theme: "colored", autoClose: 500 });
+        toast.error("Please add more than 4 characters", {
+          theme: "colored",
+          autoClose: 500,
+        });
       } else if (rating <= 0) {
-        toast.error("Please add rating", { theme: "colored", autoClose: 500 });
+        toast.error("Please add rating", { theme: "colored", autoClose: 600 });
       } else if (reviewComment.length >= 4 && rating > 0) {
         try {
           if (setProceed) {
@@ -204,6 +265,7 @@ const Product: React.FC = () => {
           }
           setReviewComment("");
           setRating(0);
+          setEdit(false);
         } catch (error: any) {
           toast.error(error.response.data.msg, {
             theme: "colored",
@@ -421,7 +483,9 @@ const Product: React.FC = () => {
                   )}
                   {activeAccordion === 4 && (
                     <div className={classes.contentItem}>
-                      <h2>Reviews ({review.length})</h2>
+                      <h2 className={classes.review_title}>
+                        Reviews ({review.length})
+                      </h2>
                       <div className={classes.review_info}>
                         <div className={classes.rating}>
                           <div className={classes.rating_top}>
@@ -455,6 +519,11 @@ const Product: React.FC = () => {
                               </span>
                             </div>
                           ))}
+                          <div className={classes.rating_bottom}>
+                            <button onClick={reviewActive}>
+                              Write a Review
+                            </button>
+                          </div>
                         </div>
                       </div>
                       {activeReview && (
@@ -470,7 +539,7 @@ const Product: React.FC = () => {
                                       color={
                                         starValue <= (hoverRating || rating)
                                           ? "#fdbc00"
-                                          : "gray"
+                                          : "#d1d5db"
                                       }
                                       onMouseOver={() =>
                                         handleMouseOver(starValue)
@@ -509,13 +578,149 @@ const Product: React.FC = () => {
                       )}
                       <div className={classes.review}>
                         {review.map((item, index) => (
-                          <div key={index}>
-                            <span>{stars(item.rating)}</span>
+                          <div key={index} className={classes.review_info}>
+                            {edit && users === item.user._id ? (
+                              <div className={classes.star}>
+                                {[...Array(5)].map((star, index) => {
+                                  const starValue = index + 1;
+                                  return (
+                                    <label key={index}>
+                                      <FaStar
+                                        className="star"
+                                        color={
+                                          starValue <= (hoverRating || rating)
+                                            ? "#fdbc00"
+                                            : "#d1d5db"
+                                        }
+                                        onMouseOver={() =>
+                                          handleMouseOver(starValue)
+                                        }
+                                        onClick={() => handleClick(starValue)}
+                                        onMouseLeave={handleMouseLeave}
+                                      />
+                                    </label>
+                                  );
+                                })}
+                              </div>
+                            ) : (
+                              <span>{stars(item.rating)}</span>
+                            )}
+
                             <span>
                               {item.user.firstName} {item.user.lastName}
                             </span>
                             <span>{dateString(item.createdAt)}</span>
-                            <span>{item.comment}</span>
+                            {edit && users === item.user._id ? (
+                              <div className={classes.comment_review}>
+                                <input
+                                  type="text"
+                                  name="example"
+                                  placeholder="Enter text here"
+                                  value={reviewComment}
+                                  onChange={(e) =>
+                                    setReviewComment(e.target.value)
+                                  }
+                                />
+                              </div>
+                            ) : (
+                              <span>{item.comment}</span>
+                            )}
+
+                            {edit && users === item.user._id ? (
+                              <div className={classes.button_review}>
+                                <Button
+                                  padding="0.9rem 1.2rem"
+                                  backgroundButton="#3598cc"
+                                  color="#fff"
+                                  buttonFunction={() =>
+                                    handleEditReview(item._id)
+                                  }
+                                  hover="blue"
+                                >
+                                  Send
+                                </Button>
+                                <Button
+                                  padding="0.9rem 1.2rem"
+                                  backgroundButton="#f70000"
+                                  color="#fff"
+                                  buttonFunction={() => setEdit(false)}
+                                  hover="red"
+                                >
+                                  Cancel
+                                </Button>
+                              </div>
+                            ) : (
+                              ""
+                            )}
+
+                            {users === item.user._id && (
+                              <span
+                                className={`${
+                                  edit ? classes.display : classes.edit_info
+                                }`}
+                              >
+                                <span
+                                  className={classes.circle_button}
+                                  onClick={handleClickisHovered}
+                                >
+                                  {isHovered && (
+                                    <span
+                                      className={classes.additional_buttons}
+                                    >
+                                      <span
+                                        className={classes.edit_button}
+                                        onClick={() => setEdit(true)}
+                                      >
+                                        <svg
+                                          width="25px"
+                                          height="25px"
+                                          viewBox="0 -0.5 25 25"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M17.7 5.12758L19.266 6.37458C19.4172 6.51691 19.5025 6.71571 19.5013 6.92339C19.5002 7.13106 19.4128 7.32892 19.26 7.46958L18.07 8.89358L14.021 13.7226C13.9501 13.8037 13.8558 13.8607 13.751 13.8856L11.651 14.3616C11.3755 14.3754 11.1356 14.1751 11.1 13.9016V11.7436C11.1071 11.6395 11.149 11.5409 11.219 11.4636L15.193 6.97058L16.557 5.34158C16.8268 4.98786 17.3204 4.89545 17.7 5.12758Z"
+                                            stroke="#3598cc"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                          <path
+                                            d="M12.033 7.61865C12.4472 7.61865 12.783 7.28287 12.783 6.86865C12.783 6.45444 12.4472 6.11865 12.033 6.11865V7.61865ZM9.23301 6.86865V6.11865L9.23121 6.11865L9.23301 6.86865ZM5.50001 10.6187H6.25001L6.25001 10.617L5.50001 10.6187ZM5.50001 16.2437L6.25001 16.2453V16.2437H5.50001ZM9.23301 19.9937L9.23121 20.7437H9.23301V19.9937ZM14.833 19.9937V20.7437L14.8348 20.7437L14.833 19.9937ZM18.566 16.2437H17.816L17.816 16.2453L18.566 16.2437ZM19.316 12.4937C19.316 12.0794 18.9802 11.7437 18.566 11.7437C18.1518 11.7437 17.816 12.0794 17.816 12.4937H19.316ZM15.8863 6.68446C15.7282 6.30159 15.2897 6.11934 14.9068 6.2774C14.5239 6.43546 14.3417 6.87397 14.4998 7.25684L15.8863 6.68446ZM18.2319 9.62197C18.6363 9.53257 18.8917 9.13222 18.8023 8.72777C18.7129 8.32332 18.3126 8.06792 17.9081 8.15733L18.2319 9.62197ZM8.30001 16.4317C7.8858 16.4317 7.55001 16.7674 7.55001 17.1817C7.55001 17.5959 7.8858 17.9317 8.30001 17.9317V16.4317ZM15.767 17.9317C16.1812 17.9317 16.517 17.5959 16.517 17.1817C16.517 16.7674 16.1812 16.4317 15.767 16.4317V17.9317ZM12.033 6.11865H9.23301V7.61865H12.033V6.11865ZM9.23121 6.11865C6.75081 6.12461 4.7447 8.13986 4.75001 10.6203L6.25001 10.617C6.24647 8.96492 7.58269 7.62262 9.23481 7.61865L9.23121 6.11865ZM4.75001 10.6187V16.2437H6.25001V10.6187H4.75001ZM4.75001 16.242C4.7447 18.7224 6.75081 20.7377 9.23121 20.7437L9.23481 19.2437C7.58269 19.2397 6.24647 17.8974 6.25001 16.2453L4.75001 16.242ZM9.23301 20.7437H14.833V19.2437H9.23301V20.7437ZM14.8348 20.7437C17.3152 20.7377 19.3213 18.7224 19.316 16.242L17.816 16.2453C17.8195 17.8974 16.4833 19.2397 14.8312 19.2437L14.8348 20.7437ZM19.316 16.2437V12.4937H17.816V16.2437H19.316ZM14.4998 7.25684C14.6947 7.72897 15.0923 8.39815 15.6866 8.91521C16.2944 9.44412 17.1679 9.85718 18.2319 9.62197L17.9081 8.15733C17.4431 8.26012 17.0391 8.10369 16.6712 7.7836C16.2897 7.45165 16.0134 6.99233 15.8863 6.68446L14.4998 7.25684ZM8.30001 17.9317H15.767V16.4317H8.30001V17.9317Z"
+                                            fill="#3598cc"
+                                          />
+                                        </svg>
+                                      </span>
+                                      <span
+                                        className={classes.delete_button}
+                                        onClick={() =>
+                                          handleDeleteReview(item._id)
+                                        }
+                                      >
+                                        <svg
+                                          width="20px"
+                                          height="20px"
+                                          viewBox="0 0 1024 1024"
+                                          version="1.1"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M960 160h-291.2a160 160 0 0 0-313.6 0H64a32 32 0 0 0 0 64h896a32 32 0 0 0 0-64zM512 96a96 96 0 0 1 90.24 64h-180.48A96 96 0 0 1 512 96zM844.16 290.56a32 32 0 0 0-34.88 6.72A32 32 0 0 0 800 320a32 32 0 1 0 64 0 33.6 33.6 0 0 0-9.28-22.72 32 32 0 0 0-10.56-6.72zM832 416a32 32 0 0 0-32 32v96a32 32 0 0 0 64 0v-96a32 32 0 0 0-32-32zM832 640a32 32 0 0 0-32 32v224a32 32 0 0 1-32 32H256a32 32 0 0 1-32-32V320a32 32 0 0 0-64 0v576a96 96 0 0 0 96 96h512a96 96 0 0 0 96-96v-224a32 32 0 0 0-32-32z"
+                                            fill="#3598cc"
+                                          />
+                                          <path
+                                            d="M384 768V352a32 32 0 0 0-64 0v416a32 32 0 0 0 64 0zM544 768V352a32 32 0 0 0-64 0v416a32 32 0 0 0 64 0zM704 768V352a32 32 0 0 0-64 0v416a32 32 0 0 0 64 0z"
+                                            fill="#3598cc"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                  )}
+                                </span>
+                              </span>
+                            )}
                           </div>
                         ))}
                       </div>

@@ -1,7 +1,11 @@
 import React from "react";
 import classes from "./grayLine.module.scss";
 
-const GrayLine = ({ value }) => {
+type Value = {
+  value: number;
+};
+
+const GrayLine: React.FC<Value> = ({ value }) => {
   return (
     <div className={classes.progress_container}>
       <div className={classes.gray_line}></div>

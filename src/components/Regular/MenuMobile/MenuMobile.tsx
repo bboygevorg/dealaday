@@ -90,7 +90,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
           </div>
           <div className={classes.menu_nav_top_logo}>
             <Link to="/">
-              <img src={logo_nav} alt="lets_bargain" onClick={handleClose} />
+              <img src={logo_nav} alt="lets_bargain" onClick={toggleSidebar} />
             </Link>
           </div>
         </div>
@@ -101,7 +101,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
               <span>Today's Deals</span>
             </Link>
           </div>
-          <div className={classes.menu_navigate_bar} onClick={handleClose}>
+          <div className={classes.menu_navigate_bar} onClick={toggleSidebar}>
             <Link to="/products">
               <span>Products</span>
             </Link>

@@ -24,3 +24,5 @@ export { default as Sort } from "../components/UI/Sort/Sort";
 export { default as Cart } from "../components/Cart/Cart";
 export { default as IconMenu } from "../components/Regular/IconMenu/IconMenu";
 export { default as GrayLine } from "../components/UI/GrayLine/GrayLine";
+export { default as DeliveryAddress } from "../components/UI/UserDate/DeliveryAddress/DeliveryAddress";
+export { default as UserAllDate } from "../components/UI/UserDate/UserAllDate/UserAllDate";

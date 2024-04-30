@@ -5,6 +5,7 @@ import { RootState } from "../../../../redux/store/store";
 import { RangeSlider, Button } from "../../../../helper/index";
 import axios from "axios";
 import { apiUrl } from "../../../../helper/env";
+import styled from "styled-components";
 
 interface FilterProps {
   toggleActive: () => void;
@@ -45,6 +46,10 @@ const Filter: React.FC<FilterProps> = ({
   const colorsContainerRef = useRef(null);
   const rating = [5, 4, 3, 2, 1];
 
+  const [currentWidth, setCurrentWidth] = useState(1024);
+  const [mobileWidth, setMobileWidth] = useState(767);
+  const [tabletWidth, setTabletWidth] = useState(1024);
+
   const fetchAllProducts = async () => {
     try {
       const response = await axios.get(
@@ -68,6 +73,18 @@ const Filter: React.FC<FilterProps> = ({
       console.log("Error fetching products:", error);
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCurrentWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     fetchAllProducts();
@@ -165,7 +182,7 @@ const Filter: React.FC<FilterProps> = ({
 
   return (
     <>
-      <div className={classes.filter}>
+      <div className={`${classes.filter}`}>
         <div className={classes.filter_title}>
           <h2>All Product</h2>
         </div>
@@ -256,6 +273,13 @@ const Filter: React.FC<FilterProps> = ({
                 <span
                   key={index}
                   data-index={index}
+                  style={{
+                    position: "relative",
+                    width: "1.9rem",
+                    height: "1.9rem",
+                    backgroundColor: color,
+                    cursor: "pointer",
+                  }}
                   onClick={() => {
                     const encodedColor = encodeURIComponent(color);
                     handleColorsChange(encodedColor);
@@ -264,13 +288,30 @@ const Filter: React.FC<FilterProps> = ({
                   className={`${
                     selectedColor.includes(index) ? classes.selected : ""
                   }`}
-                  style={{ backgroundColor: color }}
-                />
+                >
+                  {selectedColor.includes(index) && (
+                    <span
+                      style={{
+                        content: "",
+                        width: "2.1rem",
+                        height: "2.1rem",
+                        position: "absolute",
+                        top: "-1px",
+                        left: "-1.4px",
+                        borderRadius: "50%",
+                        transition: "box-shadow 0.5s ease",
+                        opacity: 1,
+                        boxShadow: `0 0 0 4px ${color}`,
+                      }}
+                    ></span>
+                  )}
+                </span>
               ))}
             </div>
           </div>
         </div>
       </div>
+
       <div
         className={`${classes.filter_product_mobile} ${
           toggleFilter ? classes.active : classes.activeOff
@@ -305,159 +346,56 @@ const Filter: React.FC<FilterProps> = ({
           <div className={classes.categoriesFilter}>
             <h3>Categories</h3>
             <ul>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedCategory.includes("Electronics")}
-                    onChange={() => handleChange("Electronics")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Electronics</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedCategory.includes("Homeware")}
-                    onChange={() => handleChange("Homeware")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Homeware</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedCategory.includes("Toys")}
-                    onChange={() => handleChange("Toys")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Toys</span>
-                </label>
-              </li>
+              {filterCategory.map((elem, index) => (
+                <li key={index}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      className={classes.style_checkbox}
+                      checked={selectedCategory.includes(elem)}
+                      onChange={() => handleChange(elem)}
+                    />
+                    <span className={classes.check_box}></span>
+                    <span>{elem}</span>
+                  </label>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={classes.brandsFilter}>
             <h3>Brand</h3>
             <ul>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedBrand.includes("Apple")}
-                    onChange={() => handleBrandChange("Apple")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Apple</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedBrand.includes("Beats")}
-                    onChange={() => handleBrandChange("Beats")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Beats</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedBrand.includes("Hikvision")}
-                    onChange={() => handleBrandChange("Hikvision")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Hikvision</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedBrand.includes("Elegance")}
-                    onChange={() => handleBrandChange("Elegance")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Elegance</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedBrand.includes("Zuru")}
-                    onChange={() => handleBrandChange("Zuru")}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>Zuru</span>
-                </label>
-              </li>
+              {filterBrands?.map((elem, index) => (
+                <li key={index}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={selectedBrand.includes(elem)}
+                      onChange={() => handleBrandChange(elem)}
+                    />
+                    <span className={classes.check_box}></span>
+                    <span>{elem}</span>
+                  </label>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={classes.ratingFilter}>
             <h3>Rating</h3>
             <ul>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedRating.includes(5)}
-                    onChange={() => handleRatingChange(5)}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>{stars(5)}</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedRating.includes(4)}
-                    onChange={() => handleRatingChange(4)}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>{stars(4)}</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedRating.includes(3)}
-                    onChange={() => handleRatingChange(2)}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>{stars(3)}</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedRating.includes(2)}
-                    onChange={() => handleRatingChange(2)}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>{stars(2)}</span>
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={selectedRating.includes(1)}
-                    onChange={() => handleRatingChange(1)}
-                  />
-                  <span className={classes.check_box}></span>
-                  <span>{stars(1)}</span>
-                </label>
-              </li>
+              {rating?.map((num, index) => (
+                <li key={index}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={selectedRating.includes(num)}
+                      onChange={() => handleRatingChange(num)}
+                    />
+                    <span className={classes.check_box}></span>
+                    <span>{stars(num)}</span>
+                  </label>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={classes.range}>
@@ -472,8 +410,39 @@ const Filter: React.FC<FilterProps> = ({
                 <span
                   key={index}
                   data-index={index}
-                  style={{ backgroundColor: color }}
-                />
+                  style={{
+                    position: "relative",
+                    width: "1.9rem",
+                    height: "1.9rem",
+                    backgroundColor: color,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    const encodedColor = encodeURIComponent(color);
+                    handleColorsChange(encodedColor);
+                    handleClick(index);
+                  }}
+                  className={`${
+                    selectedColor.includes(index) ? classes.selected : ""
+                  }`}
+                >
+                  {selectedColor.includes(index) && (
+                    <span
+                      style={{
+                        content: "",
+                        width: "2.1rem",
+                        height: "2.1rem",
+                        position: "absolute",
+                        top: "-1px",
+                        left: "-1.4px",
+                        borderRadius: "50%",
+                        transition: "box-shadow 0.5s ease",
+                        opacity: 1,
+                        boxShadow: `0 0 0 4px ${color}`,
+                      }}
+                    ></span>
+                  )}
+                </span>
               ))}
             </div>
           </div>

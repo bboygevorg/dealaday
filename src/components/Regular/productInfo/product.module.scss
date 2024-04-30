@@ -179,8 +179,10 @@
       padding-top: 3.2rem;
 
       @media screen and (max-width: 1200px) and (min-width: 767px) {
+        width: 80%;
+        margin: 0 auto;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
       }
 
       @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -198,11 +200,6 @@
 
         @media screen and (max-width: 767px) and (min-width: 320px) {
           margin-right: 1rem;
-
-          &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
-          }
 
           &:nth-child(4) {
             order: 2;
@@ -262,8 +259,12 @@
       margin-top: 3rem;
       margin-bottom: 1px solid;
 
+      .review_title {
+        font-size: 1.5rem;
+      }
+
       @media screen and (max-width: 1200px) and (min-width: 767px) {
-        max-width: 40rem;
+        max-width: 46rem;
         padding: 0 1rem;
         height: auto;
         margin: 0 auto;
@@ -279,7 +280,7 @@
       }
 
       .contentItem {
-        width: 80%;
+        width: 100%;
         line-height: 1.5;
 
         @media screen and (max-width: 1200px) and (min-width: 767px) {
@@ -287,6 +288,7 @@
         }
 
         @media screen and (max-width: 767px) and (min-width: 320px) {
+          margin-top: 2rem;
         }
 
         .review_info {
@@ -294,6 +296,11 @@
           height: 12.5rem;
           margin-top: 2rem;
           display: flex;
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            display: flex;
+            flex-direction: column;
+          }
 
           .rating {
             width: 15rem;
@@ -313,6 +320,10 @@
             .rating_bottom {
               margin-top: auto;
 
+              @media screen and (max-width: 767px) and (min-width: 320px) {
+                display: none;
+              }
+
               button {
                 background: $white_01;
                 border: 1px solid $blue_01;
@@ -328,18 +339,48 @@
             height: 100%;
             width: 1px;
             background-color: $gray_200;
+
+            @media screen and (max-width: 767px) and (min-width: 320px) {
+              display: none;
+            }
           }
 
           .rating_calculate {
-            flex: 100%;
+            width: 100%;
             margin-left: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
 
+            @media screen and (max-width: 767px) and (min-width: 320px) {
+              width: 100%;
+              margin: 0 auto;
+            }
+
+            .rating_bottom {
+              display: none;
+
+              @media screen and (max-width: 767px) and (min-width: 320px) {
+                margin-top: 1rem;
+                display: block;
+
+                button {
+                  background: $white_01;
+                  border: 1px solid $blue_01;
+                  color: $blue_01;
+                  padding: 0.5rem 1.5rem;
+                  border-radius: 0.5rem;
+                  cursor: pointer;
+                  font-weight: $font-weight_600;
+                  font-size: 1rem;
+                }
+              }
+            }
+
             .rating_calculate_info {
               display: flex;
               align-items: center;
+              margin-top: 1rem;
 
               .line_filter {
                 margin-left: 2rem;
@@ -347,23 +388,31 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+
+                @media screen and (max-width: 767px) and (min-width: 320px) {
+                  margin: 0 auto;
+                  width: 50%;
+                }
               }
             }
-
-            // .star_filter {
-            //   display: flex;
-            //   flex-direction: column;
-            //   justify-content: space-between;
-            // }
           }
         }
 
         .review_comment {
           margin-top: 2rem;
 
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            margin-top: 9rem;
+            margin-bottom: -7rem;
+          }
+
           .comment_review {
             width: 53%;
             margin-top: 1rem;
+
+            @media screen and (max-width: 767px) and (min-width: 320px) {
+              width: 100%;
+            }
 
             input {
               padding: 1rem;
@@ -372,21 +421,34 @@
               border: 1px solid $gray_300;
               transition: 0.2s ease;
 
+              @media screen and (max-width: 767px) and (min-width: 320px) {
+                width: 100%;
+              }
               &:hover,
               &:focus {
                 border: 1px solid $blue_01;
               }
             }
           }
+
           .button_review {
             width: 10%;
             margin-top: 1rem;
+
+            @media screen and (max-width: 767px) and (min-width: 320px) {
+              width: 30%;
+            }
           }
         }
 
         .review {
           margin-top: 2rem;
-          div {
+
+          @media screen and (max-width: 767px) and (min-width: 320px) {
+            margin-top: 9rem;
+          }
+
+          .review_info {
             display: flex;
             flex-direction: column;
             padding-top: 2rem;
@@ -400,6 +462,48 @@
               &:nth-child(3) {
                 font-size: 13px;
                 color: $gray_500;
+              }
+            }
+
+            .comment_review {
+              width: 53%;
+              margin-top: 1rem;
+
+              @media screen and (max-width: 767px) and (min-width: 320px) {
+                width: 100%;
+              }
+
+              input {
+                padding: 1rem;
+                width: 30rem;
+                border-radius: 0.5rem;
+                border: 1px solid $gray_300;
+                transition: 0.2s ease;
+
+                @media screen and (max-width: 767px) and (min-width: 320px) {
+                  width: 100%;
+                }
+                &:hover,
+                &:focus {
+                  border: 1px solid $blue_01;
+                }
+              }
+            }
+
+            div {
+              .star {
+                display: flex;
+              }
+            }
+
+            .button_review {
+              width: 10%;
+              margin-top: 1rem;
+              display: flex;
+              gap: 10px;
+
+              @media screen and (max-width: 767px) and (min-width: 320px) {
+                width: 30%;
               }
             }
           }
@@ -430,4 +534,47 @@
       margin-bottom: 2rem;
     }
   }
+}
+
+.edit_info {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+
+  .circle_button {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: $blue_01;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $blue_02;
+    }
+
+    .additional_buttons {
+      position: absolute;
+      top: calc(50% - 60px);
+      left: 50%;
+      margin-top: -2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateX(-50%);
+      gap: 5px;
+      transition: 0.3s ease;
+    }
+  }
+}
+
+.display {
+  display: none;
+}
+
+.star {
+  display: flex;
 }

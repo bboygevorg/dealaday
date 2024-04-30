@@ -2,15 +2,20 @@
 
 .deals_container {
   width: 100%;
-  .deals {
-    width: 80%;
-    margin: 0 auto;
-    font-size: 5rem;
-    color: $gray_600;
+  margin: 0 auto;
+  margin-top: 5rem;
+  .deals_img {
+    width: 100%;
+    .deals {
+      width: 100%;
+      margin: 0 auto;
+      font-size: 5rem;
+      color: $gray_600;
 
-    @media screen and (max-width: 767px) and (min-width: 320px) {
-      font-size: 2rem;
-      margin-bottom: 2rem;
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
     }
   }
 }

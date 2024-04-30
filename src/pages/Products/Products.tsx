@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "./products.module.scss";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";

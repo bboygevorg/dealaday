@@ -16,6 +16,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      @media screen and (max-width: 1200px) and (min-width: 767px) {
+        width: 0;
+      }
     }
     .price {
       font-size: 1.5rem;

@@ -8,6 +8,8 @@ import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { apiUrl } from "../../helper/env";
+import { useAppDisptach } from "../../redux/store/hook";
+import { getUserData } from "../../redux/userSlice/userSlice";
 
 const Login: React.FC = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -15,6 +17,8 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
+
+  const dispatch = useAppDisptach();
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);

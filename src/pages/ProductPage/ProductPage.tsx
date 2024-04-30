@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import classes from "./productPage.module.scss";
 import { Helmet } from "react-helmet-async";
 import { useLocation, useParams, Link } from "react-router-dom";

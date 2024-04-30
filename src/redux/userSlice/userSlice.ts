@@ -19,8 +19,11 @@ interface Product {
 }
 
 interface Review {
+  edit: boolean;
+  _id: string;
   productId: string;
   user: {
+    _id: any;
     firstName: string;
     lastName: string;
   };
@@ -30,18 +33,42 @@ interface Review {
   comment: string;
 }
 
-interface WishlistState {
-  user: Record<string, any>;
+interface GetUser {
+  _id: string;
+  email: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  address: string[];
+}
+
+interface UserData {
+  user: {};
   wishlist: Product[];
   review: Review[];
+  getUser: GetUser;
   status: string;
   error: string | null;
 }
 
-const initialState: WishlistState = {
+const initialState: UserData = {
   user: {},
   wishlist: [],
   review: [],
+  getUser: {
+    _id: "",
+    email: "",
+    createdAt: "",
+    updatedAt: "",
+    __v: 0,
+    firstName: "",
+    lastName: "",
+    phone: "",
+    address: [],
+  },
   status: "ide",
   error: null,
 };
@@ -98,7 +125,7 @@ export const deleteWishlist = createAsyncThunk<
   Product[],
   string,
   { rejectValue: string }
->("user/deleteWishlist", async function (id, { rejectWithValue, dispatch }) {
+>("user/deleteWishlist", async function (id, { rejectWithValue }) {
   try {
     const { data } = await axios.delete(
       `${apiUrl}/user/wishlist/deletewishlist/${id}`,
@@ -129,11 +156,83 @@ export const fetchReview = createAsyncThunk<
   }
 });
 
+export const deleteReview = createAsyncThunk<
+  string,
+  string,
+  { rejectValue: string }
+>("user/deleteReview", async function (id, { rejectWithValue }) {
+  try {
+    const { data } = await axios.delete(
+      `${apiUrl}/user/review/deletereview/${id}`,
+      {
+        headers: {
+          Authorization: authToken,
+        },
+      }
+    );
+    toast.success(data.msg, { autoClose: 500, theme: "colored" });
+    return data;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
+
+export const editReview = createAsyncThunk<
+  Review[],
+  { _id: string; comment: string; rating: number },
+  { rejectValue: string }
+>(
+  "user/editReview",
+  async function ({ _id, comment, rating }, { rejectWithValue }) {
+    try {
+      const response = await axios.put(
+        `${apiUrl}/user/review/editreview`,
+        {
+          _id: _id,
+          comment: comment,
+          rating: rating,
+        },
+        {
+          headers: {
+            Authorization: authToken,
+          },
+        }
+      );
+      toast.success(response.data.msg, { autoClose: 500, theme: "colored" });
+      return response.data;
+    } catch (error: any) {
+      toast.error(error.response.data.msg, {
+        theme: "colored",
+        autoClose: 600,
+      });
+
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getUserData = createAsyncThunk<
+  GetUser[],
+  undefined,
+  { rejectValue: string }
+>("user/getUser", async function (_, { rejectWithValue }) {
+  try {
+    const { data } = await axios.get(`${apiUrl}/user/auth/getuser`, {
+      headers: {
+        Authorization: authToken,
+      },
+    });
+    return data;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
+
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setSelectedUser: (state, action: PayloadAction<() => void>) => {
+    setSelectedUser: (state, action: PayloadAction<{}>) => {
       state.user = action.payload;
     },
     setSelectedWishlist: (state, action: PayloadAction<[]>) => {
@@ -147,9 +246,11 @@ const userSlice = createSlice({
     setSelectedReview: (state, action: PayloadAction<[]>) => {
       state.review = action.payload;
     },
+    removeStateReview: (state, action: PayloadAction<string>) => {
+      state.review = state.review.filter((r) => r._id !== action.payload);
+    },
   },
   extraReducers: (builder) => {
-    // wishlist
     builder.addCase(fetchWishlist.pending, (state) => {
       state.status = "loading";
       state.error = null;
@@ -177,6 +278,17 @@ const userSlice = createSlice({
       state.status = "resolved";
       state.review = action.payload;
     });
+    builder.addCase(deleteReview.fulfilled, (state, action: any) => {
+      state.status = "resolved";
+    });
+
+    builder.addCase(getUserData.pending, (state) => {
+      state.status = "loading";
+    });
+    builder.addCase(getUserData.fulfilled, (state, action: any) => {
+      state.status = "resolved";
+      state.getUser = action.payload;
+    });
   },
 });
 
@@ -185,6 +297,7 @@ export const {
   setSelectedWishlist,
   removeStateWishlist,
   setSelectedReview,
+  removeStateReview,
 } = userSlice.actions;
 
 export default userSlice.reducer;

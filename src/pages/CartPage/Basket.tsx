@@ -23,6 +23,8 @@ interface CartItem {
   };
 }
 
+
+
 const Basket: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
   const [cart, setCart] = useState<CartItem[]>([]);

@@ -29,12 +29,12 @@ const Catalog: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (toggleFilter && window.scrollY >= 350) {
+      if (toggleFilter && window.scrollY >= 5000) {
         document.documentElement.style.overflow = "hidden";
         document.body.style.overflow = "hidden";
       } else {
-        document.documentElement.style.overflow = "visible";
-        document.body.style.overflow = "visible";
+        document.documentElement.style.overflow = "auto";
+        document.body.style.overflow = "auto";
       }
     };
 
@@ -46,6 +46,10 @@ const Catalog: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [toggleFilter]);
+
+  useEffect(() => {
+    console.log(window.scrollY);
+  }, [window.scrollY]);
 
   const {
     product,
@@ -212,9 +216,11 @@ const Catalog: React.FC = () => {
             onColorsChange={handleColorChange}
           />
           <div className={classes.product_catalog}>
-            <div className={classes.sort}>
-              <Sort onSortChange={handleSortChange} />
-            </div>
+            {product.length !== 0 && (
+              <div className={classes.sort}>
+                <Sort onSortChange={handleSortChange} />
+              </div>
+            )}
 
             {loading === "pending" ? (
               <Loader width="100%" />
@@ -231,6 +237,7 @@ const Catalog: React.FC = () => {
                       price,
                       price_previous,
                     } = product;
+
                     return (
                       <ProductCart
                         key={product._id}
