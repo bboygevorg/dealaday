@@ -36,19 +36,19 @@ const UserAllDate: React.FC = () => {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
 
-    if (e.target.value === "phone") {
-      const cleaned = value.replace(/[^\d\s]/g, "");
+    // if (e.target.value === "phone") {
+    //   const cleaned = value.replace(/[^\d\s]/g, "");
 
-      let formattedPhone = "+";
-      for (let i = 0; i < cleaned.length; i++) {
-        if (i === 1 || i === 4 || i === 7 || i === 10) {
-          formattedPhone += " " + cleaned[i];
-        } else {
-          formattedPhone += cleaned[i];
-        }
-      }
-      setUserDetails({ ...userDetails, [e.target.name]: formattedPhone });
-    }
+    //   let formattedPhone = "+";
+    //   for (let i = 0; i < cleaned.length; i++) {
+    //     if (i === 1 || i === 4 || i === 7 || i === 10) {
+    //       formattedPhone += " " + cleaned[i];
+    //     } else {
+    //       formattedPhone += cleaned[i];
+    //     }
+    //   }
+    //   setUserDetails({ ...userDetails, [e.target.name]: formattedPhone });
+    // }
 
     setUserDetails({ ...userDetails, [e.target.name]: value });
   };
@@ -103,15 +103,16 @@ const UserAllDate: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={classes.user_info}>
       <div>
         <div>
           <span>Email</span>
           <input
+            name="email"
             type="text"
             placeholder="Email"
             value={userDetails.email}
-            onChange={handleOnChange}
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
         <div>
@@ -120,7 +121,7 @@ const UserAllDate: React.FC = () => {
             name="phone"
             placeholder="Phone"
             value={userDetails.phone}
-            onChange={handleOnChange}
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
         <div>
@@ -130,7 +131,7 @@ const UserAllDate: React.FC = () => {
             placeholder="First Name"
             name="firstName"
             value={userDetails.firstName}
-            onChange={handleOnChange}
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
         <div>
@@ -140,11 +141,11 @@ const UserAllDate: React.FC = () => {
             placeholder="Last Name"
             name="lastName"
             value={userDetails.lastName}
-            onChange={handleOnChange}
+            onChange={(e) => handleOnChange(e)}
           />
         </div>
       </div>
-      <div className={classes.button}>
+      <div>
         <Button
           backgroundButton="#3598cc"
           padding="0.9rem 1.2rem"

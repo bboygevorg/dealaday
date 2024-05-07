@@ -63,15 +63,38 @@
         margin-top: 1rem;
 
         span {
-          width: 5px;
-          height: 5px;
+          position: relative;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
           margin-right: 1rem;
           cursor: pointer;
           position: relative;
           transition: 0.2s ease-in-out;
+
           @media screen and (max-width: 1200px) and (min-width: 767px) {
             height: 1.2rem;
+            width: 20px;
+            height: 20px;
+          }
+
+          .border_color {
+            width: 36px;
+            height: 35px;
+            top: -2px;
+            left: -3.4px;
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            transition: box-shadow 0.5s ease;
+            opacity: 1;
+
+            @media screen and (max-width: 1200px) and (min-width: 767px) {
+              width: 24px;
+              height: 24px;
+              top: -2px;
+              left: -2.4px;
+            }
           }
         }
       }
@@ -101,6 +124,7 @@
   @media screen and (max-width: 767px) and (min-width: 320px) {
     .mobile {
       padding: 1rem 1.4rem;
+      overflow-x: hidden;
       .back_menu {
         display: flex;
         align-items: center;

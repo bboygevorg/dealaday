@@ -1,5 +1,18 @@
 @import "../../../styles/variables.scss";
 
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background color */
+  z-index: 1000; /* Place the overlay above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .catalog {
   margin-top: 4.5rem;
 

@@ -40,6 +40,7 @@ interface GetUser {
   updatedAt: string;
   __v: number;
   firstName: string;
+  password: string;
   lastName: string;
   phone: string;
   address: string[];
@@ -66,6 +67,7 @@ const initialState: UserData = {
     __v: 0,
     firstName: "",
     lastName: "",
+    password: "",
     phone: "",
     address: [],
   },
@@ -217,12 +219,14 @@ export const getUserData = createAsyncThunk<
   { rejectValue: string }
 >("user/getUser", async function (_, { rejectWithValue }) {
   try {
-    const { data } = await axios.get(`${apiUrl}/user/auth/getuser`, {
-      headers: {
-        Authorization: authToken,
-      },
-    });
-    return data;
+    if (authToken) {
+      const { data } = await axios.get(`${apiUrl}/user/auth/getuser`, {
+        headers: {
+          Authorization: authToken,
+        },
+      });
+      return data;
+    }
   } catch (error: any) {
     return rejectWithValue(error.message);
   }

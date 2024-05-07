@@ -9,13 +9,15 @@ import { getUserData } from "../../../../redux/userSlice/userSlice";
 
 interface Active {
   active: boolean;
+  setActive: any;
 }
 
-const DeliveryAddress: React.FC<Active> = ({ active }) => {
+const DeliveryAddress: React.FC<Active> = ({ active, setActive }) => {
   const [deliveryAddress, setDeliveryAddress] = useState<string>("");
   const [activeDefaultIndex, setActiveDefaultIndex] = useState<number | null>(
     null
   );
+  const [defaultAddress, setDefaultAddress] = useState<string>("");
 
   const inputFocus = useRef<HTMLInputElement>(null);
 
@@ -23,6 +25,11 @@ const DeliveryAddress: React.FC<Active> = ({ active }) => {
 
   const { address } = useAppSelector((state) => state.userSlice.getUser);
   const dispatch = useAppDisptach();
+
+  const handleDeleteActive = () => {
+    setActive(false);
+    setDeliveryAddress("");
+  };
 
   useEffect(() => {
     if (active && inputFocus.current) {
@@ -43,10 +50,52 @@ const DeliveryAddress: React.FC<Active> = ({ active }) => {
     }
   }, [address]);
 
-  const handleActiveDefault = (index: number) => {
-    const numberAddress = index + 1;
-    localStorage.setItem("activeDefaultIndex", numberAddress.toString());
-    setActiveDefaultIndex(numberAddress);
+  const getDefaultAddress = async () => {
+    try {
+      const { data } = await axios.get(`${apiUrl}/user/auth/fetchdefadd`, {
+        headers: {
+          Authorization: authToken,
+        },
+      });
+      setDefaultAddress(data);
+    } catch (error: any) {
+      toast.error(error.response.data, { autoClose: 900, theme: "colored" });
+    }
+  };
+
+  useEffect(() => {
+    getDefaultAddress();
+  }, []);
+
+  const handleActiveDefault = async (index: number) => {
+    const filterAddress = address
+      .map((item, number) => ({ item, number }))
+      .filter(({ number }) => number === index)
+      .map(({ item }) => item)
+      .join("");
+
+    const name = filterAddress;
+
+    try {
+      const { data } = await axios.post(
+        `${apiUrl}/user/auth/defaultaddress`,
+        { name },
+        {
+          headers: {
+            Authorization: authToken,
+          },
+        }
+      );
+      const defName = data.name;
+      console.log(defName);
+      setDefaultAddress(defName);
+      toast.success("Add default address successfully", {
+        autoClose: 900,
+        theme: "light",
+      });
+    } catch (error: any) {
+      toast.error(error.response.data, { autoClose: 900, theme: "colored" });
+    }
   };
 
   const handleAddAddress = async () => {
@@ -78,6 +127,7 @@ const DeliveryAddress: React.FC<Active> = ({ active }) => {
             autoClose: 900,
             theme: "colored",
           });
+          handleDeleteActive();
           dispatch(getUserData());
         } else {
           toast.error("Something went wrong", {
@@ -136,7 +186,7 @@ const DeliveryAddress: React.FC<Active> = ({ active }) => {
                 Save
               </Button>
             </div>
-            <span onClick={() => setDeliveryAddress("")}>Cancel</span>
+            <span onClick={handleDeleteActive}>Cancel</span>
           </div>
         </div>
       ) : (
@@ -161,7 +211,7 @@ const DeliveryAddress: React.FC<Active> = ({ active }) => {
 
               <div className={classes.item_right}>
                 <div onClick={() => handleActiveDefault(index)}>
-                  {activeDefaultIndex === index + 1 ? (
+                  {defaultAddress === item ? (
                     <span className={classes.default}>Default</span>
                   ) : (
                     <>
@@ -235,7 +285,7 @@ const DeliveryAddress: React.FC<Active> = ({ active }) => {
                     Save
                   </Button>
                 </div>
-                <span onClick={() => setDeliveryAddress("")}>Cancel</span>
+                <span onClick={handleDeleteActive}>Cancel</span>
               </div>
             </div>
           ) : (

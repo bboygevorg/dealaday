@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./footer.module.scss";
-import logo from "../../assets/img/dealaday_logo.png";
+import logo from "../../../assets/img/dealaday_logo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
               on electronics and home living products.{" "}
             </p>
             <div className={classes.footer_information_socialMedia}>
-              <a href="/">
+              <a href="http://facebook.com">
                 <span>
                   <svg
                     width="24"
@@ -45,7 +45,7 @@ const Footer = () => {
                   </svg>
                 </span>
               </a>
-              <a href="/">
+              <a href="http://www.instagram.com/">
                 <span>
                   <svg
                     width="24"
@@ -85,7 +85,7 @@ const Footer = () => {
                   </svg>
                 </span>
               </a>
-              <a href="">
+              <a href="http://www.pinterest.com">
                 <span>
                   <svg
                     width="24"
@@ -286,43 +286,6 @@ const Footer = () => {
                     fill="#28356A"
                   />
                 </g>
-                {/* <defs>
-                  <filter
-                    id="filter0_d_4865_9288"
-                    x="0.547684"
-                    y="0.72998"
-                    width="18.7952"
-                    height="21.1644"
-                    filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
-                  >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix
-                      in="SourceAlpha"
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                      result="hardAlpha"
-                    />
-                    <feOffset dy="4" />
-                    <feGaussianBlur stdDeviation="2" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                    />
-                    <feBlend
-                      mode="normal"
-                      in2="BackgroundImageFix"
-                      result="effect1_dropShadow_4865_9288"
-                    />
-                    <feBlend
-                      mode="normal"
-                      in="SourceGraphic"
-                      in2="effect1_dropShadow_4865_9288"
-                      result="shape"
-                    />
-                  </filter>
-                </defs> */}
               </svg>
             </span>
             <span>

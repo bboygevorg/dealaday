@@ -9,7 +9,7 @@ import {
   getProductInfo,
 } from "../../redux/productInfo/productInfo";
 
-import { Product, Search } from "../../helper/index";
+import { ButtonScroll, Product, Search } from "../../helper/index";
 
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -42,6 +42,7 @@ const ProductPage: React.FC = () => {
 
   return (
     <div>
+      <ButtonScroll />
       <Helmet>
         <title>{productName || id}</title>
       </Helmet>

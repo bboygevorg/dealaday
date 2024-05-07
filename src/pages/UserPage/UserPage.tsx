@@ -10,6 +10,7 @@ import {
   Search,
   DeliveryAddress,
   UserAllDate,
+  ResetPassword,
 } from "../../helper";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -45,7 +46,7 @@ const UserPage: React.FC = () => {
   let setProceed = authToken !== null ? true : false;
 
   useEffect(() => {
-    if (setProceed) {
+    if (authToken) {
       dispatch(getUserData());
     }
   }, [dispatch]);
@@ -607,7 +608,25 @@ const UserPage: React.FC = () => {
                     </div>
 
                     <div className={classes.delivery_address}>
-                      <DeliveryAddress active={active} />
+                      <DeliveryAddress active={active} setActive={setActive} />
+                    </div>
+                  </div>
+                </>
+              )}
+              {activeAccordion === 3 && (
+                <>
+                  <div className={classes.content_item}>
+                    <div className={classes.delivery}>
+                      <h2>My orders</h2>
+                    </div>
+                  </div>
+                </>
+              )}
+              {activeAccordion === 4 && (
+                <>
+                  <div className={classes.content_item}>
+                    <div className={classes.delivery}>
+                      <h2>My rewards</h2>
                     </div>
                   </div>
                 </>
@@ -747,6 +766,13 @@ const UserPage: React.FC = () => {
                       ))}
                     </div>
                   )}
+                </div>
+              )}
+              {activeAccordion === 6 && (
+                <div className={classes.content_item}>
+                  <h2>Change password</h2>
+
+                  <ResetPassword />
                 </div>
               )}
             </div>

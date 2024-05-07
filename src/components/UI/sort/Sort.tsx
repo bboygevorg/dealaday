@@ -75,7 +75,7 @@ const Sort: React.FC<Sort> = ({ onSortChange }) => {
         <li
           data-value="Featured"
           className={sortingOption === "Featured" ? classes.selectedColor : ""}
-          onClick={(event) => handleSortingChange(event, "")}
+          onClick={() => alert("Soon")}
         >
           Featured
         </li>
@@ -129,7 +129,7 @@ const Sort: React.FC<Sort> = ({ onSortChange }) => {
           className={
             sortingOption === "Highest % Discount" ? classes.selectedColor : ""
           }
-          onClick={(event) => handleSortingChange(event, "")}
+          onClick={() => alert("Soon")}
         >
           Highest % Discount
         </li>

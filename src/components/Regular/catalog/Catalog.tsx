@@ -24,29 +24,12 @@ import {
   ProductEmpty,
 } from "../../../helper/index";
 
-const Catalog: React.FC = () => {
-  const [toggleFilter, setToggleFilter] = useState<boolean>(false);
+interface ToggleFilter {
+  toggleFilter: boolean;
+  setToggleFilter: any;
+}
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (toggleFilter && window.scrollY >= 5000) {
-        document.documentElement.style.overflow = "hidden";
-        document.body.style.overflow = "hidden";
-      } else {
-        document.documentElement.style.overflow = "auto";
-        document.body.style.overflow = "auto";
-      }
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [toggleFilter]);
-
+const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
   useEffect(() => {
     console.log(window.scrollY);
   }, [window.scrollY]);
@@ -228,15 +211,8 @@ const Catalog: React.FC = () => {
               <div className={classes.poducts}>
                 {product && product.length > 0 ? (
                   product.map((product: any) => {
-                    const {
-                      _id,
-                      name,
-                      title,
-                      img,
-                      rating,
-                      price,
-                      price_previous,
-                    } = product;
+                    const { _id, title, img, rating, price, price_previous } =
+                      product;
 
                     return (
                       <ProductCart

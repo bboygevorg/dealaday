@@ -43,6 +43,7 @@ const Product: React.FC = () => {
     (state) => state.productInfo
   );
   const { review } = useAppSelector((state) => state.userSlice);
+  console.log(review);
   const userId = review.filter((item) => item.user._id);
 
   const auth = localStorage.getItem("Authorization");
@@ -529,7 +530,7 @@ const Product: React.FC = () => {
                       {activeReview && (
                         <form onSubmit={handleSendReview}>
                           <div className={classes.review_comment}>
-                            <div style={{ display: "flex", marginTop: "1rem" }}>
+                            <div className={classes.review_stars}>
                               {[...Array(5)].map((star, index) => {
                                 const starValue = index + 1;
                                 return (
@@ -551,6 +552,7 @@ const Product: React.FC = () => {
                                 );
                               })}
                             </div>
+
                             <div className={classes.comment_review}>
                               <input
                                 type="text"

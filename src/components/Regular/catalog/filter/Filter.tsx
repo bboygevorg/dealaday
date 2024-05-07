@@ -5,7 +5,6 @@ import { RootState } from "../../../../redux/store/store";
 import { RangeSlider, Button } from "../../../../helper/index";
 import axios from "axios";
 import { apiUrl } from "../../../../helper/env";
-import styled from "styled-components";
 
 interface FilterProps {
   toggleActive: () => void;
@@ -97,9 +96,11 @@ const Filter: React.FC<FilterProps> = ({
   const handleBrandChange = (brand: string) => {
     onBrandChange(brand);
   };
+
   const handleRatingChange = (rating: number) => {
     onRatingChange(rating);
   };
+
   const handleColorsChange = (color: string) => {
     onColorsChange(color);
   };
@@ -274,11 +275,7 @@ const Filter: React.FC<FilterProps> = ({
                   key={index}
                   data-index={index}
                   style={{
-                    position: "relative",
-                    width: "1.9rem",
-                    height: "1.9rem",
                     backgroundColor: color,
-                    cursor: "pointer",
                   }}
                   onClick={() => {
                     const encodedColor = encodeURIComponent(color);
@@ -291,16 +288,8 @@ const Filter: React.FC<FilterProps> = ({
                 >
                   {selectedColor.includes(index) && (
                     <span
+                      className={classes.border_color}
                       style={{
-                        content: "",
-                        width: "2.1rem",
-                        height: "2.1rem",
-                        position: "absolute",
-                        top: "-1px",
-                        left: "-1.4px",
-                        borderRadius: "50%",
-                        transition: "box-shadow 0.5s ease",
-                        opacity: 1,
                         boxShadow: `0 0 0 4px ${color}`,
                       }}
                     ></span>

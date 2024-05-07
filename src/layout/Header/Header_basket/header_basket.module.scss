@@ -1,0 +1,63 @@
+@import "../../../styles/variables.scss";
+
+.header {
+  background-color: #f9fafb;
+
+  .container {
+    max-width: $container_width;
+    margin: 0 auto;
+    height: 5.5rem;
+    padding-top: 1.5rem;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      height: 3.5rem;
+      padding: 1rem 1rem;
+    }
+
+    .top_header {
+      justify-content: space-between;
+      display: flex;
+
+      @media screen and (min-width: 768px) {
+        flex: 1 0 30%;
+      }
+
+      .top_header_left {
+        width: 210px;
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          .logo {
+            width: 150px;
+            margin-left: 1rem;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          .logo {
+            width: 100px;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .top_header_right {
+        width: 115px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}

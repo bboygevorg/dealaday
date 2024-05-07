@@ -163,7 +163,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
             <Link to={auth ? "/lk" : "/login"} onClick={handleClose}>
               <span>
                 Favorinte (
-                {setProceed && wishlist?.length > 0 && wishlist.length})
+                {setProceed && wishlist?.length > 0 ? wishlist.length : "0"})
               </span>
             </Link>
           </div>

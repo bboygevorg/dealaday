@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from "react";
 import classes from "./header.module.scss";
-import { useAppDisptach, useAppSelector } from "../../redux/store/hook";
-import { useSelector } from "react-redux";
-import { fetchWishlist } from "../../redux/userSlice/userSlice";
+import { useAppDisptach, useAppSelector } from "../../../redux/store/hook";
+import { fetchWishlist } from "../../../redux/userSlice/userSlice";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Search from "../../components/UI/Search/Search";
+import Search from "../../../components/UI/Search/Search";
 
-import logo from "../../assets/img/dealaday_logo.png";
-import MenuMobile from "../../components/Regular/MenuMobile/MenuMobile";
-import { RootState } from "../../redux/store/store";
-import { IconMenu } from "../../helper";
+import logo from "../../../assets/img/dealaday_logo.png";
+import MenuMobile from "../../../components/Regular/MenuMobile/MenuMobile";
+import { IconMenu } from "../../../helper";
 
 const Header: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
   const dispatch = useAppDisptach();
-  const navigate = useNavigate();
-
-  const wishtlist = useAppSelector((state) => state.userSlice.wishlist);
-
-  const cartItems = useSelector(
-    (state: RootState) => state.cartSlice.cartItems
-  );
 
   const auth = localStorage.getItem("Authorization");
   let setProceed = auth ? true : false;
@@ -34,9 +25,7 @@ const Header: React.FC = () => {
     console.log("User navigated from basket page");
   }
   const closeSlideBar = () => {
-    if (setProceed) {
-      setToggleMenu(false);
-    }
+    setToggleMenu(false);
   };
 
   useEffect(() => {

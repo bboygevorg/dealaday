@@ -8,9 +8,11 @@ import BannerProduct from "../../components/UI/Banner/Banner";
 import Catalog from "../../components/Regular/catalog/Catalog";
 import axios from "axios";
 import { apiUrl } from "../../helper/env";
+import { ButtonScroll } from "../../helper";
 
 const Products = () => {
   const [banner, setBanner] = useState([]);
+  const [toggleFilter, setToggleFilter] = useState(false);
   const location = useLocation();
   const pathSegments = location.pathname
     .split("/")
@@ -33,7 +35,8 @@ const Products = () => {
 
   return (
     <>
-      <div>
+      <div style={toggleFilter ? { overflow: "hidden", height: "100vh" } : {}}>
+        <ButtonScroll />
         <Helmet>
           <title>Products</title>
         </Helmet>
@@ -47,7 +50,6 @@ const Products = () => {
             color=""
           />
         </div>
-
         <div className="navigate">
           <div className="container">
             <Link to="/">
@@ -77,7 +79,10 @@ const Products = () => {
           </div>
         </div>
         <BannerProduct banner={banner} />
-        <Catalog />
+        <Catalog
+          toggleFilter={toggleFilter}
+          setToggleFilter={setToggleFilter}
+        />
       </div>
     </>
   );
