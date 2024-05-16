@@ -8,6 +8,7 @@
   border: none;
   @include arrow;
   transition: 0.2s ease-in-out;
+  background-color: $blue_01;
 
   @media screen and (max-width: 1200px) and (min-width: 767px) {
     right: 0.2rem;
@@ -19,14 +20,14 @@
   }
 
   svg {
-    stroke: $gray_900;
+    stroke: $white_01;
   }
 
   &:hover {
-    background-color: $blue_01;
+    background-color: $gray_200;
   }
 
   &:hover > svg {
-    stroke: $white_01;
+    stroke: $blue_01;
   }
 }

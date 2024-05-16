@@ -1,27 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import classes from "./search.module.scss";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
 
 import product_dont_found from "../../../assets/img/product_dont_found.jpg";
-import { apiUrl } from "../../../helper/env";
-
-interface SearchStyleProp {
-  inputbackgroundColor: string;
-  stroke: string;
-  logoBackgroundColor: string;
-  borderInputColor: string;
-  logoBorderColor: string;
-  color: string;
-}
-
-interface ProductSearch {
-  _id: string;
-  name: string;
-  img: string;
-  category: string;
-  brand: string;
-}
+import { useAppSelector, useAppDisptach } from "../../../redux/store/hook";
+import { fetchAllProducts } from "../../../redux/allRequests/allRequests";
 
 const Search: React.FC<SearchStyleProp> = ({
   inputbackgroundColor,
@@ -31,38 +21,33 @@ const Search: React.FC<SearchStyleProp> = ({
   logoBorderColor,
   color,
 }) => {
-  const [data, setData] = useState<ProductSearch[]>([]);
-  const [filteredData, setFilteredData] = useState<ProductSearch[]>([]);
   const [serachTerm, setSearchTerm] = useState("");
   const [isHovered, setHovered] = useState<boolean>(false);
   const [isSearchBlockOpen, setIsSearchBlockOpen] = useState<boolean>(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
-  const getAllProduct = async () => {
-    try {
-      const { data } = await axios.get(`${apiUrl}/product/products`);
-      setData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { products } = useAppSelector((state) => state.allRequests);
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-    const newFiltereData = data.filter(
+  const dispatch = useAppDisptach();
+
+  const handleSearch = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(event.target.value);
+    },
+    []
+  );
+
+  const filtered = useMemo(() => {
+    return products.filter(
       (item) =>
         (item.name &&
-          item.name.toLowerCase().includes(event.target.value.toLowerCase())) ||
+          item.name.toLowerCase().includes(serachTerm.toLowerCase())) ||
         (item.category &&
-          item.category
-            .toLowerCase()
-            .includes(event.target.value.toLowerCase())) ||
+          item.category.toLowerCase().includes(serachTerm.toLowerCase())) ||
         (item.brand &&
-          item.brand.toLowerCase().includes(event.target.value.toLowerCase()))
+          item.brand.toLowerCase().includes(serachTerm.toLowerCase()))
     );
-
-    setFilteredData(newFiltereData);
-  };
+  }, [products, serachTerm]);
 
   const toggleSearchBlock = () => {
     setIsSearchBlockOpen(!isSearchBlockOpen);
@@ -80,8 +65,8 @@ const Search: React.FC<SearchStyleProp> = ({
   };
 
   useEffect(() => {
-    getAllProduct();
-  }, []);
+    dispatch(fetchAllProducts());
+  }, [dispatch]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -163,13 +148,13 @@ const Search: React.FC<SearchStyleProp> = ({
         </form>
         {isSearchBlockOpen && serachTerm && (
           <div className={classes.search_block}>
-            {filteredData.length === 0 ? (
+            {filtered.length === 0 ? (
               <div className={classes.product_dont}>
                 <h2>Product Not Found</h2>
                 <img src={product_dont_found} alt="" />
               </div>
             ) : (
-              filteredData.map((product) => (
+              filtered.map((product) => (
                 <Link
                   to={`/products/${product._id}`}
                   key={product._id}

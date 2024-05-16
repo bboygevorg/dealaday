@@ -215,7 +215,7 @@ export const editReview = createAsyncThunk<
 
 export const getUserData = createAsyncThunk<
   GetUser[],
-  undefined,
+  void,
   { rejectValue: string }
 >("user/getUser", async function (_, { rejectWithValue }) {
   try {

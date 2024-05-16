@@ -21,6 +21,7 @@ function Router() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/lk" element={<UserPage />} />
+          <Route path="*" element={<HomePage />} />
         </Route>
         <Route element={<Layout_Basket />}>
           <Route path="/basket" element={<Basket />} />

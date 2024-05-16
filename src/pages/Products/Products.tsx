@@ -6,12 +6,11 @@ import { Helmet } from "react-helmet-async";
 import Search from "../../components/UI/Search/Search";
 import BannerProduct from "../../components/UI/Banner/Banner";
 import Catalog from "../../components/Regular/catalog/Catalog";
-import axios from "axios";
-import { apiUrl } from "../../helper/env";
 import { ButtonScroll } from "../../helper";
+import { useAppSelector, useAppDisptach } from "../../redux/store/hook";
+import { fetchgetBanner } from "../../redux/allRequests/allRequests";
 
-const Products = () => {
-  const [banner, setBanner] = useState([]);
+const Products: React.FC = () => {
   const [toggleFilter, setToggleFilter] = useState(false);
   const location = useLocation();
   const pathSegments = location.pathname
@@ -19,24 +18,19 @@ const Products = () => {
     .filter((segment) => segment)
     .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1));
 
-  const getBanner = async () => {
-    try {
-      const { data } = await axios.get(`${apiUrl}/product/banner`);
+  const { getBanner } = useAppSelector((state) => state.allRequests);
 
-      setBanner(data);
-    } catch (error) {
-      console.log("Error fetching deals banner:", error);
-    }
-  };
+  const dispatch = useAppDisptach();
 
   useEffect(() => {
-    getBanner();
-  }, []);
+    dispatch(fetchgetBanner());
+  }, [dispatch]);
 
   return (
     <>
       <div style={toggleFilter ? { overflow: "hidden", height: "100vh" } : {}}>
         <ButtonScroll />
+
         <Helmet>
           <title>Products</title>
         </Helmet>
@@ -78,7 +72,7 @@ const Products = () => {
             ))}
           </div>
         </div>
-        <BannerProduct banner={banner} />
+        <BannerProduct banner={getBanner} />
         <Catalog
           toggleFilter={toggleFilter}
           setToggleFilter={setToggleFilter}

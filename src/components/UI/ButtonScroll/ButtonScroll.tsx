@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import classes from "./buttonScroll.module.scss";
 
 const ButtonScroll = () => {
   const [scrollPage, setScrolledPages] = useState(0);
 
+  const handleScroll = useCallback(() => {
+    const windowHeight = window.innerHeight;
+    const scrollTop =
+      window.scrollY ||
+      document.body.scrollTop +
+        ((document.documentElement && document.documentElement.scrollTop) || 0);
+
+    const currentPage = Math.ceil(scrollTop / windowHeight);
+
+    setScrolledPages(currentPage);
+  }, []);
+
   useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      console.log(windowHeight);
-      const totalHeight = document.documentElement.scrollHeight;
-      const scrollTop =
-        window.scrollY ||
-        document.body.scrollTop +
-          ((document.documentElement && document.documentElement.scrollTop) ||
-            0);
-
-      const totalPages = Math.ceil(totalHeight / windowHeight);
-      const currentPage = Math.ceil(scrollTop / windowHeight);
-
-      setScrolledPages(currentPage);
-    };
-
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   const handleScrollToTop = () => {
     window.scrollTo({

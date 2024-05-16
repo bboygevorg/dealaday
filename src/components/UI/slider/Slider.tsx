@@ -4,25 +4,12 @@ import { Link } from "react-router-dom";
 import SliderSlick from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Product } from "../../../redux/allRequests/types";
 
-import { ProductCart, CartColor } from "../../../helper/index";
-
-interface SliderType {
-  productId: {
-    _id: string;
-    productId: string;
-    title: string;
-    img: string;
-    rating: number;
-    number: number;
-    price: number;
-    price_previous: number;
-    createdAt: string;
-  };
-}
+import { ProductCart } from "../../../helper/index";
 
 const Slider: React.FC<{
-  sliderProduct: SliderType[];
+  sliderProduct: Product[];
   sliderName: string;
 }> = ({ sliderProduct, sliderName }) => {
   const sliderRef = useRef<SliderSlick>(null);

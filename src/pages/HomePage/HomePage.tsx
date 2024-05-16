@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import classes from "./homePage.module.scss";
-import axios from "axios";
+import { useAppSelector, useAppDisptach } from "../../redux/store/hook";
+import {
+  fetchMostSLider,
+  fetchToptSLider,
+} from "../../redux/allRequests/allRequests";
 
 import {
   CartTodays,
@@ -11,42 +15,31 @@ import {
   BannerProducts,
   ButtonScroll,
 } from "../../helper/index";
-import { apiUrl } from "../../helper/env";
 
 const HomePage: React.FC = () => {
-  const [mostPopular, setMostPopular] = useState([]);
-  const [topProducts, setTopProducts] = useState([]);
+  const { topSlider, mostSlider } = useAppSelector(
+    (state) => state.allRequests
+  );
 
-  const getMostPopularProduct = async () => {
-    try {
-      const { data } = await axios.get(`${apiUrl}/product/mostpopular`);
-      setTopProducts(data);
-      setMostPopular(data);
-    } catch (error) {
-      console.log("Error fetching deals mostPopular:", error);
-    }
-  };
-
-  const getTopProducts = async () => {
-    try {
-      const { data } = await axios.get(`${apiUrl}/product/topproducts`);
-      setTopProducts(data);
-    } catch (error) {
-      console.log("Error fetching deals topProduct:", error);
-    }
-  };
+  const dispatch = useAppDisptach();
 
   useEffect(() => {
-    getMostPopularProduct();
-    getTopProducts();
-  }, []);
+    dispatch(fetchToptSLider());
+    dispatch(fetchMostSLider());
+  }, [dispatch]);
+
+  // const renderCount = useRef(0);
+  // renderCount.current += 1;
+  // console.log(`rendered ${renderCount.current} times`);
 
   return (
     <div>
       <ButtonScroll />
+
       <Helmet>
         <title>Deal A Day</title>
       </Helmet>
+
       <div className={classes.homePage_search}>
         <Search
           stroke="#3598cc"
@@ -59,9 +52,17 @@ const HomePage: React.FC = () => {
       </div>
       <CartTodays />
       <InfoBar />
-      <Slider sliderProduct={topProducts} sliderName="Top products" />
+      {topSlider.length > 0 ? (
+        <Slider sliderProduct={topSlider} sliderName="Top products" />
+      ) : (
+        ""
+      )}
       <BannerProducts />
-      <Slider sliderProduct={mostPopular} sliderName="Most popular" />
+      {mostSlider.length > 0 ? (
+        <Slider sliderProduct={mostSlider} sliderName="Most popular" />
+      ) : (
+        ""
+      )}
     </div>
   );
 };

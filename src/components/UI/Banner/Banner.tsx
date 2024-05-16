@@ -1,18 +1,12 @@
 import React from "react";
 import classes from "./banner.module.scss";
+import { GetBanner } from "../../../redux/allRequests/types";
 
-interface Banner {
-  id: string;
-  name: string;
-  description: string;
-  backGroundImage: string;
-}
-
-const Banner: React.FC<{ banner: Banner[] }> = ({ banner }) => {
+const Banner: React.FC<{ banner: GetBanner[] }> = ({ banner }) => {
   return (
     banner.length > 0 && (
       <>
-        <div className={classes.banner_product} key={banner[0].id}>
+        <div className={classes.banner_product} key={banner[0]._id}>
           <img
             className={classes.background_image}
             src={banner[0].backGroundImage}

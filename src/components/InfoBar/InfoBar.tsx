@@ -127,7 +127,7 @@ const infoBar = [
   },
 ];
 
-const InfoBar = () => {
+const InfoBar: React.FC = () => {
   return (
     <div className={classes.infoBar}>
       <div className={classes.wrapper}>

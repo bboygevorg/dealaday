@@ -2,29 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import classes from "./bannerProducts.module.scss";
 
 import { Button, Price } from "../../../helper/index";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useAppSelector, useAppDisptach } from "../../../redux/store/hook";
 import { addToCart } from "../../../redux/cartSlice/cartSlice";
-import { apiUrl } from "../../../helper/env";
-
-interface BannerProduct {
-  productId: {
-    _id: string;
-    name: string;
-    img: string;
-    title: string;
-    price: number;
-    price_previous: number;
-    bannerPicture: string;
-  };
-}
+import { fetchBannerProduct } from "../../../redux/allRequests/allRequests";
+import { Product } from "../../../redux/allRequests/types";
 
 const BannerProducts: React.FC = () => {
-  const [bannerProduct, setBannerProduct] = useState<BannerProduct[]>([]);
+  const { bannerProduct } = useAppSelector((state) => state.allRequests);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDisptach();
 
-  const handleAddToCart = (bannerProduct: BannerProduct) => {
+  const handleAddToCart = (bannerProduct: Product) => {
     if (bannerProduct) {
       const { _id, name, price, img } = bannerProduct.productId;
       const productToAdd = { _id: _id, name, price, img };
@@ -41,19 +29,9 @@ const BannerProducts: React.FC = () => {
     }
   };
 
-  const getBanner = async () => {
-    try {
-      const { data } = await axios.get(`${apiUrl}/product/bannerproduct`);
-
-      setBannerProduct(data);
-    } catch (error) {
-      console.log("Error fetching deals bannerProduct:", error);
-    }
-  };
-
   useEffect(() => {
-    getBanner();
-  }, []);
+    dispatch(fetchBannerProduct());
+  }, [dispatch]);
 
   return (
     bannerProduct.length > 0 && (

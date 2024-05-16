@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import classes from "./catalog.module.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../redux/store/store";
+import { useAppSelector, useAppDisptach } from "../../../redux/store/hook";
+
+import { useSearchParams } from "react-router-dom";
 
 import {
   fetchProducts,
@@ -30,9 +31,9 @@ interface ToggleFilter {
 }
 
 const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
-  useEffect(() => {
-    console.log(window.scrollY);
-  }, [window.scrollY]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {}, [window.scrollY]);
 
   const {
     product,
@@ -45,9 +46,51 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
     selectedRating,
     selectedColor,
     sortingCriterion,
-  } = useSelector((state: RootState) => state.products);
+  } = useAppSelector((state) => state.products);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDisptach();
+
+  const renderCount = useRef(0);
+  renderCount.current += 1;
+  console.log(`rendered ${renderCount.current} times`);
+
+  const handleParametrChange = useCallback(
+    (paramName: string, paramValue: any) => {
+      let updatedValue: string | null;
+      switch (paramName) {
+        case "page":
+          dispatch(setCurrentPage({ page: paramValue }));
+          window.scrollTo({ top: 0, behavior: "auto" });
+          break;
+        case "category":
+          dispatch(setSelectedCategories(paramValue));
+          break;
+        case "brand":
+          dispatch(setSelectedBrand(paramValue));
+          break;
+        case "rating":
+          dispatch(setSelectedRating(paramValue));
+          break;
+        case "priceRange":
+          dispatch(setSelectedPriceRange(paramValue));
+          break;
+        case "color":
+          dispatch(setSelectedColors(paramValue));
+          break;
+        case "sort":
+          dispatch(setSortingCriterion(paramValue));
+          break;
+        default:
+          break;
+      }
+
+      const newCurrentPage = 1;
+      if (totalProductsCount <= PAGE_LIMIT * (newCurrentPage - 1) + 1) {
+        dispatch(setCurrentPage({ page: 1 }));
+      }
+    },
+    [dispatch, searchParams, totalProductsCount]
+  );
 
   const updateProducts = useCallback(
     (
@@ -73,81 +116,7 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
         }) as any
       );
     },
-    [dispatch, fetchProducts]
-  );
-
-  const handlePageChange = useCallback((newPage: number) => {
-    dispatch(setCurrentPage({ page: newPage }));
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }, []);
-
-  const handleCategoryChange = useCallback(
-    (category: string) => {
-      dispatch(setSelectedCategories(category));
-
-      const newCurrentPage = 1;
-
-      if (totalProductsCount <= PAGE_LIMIT * (newCurrentPage - 1) + 1) {
-        dispatch(setCurrentPage({ page: 1 }));
-      }
-    },
-
-    [dispatch]
-  );
-
-  const handleBrandChange = useCallback(
-    (brand: string) => {
-      dispatch(setSelectedBrand(brand));
-
-      const newCurrentPage = 1;
-
-      if (totalProductsCount < PAGE_LIMIT * (newCurrentPage - 1) + 1) {
-        dispatch(setCurrentPage({ page: 1 }));
-      }
-    },
-    [dispatch]
-  );
-
-  const handleRatingChange = useCallback(
-    (rating: number) => {
-      dispatch(setSelectedRating(rating));
-
-      const newCurrentPage = 1;
-
-      if (totalProductsCount < PAGE_LIMIT * (newCurrentPage - 1) + 1) {
-        dispatch(setCurrentPage({ page: 1 }));
-      }
-    },
-    [dispatch]
-  );
-
-  const handlePriceRange = useCallback(
-    (minPrice: number[], maxPrice: number[]) => {
-      dispatch(setSelectedPriceRange({ minPrice, maxPrice }));
-    },
-    [dispatch]
-  );
-
-  const handleColorChange = useCallback(
-    (color: string) => {
-      dispatch(setSelectedColors(color));
-      console.log(color);
-
-      const newCurrentPage = 1;
-
-      if (totalProductsCount < PAGE_LIMIT * (newCurrentPage - 1) + 1) {
-        dispatch(setCurrentPage({ page: 1 }));
-      }
-    },
-
-    [dispatch]
-  );
-
-  const handleSortChange = useCallback(
-    (criterion: string | null) => {
-      dispatch(setSortingCriterion(criterion));
-    },
-    [dispatch]
+    [dispatch, searchParams, totalProductsCount]
   );
 
   useEffect(() => {
@@ -188,20 +157,35 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
       <div className={classes.container}>
         <h2 className={classes.filter_title}>All Product</h2>
         <div className={classes.product}>
-          <Filter
-            toggleActive={toggleActive}
-            toggleFilter={toggleFilter}
-            closeFilterBar={closeFilterBar}
-            onCategoryChange={handleCategoryChange}
-            onBrandChange={handleBrandChange}
-            onRatingChange={handleRatingChange}
-            onPriceRange={handlePriceRange}
-            onColorsChange={handleColorChange}
-          />
+          {product.length > 0 ? (
+            <Filter
+              toggleActive={toggleActive}
+              toggleFilter={toggleFilter}
+              closeFilterBar={closeFilterBar}
+              onCategoryChange={(category) =>
+                handleParametrChange("category", category)
+              }
+              onBrandChange={(brand) => handleParametrChange("brand", brand)}
+              onRatingChange={(rating) =>
+                handleParametrChange("rating", rating)
+              }
+              onPriceRange={(price) => handleParametrChange("price", price)}
+              onColorsChange={(color) => handleParametrChange("color", color)}
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
+            />
+          ) : (
+            ""
+          )}
+
           <div className={classes.product_catalog}>
             {product.length !== 0 && (
               <div className={classes.sort}>
-                <Sort onSortChange={handleSortChange} />
+                <Sort
+                  onSortChange={(criterion) =>
+                    handleParametrChange("sort", criterion)
+                  }
+                />
               </div>
             )}
 
@@ -240,7 +224,9 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
                 {product.length > 0 && (
                   <Pagination
                     currentPage={currentPage}
-                    onPageChange={handlePageChange}
+                    onPageChange={(newPagw) =>
+                      handleParametrChange("page", newPagw)
+                    }
                     totalProductsCount={totalProductsCount}
                   />
                 )}

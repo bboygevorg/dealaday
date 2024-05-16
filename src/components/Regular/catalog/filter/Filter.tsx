@@ -19,6 +19,8 @@ interface FilterProps {
     newPage: number
   ) => void;
   onColorsChange: (color: string) => void;
+  searchParams: any;
+  setSearchParams: any;
 }
 
 const Filter: React.FC<FilterProps> = ({
@@ -30,6 +32,8 @@ const Filter: React.FC<FilterProps> = ({
   onRatingChange,
   onPriceRange,
   onColorsChange,
+  searchParams,
+  setSearchParams,
 }) => {
   const {
     product,
@@ -42,6 +46,7 @@ const Filter: React.FC<FilterProps> = ({
   const [filterCategory, setFilterCategory] = useState<any[]>([]);
   const [filterBrands, setFilterBrands] = useState<any[]>([]);
   const [filterColor, setFilterColor] = useState<any[]>([]);
+
   const colorsContainerRef = useRef(null);
   const rating = [5, 4, 3, 2, 1];
 
@@ -89,20 +94,84 @@ const Filter: React.FC<FilterProps> = ({
     fetchAllProducts();
   }, []);
 
-  const handleChange = (category: string) => {
-    onCategoryChange(category);
+  useEffect(() => {
+    const params = Object.fromEntries([...searchParams]);
+
+    // if (params.hasOwnProperty("category")) {
+    //   const categoryFromURL = params["category"];
+
+    //   handleChange(categoryFromURL);
+    // }
+
+    // if (params.hasOwnProperty("color")) {
+    //   // Get the value of the "color" key
+    //   const colorFromURL = params["color"];
+
+    //   // Call handleColorsChange with the color parameter from URL
+    //   handleColorsChange(colorFromURL);
+    // }
+  }, [searchParams]);
+
+  const handleChange = (category: any) => {
+    setSearchParams((prevSearchParams: any) => {
+      const newSearchParams = new URLSearchParams(prevSearchParams);
+
+      newSearchParams.set("category", category);
+      return newSearchParams;
+    });
+
+    const params = new URLSearchParams(window.location.search);
+
+    const catgoryFromURL = params.get("category");
+
+    if (catgoryFromURL !== null) {
+      onCategoryChange(catgoryFromURL);
+    }
   };
 
   const handleBrandChange = (brand: string) => {
-    onBrandChange(brand);
+    setSearchParams((prevSearchParams: any) => {
+      const newSearchParams = new URLSearchParams(prevSearchParams);
+
+      newSearchParams.set("brand", brand);
+      return newSearchParams;
+    });
+    const params = new URLSearchParams(window.location.search);
+    const brandFromURL = params.get("brand");
+
+    if (brandFromURL !== null) {
+      onBrandChange(brandFromURL);
+    }
   };
 
   const handleRatingChange = (rating: number) => {
-    onRatingChange(rating);
+    setSearchParams((prevSearchParams: any) => {
+      const newSearchParams = new URLSearchParams(prevSearchParams);
+
+      newSearchParams.set("rating", rating.toString());
+      return newSearchParams;
+    });
+    const params = new URLSearchParams(window.location.search);
+    const ratingFromURL = params.get("rating");
+
+    if (ratingFromURL !== null) {
+      onRatingChange(rating);
+    }
   };
 
   const handleColorsChange = (color: string) => {
-    onColorsChange(color);
+    setSearchParams((prevSearchParams: any) => {
+      const newSearchParams = new URLSearchParams(prevSearchParams);
+      newSearchParams.set("color", color);
+      return newSearchParams;
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const colorFromURL = params.get("color");
+
+    if (colorFromURL !== null) {
+      onColorsChange(colorFromURL);
+    }
   };
 
   const stars = (number: number) => {
@@ -210,7 +279,7 @@ const Filter: React.FC<FilterProps> = ({
           <div className={classes.categoriesFilter}>
             <h3>Categories</h3>
             <ul style={{ listStyleType: "none" }}>
-              {filterCategory.map((elem, index) => (
+              {filterCategory?.map((elem, index) => (
                 <li key={index}>
                   <label>
                     <input
