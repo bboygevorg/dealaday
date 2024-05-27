@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import classes from "./cartTodays.module.scss";
 
 import { OneCart, ProductEmpty, Loader } from "../../../helper/index";
@@ -9,6 +9,7 @@ const CartTodays: React.FC = () => {
   const { dealsProducts, loading } = useAppSelector(
     (state) => state.allRequests
   );
+
   const dispatch = useAppDisptach();
 
   useEffect(() => {

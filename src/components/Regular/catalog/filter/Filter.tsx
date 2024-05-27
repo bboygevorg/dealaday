@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import classes from "./filter.module.scss";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../redux/store/store";
 import { RangeSlider, Button } from "../../../../helper/index";
 import axios from "axios";
 import { apiUrl } from "../../../../helper/env";
@@ -21,6 +19,10 @@ interface FilterProps {
   onColorsChange: (color: string) => void;
   searchParams: any;
   setSearchParams: any;
+  totalProductsCount: number;
+  selectedRating: number[];
+  selectedBrand: string[];
+  selectedCategory: string[];
 }
 
 const Filter: React.FC<FilterProps> = ({
@@ -34,42 +36,41 @@ const Filter: React.FC<FilterProps> = ({
   onColorsChange,
   searchParams,
   setSearchParams,
+  totalProductsCount,
+  selectedRating,
+  selectedBrand,
+  selectedCategory,
 }) => {
-  const {
-    product,
-    selectedCategory,
-    selectedBrand,
-    selectedRating,
-    totalProductsCount,
-  } = useSelector((state: RootState) => state.products);
   const [selectedColor, setSelectedColor] = useState<number[]>([]);
   const [filterCategory, setFilterCategory] = useState<any[]>([]);
   const [filterBrands, setFilterBrands] = useState<any[]>([]);
   const [filterColor, setFilterColor] = useState<any[]>([]);
+  const [showAll, setShowAll] = useState(false);
+
+  const handleTogglwShowAll = () => {
+    setShowAll(!showAll);
+  };
+
+  const brandsShow = showAll ? filterBrands : filterBrands.slice(0, 5);
 
   const colorsContainerRef = useRef(null);
   const rating = [5, 4, 3, 2, 1];
 
-  const [currentWidth, setCurrentWidth] = useState(1024);
-  const [mobileWidth, setMobileWidth] = useState(767);
-  const [tabletWidth, setTabletWidth] = useState(1024);
-
   const fetchAllProducts = async () => {
     try {
       const response = await axios.get(
-        `${apiUrl}/product/products?page_limit=${totalProductsCount}r`
+        `${apiUrl}/product/products?page_limit=${totalProductsCount}`
       );
-
       const allProducts = response.data;
-
-      const allCategories = allProducts.map((item: any) => item.category);
-      const allBrands = allProducts.map((item: any) => item.brand);
-      const allColor = allProducts.map((item: any) => item.color);
-
-      const uniqueCategories = Array.from(new Set(allCategories));
-      const uniqueBrands = Array.from(new Set(allBrands));
-      const uniqueColor = Array.from(new Set(allColor));
-
+      const uniqueCategories = Array.from(
+        new Set(allProducts.map((item: any) => item.category))
+      );
+      const uniqueBrands = Array.from(
+        new Set(allProducts.map((item: any) => item.brand))
+      );
+      const uniqueColor = Array.from(
+        new Set(allProducts.map((item: any) => item.color))
+      );
       setFilterCategory(uniqueCategories);
       setFilterBrands(uniqueBrands);
       setFilterColor(uniqueColor);
@@ -79,56 +80,70 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      setCurrentWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
     fetchAllProducts();
   }, []);
 
   useEffect(() => {
     const params = Object.fromEntries([...searchParams]);
-
+    if (params.hasOwnProperty("category")) {
+      const categoriesFromURL = params["category"].split(",");
+      handleChangeCategory(categoriesFromURL);
+    }
     // if (params.hasOwnProperty("category")) {
     //   const categoryFromURL = params["category"];
-
     //   handleChange(categoryFromURL);
     // }
-
     // if (params.hasOwnProperty("color")) {
     //   // Get the value of the "color" key
     //   const colorFromURL = params["color"];
-
     //   // Call handleColorsChange with the color parameter from URL
     //   handleColorsChange(colorFromURL);
     // }
-  }, [searchParams]);
+  }, []);
 
-  const handleChange = (category: any) => {
+  // To correct
+  const handleChangeCategory = (category: any) => {
     setSearchParams((prevSearchParams: any) => {
       const newSearchParams = new URLSearchParams(prevSearchParams);
+      const existingCategories =
+        newSearchParams.get("category")?.split(",") || [];
 
-      newSearchParams.set("category", category);
+      if (!existingCategories.includes(category)) {
+        existingCategories.push(category);
+      }
+
+      console.log(existingCategories);
+
+      newSearchParams.set("category", existingCategories.join(","));
       return newSearchParams;
     });
+    const categoriesFromURL = new URLSearchParams(window.location.search).get(
+      "category"
+    );
 
-    const params = new URLSearchParams(window.location.search);
+    // if (categoriesFromURL) {
+    //   const categoriesArray = categoriesFromURL.split(",");
+    //   categoriesArray.forEach((category) => {
+    //     onCategoryChange(category);
+    //   });
+    // }
 
-    const catgoryFromURL = params.get("category");
-
-    if (catgoryFromURL !== null) {
-      onCategoryChange(catgoryFromURL);
-    }
+    onCategoryChange(category);
   };
 
+  // const handleChangeCategory = (category: any) => {
+  //   setSearchParams((prevSearchParams: any) => {
+  //     const newSearchParams = new URLSearchParams(prevSearchParams);
+  //     newSearchParams.set("category", category);
+  //     return newSearchParams;
+  //   });
+  //   const catgoryFromURL = new URLSearchParams(window.location.search).get(
+  //     "category"
+  //   );
+  //   if (catgoryFromURL) onCategoryChange(catgoryFromURL);
+  // };
+
+  // To correct
   const handleBrandChange = (brand: string) => {
     setSearchParams((prevSearchParams: any) => {
       const newSearchParams = new URLSearchParams(prevSearchParams);
@@ -144,6 +159,7 @@ const Filter: React.FC<FilterProps> = ({
     }
   };
 
+  // To correct
   const handleRatingChange = (rating: number) => {
     setSearchParams((prevSearchParams: any) => {
       const newSearchParams = new URLSearchParams(prevSearchParams);
@@ -159,6 +175,7 @@ const Filter: React.FC<FilterProps> = ({
     }
   };
 
+  // To correct
   const handleColorsChange = (color: string) => {
     setSearchParams((prevSearchParams: any) => {
       const newSearchParams = new URLSearchParams(prevSearchParams);
@@ -174,6 +191,7 @@ const Filter: React.FC<FilterProps> = ({
     }
   };
 
+  // To correct
   const stars = (number: number) => {
     const starIcon = [];
     const maxStars = 5;
@@ -240,6 +258,7 @@ const Filter: React.FC<FilterProps> = ({
     return starIcon;
   };
 
+  // To correct
   const handleClick = (index: number) => {
     setSelectedColor((prevSelectedColors) => {
       if (prevSelectedColors.includes(index)) {
@@ -286,7 +305,7 @@ const Filter: React.FC<FilterProps> = ({
                       type="checkbox"
                       className={classes.style_checkbox}
                       checked={selectedCategory.includes(elem)}
-                      onChange={() => handleChange(elem)}
+                      onChange={() => handleChangeCategory(elem)}
                     />
                     <span className={classes.check_box}></span>
                     <span>{elem}</span>
@@ -298,7 +317,7 @@ const Filter: React.FC<FilterProps> = ({
           <div className={classes.brandsFilter}>
             <h3>Brand</h3>
             <ul style={{ listStyleType: "none" }}>
-              {filterBrands?.map((elem, index) => (
+              {brandsShow?.map((elem, index) => (
                 <li key={index}>
                   <label>
                     <input
@@ -311,6 +330,16 @@ const Filter: React.FC<FilterProps> = ({
                   </label>
                 </li>
               ))}
+              {filterBrands.length > 5 && (
+                <li>
+                  <span
+                    onClick={handleTogglwShowAll}
+                    style={{ fontSize: "14px", color: "#3598cc" }}
+                  >
+                    {showAll ? "Show Less" : "Show more"}
+                  </span>
+                </li>
+              )}
             </ul>
           </div>
           <div className={classes.ratingFilter}>
@@ -411,7 +440,7 @@ const Filter: React.FC<FilterProps> = ({
                       type="checkbox"
                       className={classes.style_checkbox}
                       checked={selectedCategory.includes(elem)}
-                      onChange={() => handleChange(elem)}
+                      onChange={() => handleChangeCategory(elem)}
                     />
                     <span className={classes.check_box}></span>
                     <span>{elem}</span>

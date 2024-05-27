@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import classes from "./button.module.scss";
 
-// исправить button Hower
-
 interface Button {
   children: React.ReactNode;
   backgroundButton: string;

@@ -6,6 +6,7 @@ import { getUserData } from "../../../../redux/userSlice/userSlice";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { apiUrl } from "../../../../helper/env";
+import Input from "../../input/Input";
 
 const UserAllDate: React.FC = () => {
   const [userDetails, setUserDetails] = useState({
@@ -107,9 +108,9 @@ const UserAllDate: React.FC = () => {
       <div>
         <div>
           <span>Email</span>
-          <input
-            name="email"
-            type="text"
+          <Input
+            name="text"
+            type="email"
             placeholder="Email"
             value={userDetails.email}
             onChange={(e) => handleOnChange(e)}
@@ -117,8 +118,9 @@ const UserAllDate: React.FC = () => {
         </div>
         <div>
           <span>Phone</span>
-          <input
+          <Input
             name="phone"
+            type="phone"
             placeholder="Phone"
             value={userDetails.phone}
             onChange={(e) => handleOnChange(e)}
@@ -126,17 +128,17 @@ const UserAllDate: React.FC = () => {
         </div>
         <div>
           <span>First Name</span>
-          <input
+          <Input
             type="text"
-            placeholder="First Name"
             name="firstName"
+            placeholder="First Name"
             value={userDetails.firstName}
             onChange={(e) => handleOnChange(e)}
           />
         </div>
         <div>
           <span>Last Name</span>
-          <input
+          <Input
             type="text"
             placeholder="Last Name"
             name="lastName"

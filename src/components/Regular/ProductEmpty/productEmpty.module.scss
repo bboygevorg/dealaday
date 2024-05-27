@@ -4,19 +4,20 @@
   width: 100%;
   margin: 0 auto;
   margin-top: 5rem;
-  .deals_img {
-    width: 40%;
-    margin: 0 auto;
-    .deals {
-      width: 100%;
-      margin: 0 auto;
-      font-size: 5rem;
-      color: $gray_600;
+}
 
-      @media screen and (max-width: 767px) and (min-width: 320px) {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
+.deals_img {
+  width: 20rem;
+  margin: 0 auto;
+  .deals {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 5rem;
+    color: $gray_600;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
   }
 }

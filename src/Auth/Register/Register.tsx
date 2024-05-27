@@ -7,6 +7,7 @@ import axios from "axios";
 
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { apiUrl } from "../../helper/env";
+import { Button, Input } from "../../helper/index";
 
 const Register: React.FC = () => {
   const [credentials, setCredentials] = useState({
@@ -97,7 +98,7 @@ const Register: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <div className={classes.create_info_email}>
               <span>Email</span>
-              <input
+              <Input
                 type="text"
                 name="email"
                 placeholder="Email"
@@ -108,7 +109,7 @@ const Register: React.FC = () => {
             </div>
             <div className={classes.create_info_password}>
               <span>Password</span>
-              <input
+              <Input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="password"
@@ -124,7 +125,15 @@ const Register: React.FC = () => {
             </div>
 
             <div className={classes.create_info_button}>
-              <input type="submit" value="Create Accaunt" />
+              <Button
+                padding="0.9rem 1.2rem"
+                backgroundButton="#3598cc"
+                color="#ffffff"
+                hover="blue"
+                buttonFunction={() => "login"}
+              >
+                Create Accaunt
+              </Button>
             </div>
 
             <div className={classes.login}>

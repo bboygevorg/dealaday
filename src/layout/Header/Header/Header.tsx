@@ -4,10 +4,10 @@ import { useAppDisptach, useAppSelector } from "../../../redux/store/hook";
 import { fetchWishlist } from "../../../redux/userSlice/userSlice";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Search from "../../../components/UI/Search/Search";
-
 import logo from "../../../assets/img/dealaday_logo.png";
 import MenuMobile from "../../../components/Regular/MenuMobile/MenuMobile";
 import { IconMenu } from "../../../helper";
+import { toggleSideBar, closeSlideBar } from "../../../helper/globalFunction";
 
 const Header: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
@@ -15,18 +15,9 @@ const Header: React.FC = () => {
   const { from } = location.state || { from: { pathname: "/" } };
   const dispatch = useAppDisptach();
 
-  const auth = localStorage.getItem("Authorization");
-  let setProceed = auth ? true : false;
-
-  const toggleSidebar = () => {
-    setToggleMenu(!toggleMenu);
-  };
   if (from && from.pathname === "/lk") {
     console.log("User navigated from basket page");
   }
-  const closeSlideBar = () => {
-    setToggleMenu(false);
-  };
 
   useEffect(() => {
     dispatch(fetchWishlist());
@@ -47,7 +38,7 @@ const Header: React.FC = () => {
       const targetElement = event.target as Element;
 
       if (targetElement.closest(`.${classes.modal_overlay}`)) {
-        closeSlideBar();
+        closeSlideBar(setToggleMenu);
       }
     };
 
@@ -58,29 +49,29 @@ const Header: React.FC = () => {
     };
   }, [closeSlideBar]);
 
-  const checkTokenExpriration = () => {
-    const tokenExpiration = localStorage.getItem("tokenExpiration");
+  // const checkTokenExpriration = () => {
+  //   const tokenExpiration = localStorage.getItem("tokenExpiration");
 
-    if (tokenExpiration) {
-      const currentTime = new Date().getTime();
+  //   if (tokenExpiration) {
+  //     const currentTime = new Date().getTime();
 
-      if (parseInt(tokenExpiration) < currentTime) {
-        localStorage.removeItem("Authorization");
-        localStorage.removeItem("tokenExpiraton");
-      }
-    }
-  };
+  //     if (parseInt(tokenExpiration) < currentTime) {
+  //       localStorage.removeItem("Authorization");
+  //       localStorage.removeItem("tokenExpiraton");
+  //     }
+  //   }
+  // };
 
-  useEffect(() => {
-    checkTokenExpriration();
-  }, []);
+  // useEffect(() => {
+  //   checkTokenExpriration();
+  // }, []);
 
   return (
     <>
       <MenuMobile
         toggleMenu={toggleMenu}
-        toggleSidebar={toggleSidebar}
-        closeSlideBar={closeSlideBar}
+        toggleSidebar={() => toggleSideBar(toggleMenu, setToggleMenu)}
+        closeSlideBar={() => closeSlideBar(setToggleMenu)}
       />
 
       <div className={`${toggleMenu ? classes.modal_overlay : ""}`}></div>
@@ -107,7 +98,10 @@ const Header: React.FC = () => {
               />
             </div>
             <div className={classes.top_header_right}>
-              <IconMenu toggleSidebar={toggleSidebar} stroke="#F3F4F6" />
+              <IconMenu
+                toggleSidebar={() => toggleSideBar(toggleMenu, setToggleMenu)}
+                stroke="#F3F4F6"
+              />
             </div>
           </div>
           <div className={classes.bottom_header}>

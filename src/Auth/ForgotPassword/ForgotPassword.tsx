@@ -6,6 +6,7 @@ import logo from "../../assets/img/logo_nav.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { apiUrl } from "../../helper/env";
+import { Button, Input } from "../../helper/index";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +50,7 @@ const ForgotPassword = () => {
               <form onSubmit={handleSubmit}>
                 <div className={classes.forgot_info_email}>
                   <span>Email</span>
-                  <input
+                  <Input
                     type="text"
                     name="email"
                     placeholder="Email"
@@ -59,7 +60,15 @@ const ForgotPassword = () => {
                 </div>
 
                 <div className={classes.login_info_button}>
-                  <input type="submit" value="Continue" />
+                  <Button
+                    padding="0.9rem 1.2rem"
+                    backgroundButton="#3598cc"
+                    color="#ffffff"
+                    hover="blue"
+                    buttonFunction={() => "forgotPassword"}
+                  >
+                    Continue
+                  </Button>
                 </div>
 
                 <div className={classes.back_login}>

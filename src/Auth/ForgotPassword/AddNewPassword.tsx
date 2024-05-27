@@ -7,6 +7,7 @@ import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { apiUrl } from "../../helper/env";
+import { Button, Input } from "../../helper/index";
 
 const AddNewPassword: React.FC = () => {
   const [password, setPassword] = useState("");
@@ -38,7 +39,6 @@ const AddNewPassword: React.FC = () => {
         { newPassword: password }
       );
 
-      console.log(data);
       if (data.msg.name == "TokenExpiredError") {
         toast.error("Token is expired Please try again", {
           autoClose: 900,
@@ -73,7 +73,7 @@ const AddNewPassword: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <div className={classes.add_password}>
               <span>New Password</span>
-              <input
+              <Input
                 type={showNewPassword ? "text" : "password"}
                 value={password}
                 name="password"
@@ -89,7 +89,7 @@ const AddNewPassword: React.FC = () => {
             </div>
             <div className={classes.add_password}>
               <span>Confirm new Password</span>
-              <input
+              <Input
                 type={showConfirmPassword ? "text" : "password"}
                 name="password"
                 value={confirmPassword}
@@ -105,7 +105,15 @@ const AddNewPassword: React.FC = () => {
             </div>
 
             <div className={classes.add_info_button}>
-              <input type="submit" value="Change Password" />
+              <Button
+                padding="0.9rem 1.2rem"
+                backgroundButton="#3598cc"
+                color="#ffffff"
+                hover="blue"
+                buttonFunction={() => "chanePassword"}
+              >
+                Change Password
+              </Button>
             </div>
           </form>
         </div>

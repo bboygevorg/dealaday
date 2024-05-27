@@ -1,42 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { apiUrl } from "../../helper/env";
-
-interface ProductState {
-  product: Product[];
-  loading: "idle" | "pending" | "succeeded" | "failed";
-  error: string | null;
-  selectedCategory: string[];
-  selectedBrand: string[];
-  selectedRating: number[];
-  selectedPriceRange: number[];
-  selectedColor: string[];
-  totalProductsCount: number;
-  currentPage: number;
-  sortingCriterion: null | string;
-}
-
-interface Product {
-  name: string;
-  title: string;
-  img: string;
-  category: string;
-  brand: string;
-  color: string;
-  description: string;
-  price: number;
-  price_previous: number;
-  rating: number;
-  sku: number;
-  icon_option: [
-    {
-      id: number;
-      icon: string;
-      info: string;
-      title: string;
-    }
-  ];
-}
+import { ProductState } from "./types";
 
 const initialState: ProductState = {
   product: [],

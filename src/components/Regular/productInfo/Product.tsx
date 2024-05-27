@@ -43,7 +43,6 @@ const Product: React.FC = () => {
     (state) => state.productInfo
   );
   const { review } = useAppSelector((state) => state.userSlice);
-  console.log(review);
   const userId = review.filter((item) => item.user._id);
 
   const auth = localStorage.getItem("Authorization");

@@ -3,9 +3,10 @@ import classes from "./resetPasswors.module.scss";
 import { useAppDisptach, useAppSelector } from "../../../redux/store/hook";
 import { getUserData } from "../../../redux/userSlice/userSlice";
 import { toast } from "react-toastify";
-import { Button } from "../../../helper";
+import { Button, Input } from "../../../helper";
 import axios from "axios";
 import { apiUrl } from "../../../helper/env";
+import { useNavigate } from "react-router";
 
 const ResetPassword: React.FC = () => {
   const [passwordData, setPasswordData] = useState({
@@ -15,6 +16,8 @@ const ResetPassword: React.FC = () => {
   });
   const dispatch = useAppDisptach();
   let authToken = localStorage.getItem("Authorization");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getUserData());
@@ -68,6 +71,7 @@ const ResetPassword: React.FC = () => {
           autoClose: 700,
           theme: "colored",
         });
+        navigate("/");
       }
     } catch (error: any) {
       toast.error(error.response.data, { autoClose: 900, theme: "colored" });
@@ -80,7 +84,7 @@ const ResetPassword: React.FC = () => {
         <div className={classes.top_resset}>
           <div className={classes.current_pass}>
             <span>Current password</span>
-            <input
+            <Input
               type="password"
               name="currentPassword"
               placeholder="Curent password"
@@ -90,7 +94,7 @@ const ResetPassword: React.FC = () => {
           </div>
           <div className={classes.password}>
             <span>New password</span>
-            <input
+            <Input
               type="password"
               name="newPassword"
               placeholder="New password"
@@ -100,7 +104,7 @@ const ResetPassword: React.FC = () => {
           </div>
           <div className={classes.confirm_pass}>
             <span>Confirm new password</span>
-            <input
+            <Input
               type="password"
               name="confirmNewPassword"
               placeholder="Confirm new password"

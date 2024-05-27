@@ -51,20 +51,6 @@
           font-weight: $font-weight_600;
         }
       }
-
-      input {
-        margin-top: 0.5rem;
-        padding: 1rem 0.7rem;
-        border-radius: 0.5rem;
-        width: 24rem;
-        border: 1px solid $gray_200;
-        background-color: $gray_100;
-        font-size: 1rem;
-
-        @media screen and (max-width: 767px) and (min-width: 320px) {
-          width: 100%;
-        }
-      }
     }
   }
   .button {

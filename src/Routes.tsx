@@ -11,6 +11,7 @@ import ForgotPassword from "./Auth/ForgotPassword/ForgotPassword";
 import AddNewPassword from "./Auth/ForgotPassword/AddNewPassword";
 import UserPage from "./pages/UserPage/UserPage";
 import Checkout from "./pages/Checkout/Checkout";
+import PageNotFound from "./pages/404/PageNotFound";
 
 function Router() {
   return (
@@ -21,7 +22,7 @@ function Router() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/lk" element={<UserPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
         <Route element={<Layout_Basket />}>
           <Route path="/basket" element={<Basket />} />

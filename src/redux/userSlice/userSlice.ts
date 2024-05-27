@@ -1,59 +1,11 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { functions } from "lodash";
 import { toast } from "react-toastify";
 import { apiUrl } from "../../helper/env";
+import { GetUser, Product, Review, UserData } from "./types";
 
 const authToken = localStorage.getItem("Authorization");
 let setProceed = authToken ? true : false;
-
-interface Product {
-  productId: {
-    _id: string;
-    img: string;
-    title: string;
-    rating: number;
-    price: number;
-    price_previous: number;
-  };
-}
-
-interface Review {
-  edit: boolean;
-  _id: string;
-  productId: string;
-  user: {
-    _id: any;
-    firstName: string;
-    lastName: string;
-  };
-  rating: number;
-  createdAt: string;
-  updatedAt: number;
-  comment: string;
-}
-
-interface GetUser {
-  _id: string;
-  email: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-  firstName: string;
-  password: string;
-  lastName: string;
-  phone: string;
-  address: string[];
-}
-
-interface UserData {
-  user: {};
-  wishlist: Product[];
-  review: Review[];
-  getUser: GetUser;
-  status: string;
-  error: string | null;
-}
 
 const initialState: UserData = {
   user: {},
@@ -70,6 +22,7 @@ const initialState: UserData = {
     password: "",
     phone: "",
     address: [],
+    default: "",
   },
   status: "ide",
   error: null,
@@ -282,6 +235,7 @@ const userSlice = createSlice({
       state.status = "resolved";
       state.review = action.payload;
     });
+
     builder.addCase(deleteReview.fulfilled, (state, action: any) => {
       state.status = "resolved";
     });

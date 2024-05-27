@@ -23,5 +23,5 @@
     "src/**/*.scss",
     "src/helper/handleOutsideClick.js",
     "src/Routes.tsx"
-  ]
+, "src/helper/infoBarIcon.tsx"  ]
 }

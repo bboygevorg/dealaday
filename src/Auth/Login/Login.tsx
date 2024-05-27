@@ -8,6 +8,7 @@ import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { apiUrl } from "../../helper/env";
+import { Button, Input } from "../../helper/index";
 import { useAppDisptach } from "../../redux/store/hook";
 import { getUserData } from "../../redux/userSlice/userSlice";
 
@@ -18,11 +19,11 @@ const Login: React.FC = () => {
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
 
-  const dispatch = useAppDisptach();
-
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const dispatch = useAppDisptach();
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -64,7 +65,6 @@ const Login: React.FC = () => {
           email: credentials.email,
           password: credentials.password,
         });
-
         const receive = await sendAuth.data;
         if (receive.success === true) {
           toast.success("Login Succesfully", {
@@ -75,7 +75,7 @@ const Login: React.FC = () => {
 
           const expirationTime = new Date().getTime() + 3600 * 1000;
           localStorage.setItem("tokenExpiration", expirationTime.toString());
-
+          dispatch(getUserData());
           const currentTime = new Date().getTime().toString();
           localStorage.setItem("lastActivity", currentTime);
 
@@ -118,7 +118,7 @@ const Login: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <div className={classes.login_info_email}>
               <span>Email</span>
-              <input
+              <Input
                 type="text"
                 name="email"
                 placeholder="Email"
@@ -128,7 +128,7 @@ const Login: React.FC = () => {
             </div>
             <div className={classes.login_info_password}>
               <span>Password</span>
-              <input
+              <Input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="password"
@@ -150,7 +150,15 @@ const Login: React.FC = () => {
             </div>
 
             <div className={classes.login_info_button}>
-              <input type="submit" value="Login" />
+              <Button
+                padding="0.9rem 1.2rem"
+                backgroundButton="#3598cc"
+                color="#ffffff"
+                hover="blue"
+                buttonFunction={() => "login"}
+              >
+                Login
+              </Button>
             </div>
 
             <div className={classes.sign}>

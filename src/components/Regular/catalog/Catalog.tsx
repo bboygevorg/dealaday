@@ -1,9 +1,8 @@
-import React, { useEffect, useCallback, useRef } from "react";
+import React, { useEffect, useCallback } from "react";
 import classes from "./catalog.module.scss";
 import { useAppSelector, useAppDisptach } from "../../../redux/store/hook";
-
 import { useSearchParams } from "react-router-dom";
-
+import { toggleSideBar, closeSlideBar } from "../../../helper/globalFunction";
 import {
   fetchProducts,
   setSelectedCategories,
@@ -26,15 +25,12 @@ import {
 } from "../../../helper/index";
 
 interface ToggleFilter {
-  toggleFilter: boolean;
-  setToggleFilter: any;
+  toggleMenu: boolean;
+  setToggleMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
+const Catalog: React.FC<ToggleFilter> = ({ toggleMenu, setToggleMenu }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {}, [window.scrollY]);
-
   const {
     product,
     loading,
@@ -50,13 +46,12 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
 
   const dispatch = useAppDisptach();
 
-  const renderCount = useRef(0);
-  renderCount.current += 1;
-  console.log(`rendered ${renderCount.current} times`);
+  // const renderCount = useRef(0);
+  // renderCount.current += 1;
+  // console.log(`rendered ${renderCount.current} times`);
 
   const handleParametrChange = useCallback(
     (paramName: string, paramValue: any) => {
-      let updatedValue: string | null;
       switch (paramName) {
         case "page":
           dispatch(setCurrentPage({ page: paramValue }));
@@ -92,45 +87,34 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
     [dispatch, searchParams, totalProductsCount]
   );
 
-  const updateProducts = useCallback(
-    (
-      category: string[],
-      brand: string[],
-      newPage: number,
-      rating: number[],
-      minPrice: number,
-      maxPrice: number,
-      color: string[],
-      criterion: string | null
-    ) => {
-      dispatch(
-        fetchProducts({
-          category,
-          brand,
-          page: newPage,
-          rating,
-          minPrice,
-          maxPrice,
-          color,
-          criterion,
-        }) as any
-      );
-    },
-    [dispatch, searchParams, totalProductsCount]
-  );
+  const updateProducts = useCallback(() => {
+    const [minPrice, maxPrice] = selectedPriceRange;
+
+    dispatch(
+      fetchProducts({
+        category: selectedCategory,
+        brand: selectedBrand,
+        page: currentPage,
+        rating: selectedRating,
+        minPrice,
+        maxPrice,
+        color: selectedColor,
+        criterion: sortingCriterion,
+      }) as any
+    );
+  }, [
+    dispatch,
+    selectedCategory,
+    selectedBrand,
+    currentPage,
+    selectedRating,
+    selectedPriceRange,
+    selectedColor,
+    sortingCriterion,
+  ]);
 
   useEffect(() => {
-    const [minPrice, maxPrice] = selectedPriceRange;
-    updateProducts(
-      selectedCategory,
-      selectedBrand,
-      currentPage,
-      selectedRating,
-      minPrice,
-      maxPrice,
-      selectedColor,
-      sortingCriterion
-    );
+    updateProducts();
   }, [
     updateProducts,
     selectedCategory,
@@ -142,57 +126,41 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
     sortingCriterion,
   ]);
 
-  const toggleActive = () => {
-    setToggleFilter(!toggleFilter);
-
-    window.scrollTo({ top: 0, behavior: "auto" });
-  };
-
-  const closeFilterBar = () => {
-    setToggleFilter(false);
-  };
-
   return (
     <div className={classes.catalog}>
       <div className={classes.container}>
         <h2 className={classes.filter_title}>All Product</h2>
         <div className={classes.product}>
-          {product.length > 0 ? (
-            <Filter
-              toggleActive={toggleActive}
-              toggleFilter={toggleFilter}
-              closeFilterBar={closeFilterBar}
-              onCategoryChange={(category) =>
-                handleParametrChange("category", category)
-              }
-              onBrandChange={(brand) => handleParametrChange("brand", brand)}
-              onRatingChange={(rating) =>
-                handleParametrChange("rating", rating)
-              }
-              onPriceRange={(price) => handleParametrChange("price", price)}
-              onColorsChange={(color) => handleParametrChange("color", color)}
-              searchParams={searchParams}
-              setSearchParams={setSearchParams}
-            />
-          ) : (
-            ""
-          )}
-
+          <Filter
+            toggleActive={() => toggleSideBar(toggleMenu, setToggleMenu)}
+            toggleFilter={toggleMenu}
+            closeFilterBar={() => closeSlideBar(setToggleMenu)}
+            onCategoryChange={(category) =>
+              handleParametrChange("category", category)
+            }
+            onBrandChange={(brand) => handleParametrChange("brand", brand)}
+            onRatingChange={(rating) => handleParametrChange("rating", rating)}
+            onPriceRange={(price) => handleParametrChange("price", price)}
+            onColorsChange={(color) => handleParametrChange("color", color)}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+            totalProductsCount={totalProductsCount}
+            selectedRating={selectedRating}
+            selectedBrand={selectedBrand}
+            selectedCategory={selectedCategory}
+          />
           <div className={classes.product_catalog}>
-            {product.length !== 0 && (
-              <div className={classes.sort}>
-                <Sort
-                  onSortChange={(criterion) =>
-                    handleParametrChange("sort", criterion)
-                  }
-                />
-              </div>
-            )}
-
+            <div className={classes.sort}>
+              <Sort
+                onSortChange={(criterion) =>
+                  handleParametrChange("sort", criterion)
+                }
+              />
+            </div>
             {loading === "pending" ? (
               <Loader width="100%" />
             ) : (
-              <div className={classes.poducts}>
+              <div className={classes.products}>
                 {product && product.length > 0 ? (
                   product.map((product: any) => {
                     const { _id, title, img, rating, price, price_previous } =
@@ -211,11 +179,9 @@ const Catalog: React.FC<ToggleFilter> = ({ toggleFilter, setToggleFilter }) => {
                     );
                   })
                 ) : (
-                  <>
-                    <div className={classes.deals}>
-                      <ProductEmpty />
-                    </div>
-                  </>
+                  <div className={classes.deals}>
+                    <ProductEmpty />
+                  </div>
                 )}
               </div>
             )}

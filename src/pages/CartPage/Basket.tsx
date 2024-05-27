@@ -5,12 +5,21 @@ import { Helmet } from "react-helmet-async";
 import { useAppDisptach } from "../../redux/store/hook";
 import { useSelector } from "react-redux";
 import logo from "../../assets/img/logo_nav.png";
-import { MenuMobile, Search, Button, IconMenu } from "../../helper";
+import {
+  MenuMobile,
+  Search,
+  Button,
+  IconMenu,
+  CartContentName,
+  Coupon,
+  CartEmpty,
+} from "../../helper";
 import { removeToCart } from "../../redux/cartSlice/cartSlice";
 import { fetchWishlist } from "../../redux/userSlice/userSlice";
 import { RootState } from "../../redux/store/store";
 
 import img_empty from "../../assets/img/product_dont_found.jpg";
+import Quantity from "../../components/UI/Quantity/Quantity";
 
 interface CartItem {
   selectedOption: number;
@@ -231,135 +240,63 @@ const Basket: React.FC = () => {
         <div className={classes.container}>
           <h2>Cart</h2>
           {cart.length === 0 ? (
-            <div className={classes.wishlist_empty}>
-              <img src={img_empty} alt="" />
-            </div>
+            <CartEmpty />
           ) : (
             <>
               <div className={classes.cart_content}>
                 <div className={classes.cart_content_name}>
-                  <p className={classes.text}>Product</p>
-                  <p className={classes.text}>Price</p>
-                  <p className={classes.text}>Quantity</p>
-                  <p className={classes.text}>Subtotal</p>
-                  {cart.length === 0 ? (
-                    <div className={classes.wishlist_empty}>
-                      <img src={img_empty} alt="" />
-                    </div>
-                  ) : (
-                    <>
-                      {cart?.map((elem, index) => (
-                        <React.Fragment key={index}>
-                          <div
-                            className={`${classes.productInfo} ${classes.line}`}
-                          >
-                            <div className={classes.productInfo_image}>
-                              <img
-                                src={elem.productToAdd.img}
-                                alt={elem.productToAdd.name}
+                  <CartContentName />
+                  {cart?.map((elem, index) => (
+                    <React.Fragment key={index}>
+                      <div className={`${classes.productInfo} ${classes.line}`}>
+                        <div className={classes.productInfo_image}>
+                          <img
+                            src={elem.productToAdd.img}
+                            alt={elem.productToAdd.name}
+                          />
+                        </div>
+                        <div className={classes.productInfo_name}>
+                          <p>{elem.productToAdd.name}</p>
+                          <span>
+                            <svg
+                              onClick={() =>
+                                deleteProduct(elem.productToAdd._id)
+                              }
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8.3335 9.16667V14.1667M11.6668 9.16667V14.1667M3.3335 5.83333H16.6668M15.8335 5.83333L15.111 15.9517C15.0811 16.3722 14.8929 16.7657 14.5844 17.053C14.2759 17.3403 13.87 17.5 13.4485 17.5H6.55183C6.13028 17.5 5.72438 17.3403 5.4159 17.053C5.10742 16.7657 4.91926 16.3722 4.88933 15.9517L4.16683 5.83333H15.8335ZM12.5002 5.83333V3.33333C12.5002 3.11232 12.4124 2.90036 12.2561 2.74408C12.0998 2.5878 11.8878 2.5 11.6668 2.5H8.3335C8.11248 2.5 7.90052 2.5878 7.74424 2.74408C7.58796 2.90036 7.50016 3.11232 7.50016 3.33333V5.83333H12.5002Z"
+                                stroke="#6B7280"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
-                            </div>
-                            <div className={classes.productInfo_name}>
-                              <p>{elem.productToAdd.name}</p>
-                              <span>
-                                <svg
-                                  onClick={() =>
-                                    deleteProduct(elem.productToAdd._id)
-                                  }
-                                  width="20"
-                                  height="20"
-                                  viewBox="0 0 20 20"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M8.3335 9.16667V14.1667M11.6668 9.16667V14.1667M3.3335 5.83333H16.6668M15.8335 5.83333L15.111 15.9517C15.0811 16.3722 14.8929 16.7657 14.5844 17.053C14.2759 17.3403 13.87 17.5 13.4485 17.5H6.55183C6.13028 17.5 5.72438 17.3403 5.4159 17.053C5.10742 16.7657 4.91926 16.3722 4.88933 15.9517L4.16683 5.83333H15.8335ZM12.5002 5.83333V3.33333C12.5002 3.11232 12.4124 2.90036 12.2561 2.74408C12.0998 2.5878 11.8878 2.5 11.6668 2.5H8.3335C8.11248 2.5 7.90052 2.5878 7.74424 2.74408C7.58796 2.90036 7.50016 3.11232 7.50016 3.33333V5.83333H12.5002Z"
-                                    stroke="#6B7280"
-                                    strokeWidth="1.5"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              </span>
-                            </div>
-                          </div>
-                          <div className={`${classes.line} ${classes.price}`}>
-                            <span>${elem.productToAdd.price}.00</span>
-                          </div>
-                          <div
-                            className={`${classes.line} ${classes.quantity}`}
-                          >
-                            <div
-                              className={classes.number}
-                              onClick={() => decrement(elem.productToAdd._id)}
-                            >
-                              <svg
-                                width="15"
-                                height="10"
-                                viewBox="0 0 15 2"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M1.5 0.5H13.1667"
-                                  stroke="#6B7280"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                            <div className={classes.number}>
-                              {elem.selectedOption}
-                            </div>
-                            <div
-                              className={classes.number}
-                              onClick={() => increment(elem.productToAdd._id)}
-                            >
-                              <svg
-                                fill="#6B7280"
-                                version="1.1"
-                                id="Capa_1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlnsXlink="http://www.w3.org/1999/xlink"
-                                width="15px"
-                                viewBox="0 0 45.402 45.402"
-                                xmlSpace="preserve"
-                              >
-                                <g>
-                                  <path
-                                    d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
-		c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27
-		c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435
-		c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"
-                                  />
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div
-                            className={`${classes.subtotal} ${classes.line}`}
-                          >
-                            ${elem.subtotal}.00
-                          </div>
-                        </React.Fragment>
-                      ))}
-                    </>
-                  )}
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                      <div className={`${classes.line} ${classes.price}`}>
+                        <span>${elem.productToAdd.price}.00</span>
+                      </div>
+                      <div className={`${classes.quantity} ${classes.line}`}>
+                        <Quantity
+                          elementId={elem.productToAdd._id}
+                          elementSubtotal={elem.selectedOption}
+                          increment={increment}
+                          decrement={decrement}
+                        />
+                      </div>
+                      <div className={`${classes.subtotal} ${classes.line}`}>
+                        ${elem.subtotal}.00
+                      </div>
+                    </React.Fragment>
+                  ))}
                 </div>
-                <div className={classes.cart_coupon}>
-                  <input
-                    className={classes.coupon}
-                    type="text"
-                    placeholder="Coupon code"
-                  />
-                  <button
-                    className={classes.coupon_button}
-                    onClick={() => alert("not working yet")}
-                  >
-                    Apply Coupon
-                  </button>
-                </div>
+                <Coupon />
                 <div className={classes.cart_subtotal}>
                   <span>Subtotal</span>
                   <span>$.{totalSubTotal}.00</span>
@@ -386,7 +323,7 @@ const Basket: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className={classes.cart_content_mobile}>
+              {/* <div className={classes.cart_content_mobile}>
                 {cart?.map((elem, index) => (
                   <div className={classes.cart} key={index}>
                     <div className={classes.cart_top}>
@@ -518,7 +455,7 @@ const Basket: React.FC = () => {
                     </Button>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </>
           )}
         </div>

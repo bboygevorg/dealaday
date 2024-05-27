@@ -4,7 +4,7 @@ import { useAppSelector } from "../../../redux/store/hook";
 import classes from "./iconMenu.module.scss";
 
 type Menu = {
-  toggleSidebar: () => void;
+  toggleSidebar: any;
   stroke: string;
 };
 
