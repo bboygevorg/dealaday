@@ -323,7 +323,7 @@ const Basket: React.FC = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className={classes.cart_content_mobile}>
+              <div className={classes.cart_content_mobile}>
                 {cart?.map((elem, index) => (
                   <div className={classes.cart} key={index}>
                     <div className={classes.cart_top}>
@@ -455,7 +455,7 @@ const Basket: React.FC = () => {
                     </Button>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </>
           )}
         </div>
