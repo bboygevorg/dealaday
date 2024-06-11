@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "outDir": "./bulld"
+    "outDir": "./dist"
   },
   "include": [
     "src/**/*.ts",
@@ -24,6 +24,7 @@
     "src/**/*.scss",
     "src/helper/handleOutsideClick.js",
     "src/Routes.tsx",
-    "src/helper/infoBarIcon.tsx"
+    "src/helper/infoBarIcon.tsx",
+    "src/**/*.js"
   ]
 }
