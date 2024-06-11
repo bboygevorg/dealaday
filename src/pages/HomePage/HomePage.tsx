@@ -6,6 +6,7 @@ import {
   fetchMostSLider,
   fetchToptSLider,
 } from "../../redux/allRequests/allRequests";
+import Slider from "../../components/UI/Slider/Slider";
 
 import {
   CartTodays,
@@ -14,7 +15,6 @@ import {
   BannerProducts,
   ButtonScroll,
 } from "../../helper/index";
-import Slider from "../../components/UI/Slider/Slider";
 
 const HomePage: React.FC = () => {
   const { topSlider, mostSlider } = useAppSelector(
