@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "outDir": "./bulld"
   },
   "include": [
     "src/**/*.ts",
@@ -22,6 +23,7 @@
     "src/**/*.tsx",
     "src/**/*.scss",
     "src/helper/handleOutsideClick.js",
-    "src/Routes.tsx"
-, "src/helper/infoBarIcon.tsx"  ]
+    "src/Routes.tsx",
+    "src/helper/infoBarIcon.tsx"
+  ]
 }
