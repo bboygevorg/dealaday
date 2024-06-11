@@ -4,7 +4,7 @@ import classes from "./cartTodays.module.scss";
 import { ProductEmpty, Loader } from "../../../helper/index";
 import { useAppSelector, useAppDisptach } from "../../../redux/store/hook";
 import { fetchDealsProduct } from "../../../redux/allRequests/allRequests";
-import OneCart from "./OneCart/OneCart";
+import { OneCart } from "./OneCart/OneCart";
 
 const CartTodays: React.FC = () => {
   const { dealsProducts, loading } = useAppSelector(

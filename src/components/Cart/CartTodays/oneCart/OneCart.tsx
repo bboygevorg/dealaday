@@ -119,4 +119,4 @@ const OneCart: React.FC<CartTodays> = ({
   );
 };
 
-export default OneCart;
+export { OneCart };
