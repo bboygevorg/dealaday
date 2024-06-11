@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import classes from "./slider.module.scss";
 import { Link } from "react-router-dom";
 import SliderSlick from "react-slick";
