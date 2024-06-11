@@ -10,7 +10,7 @@ module.exports = (env, options) => {
   return {
     entry: "./src/index.tsx",
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "build"),
       filename: "bundle.js",
       publicPath: "/",
     },
@@ -74,7 +74,7 @@ module.exports = (env, options) => {
       }),
       new webpack.EnvironmentPlugin({
         NODE_ENV: "development",
-        API_URL: "http://192.168.10.16:5000",
+        API_URL: "https://dealaday-backend.vercel.app",
       }),
     ],
     devServer: {
