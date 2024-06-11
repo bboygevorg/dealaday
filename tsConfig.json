@@ -14,15 +14,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "outDir": "./dist"
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.scss",
-    "src/helper/handleOutsideClick.js",
     "src/Routes.tsx",
-    "src/helper/infoBarIcon.tsx"
+    "src/**/*.js"
   ]
 }
