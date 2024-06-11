@@ -3,7 +3,7 @@ export { default as CartTodays } from "../components/Cart/CartTodays/CartTodays"
 export { default as ProductCart } from "../components/Cart/ProductCart/ProductCart";
 // export { default as OneCart } from "../components/Cart/CartTodays/OneCart/OneCart";
 export { default as InfoBar } from "../components/Regular/InfoBar/InfoBar";
-export { default as Search } from "../components/Ui/Search/Search";
+export { default as Search } from "../components/Regular/Search/Search";
 export { default as Catalog } from "../components/Regular/catalog/Catalog";
 // export { default as Filter } from "../components/Regular/catalog/Filter/Filter";
 export { default as MenuMobile } from "../components/Regular/MenuMobile/MenuMobile";
@@ -11,7 +11,7 @@ export { default as Price } from "../components/Regular/price/Price";
 export { default as Product } from "../components/Regular/productInfo/Product";
 export { default as ProductDetail } from "../components/Regular/productDetail/ProductDetail";
 export { default as BannerProducts } from "../components/Ui/BannerProducts/BannerProducts";
-export { default as Banner } from "../components/Ui/Banner/Banner";
+export { default as Banner } from "../components/Regular/Banner/Banner";
 export { default as Button } from "../components/Ui/Button/Button";
 export { default as Loader } from "../components/Ui/loader/Loader";
 export { default as Pagination } from "../components/Ui/pagination/Pagination";
@@ -30,7 +30,7 @@ export { default as ButtonScroll } from "../components/Ui/ButtonScroll/ButtonScr
 export { default as ResetPassword } from "../components/Regular/ResetPassword/ResetPassword";
 export { default as CartContentName } from "../components/Regular/CartContentName/CartContentName";
 export { default as Coupon } from "../components/Ui/Coupon/Coupon";
-export { default as Qunatity } from "../components/Ui/Quantity/Quantity";
+export { default as Qunatity } from "../components/Regular/Quantity/Quantity";
 export { default as CartEmpty } from "../components/Ui/CartEmpty/CartEmpty";
 export { default as Input } from "../components/Ui/input/Input";
 export { default as WatchProduct } from "../components/Regular/WatchProduct/WatchProduct";

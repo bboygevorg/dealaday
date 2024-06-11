@@ -22,7 +22,7 @@ import {
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import Slider from "../../Ui/Slider/Slider";
+import Slider from "../Slider/Slider";
 
 const Product: React.FC = () => {
   const [activeAccordion, setActiveAccordion] = useState<number>(1);

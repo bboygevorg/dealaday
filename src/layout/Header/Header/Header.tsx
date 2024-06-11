@@ -3,7 +3,7 @@ import classes from "./header.module.scss";
 import { useAppDisptach, useAppSelector } from "../../../redux/store/hook";
 import { fetchWishlist } from "../../../redux/userSlice/userSlice";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Search from "../../../components/Ui/Search/Search";
+import Search from "../../../components/Regular/Search/Search";
 import logo from "../../../assets/img/dealaday_logo.png";
 import MenuMobile from "../../../components/Regular/MenuMobile/MenuMobile";
 import { IconMenu } from "../../../helper";
