@@ -3,7 +3,7 @@ import classes from "./productCart.module.scss";
 import { getStarRaiting } from "../../../helper/star";
 import { useAppDisptach } from "../../../redux/store/hook";
 import { addToCart } from "../../../redux/cartSlice/cartSlice";
-import Price from "../../Regular/price/Price";
+import Price from "../../price/Price";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { postWishlist } from "../../../redux/userSlice/userSlice";

@@ -1,0 +1,60 @@
+@import "../../../styles/variables.scss";
+
+.user_info {
+  div {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      width: 100%;
+      max-width: 30rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        margin-left: 1.2rem;
+
+        @media screen and (max-width: 1200px) and (min-width: 320px) {
+          margin-left: 0;
+        }
+      }
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-top: 2rem;
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          margin-top: 0;
+        }
+      }
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          margin-top: 1rem;
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          margin-top: 1.5rem;
+        }
+      }
+
+      span {
+        font-weight: $font-weight_500;
+        color: $gray_900;
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          font-weight: $font-weight_600;
+        }
+      }
+    }
+  }
+  .button {
+    width: 8.6rem;
+    margin-top: 1.5rem;
+  }
+}

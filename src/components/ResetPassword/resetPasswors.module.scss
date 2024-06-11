@@ -1,0 +1,51 @@
+@import "../../styles/variables.scss";
+
+.resset {
+  width: 100%;
+  margin-top: 3.2rem;
+
+  form {
+    .top_resset {
+      div {
+        display: flex;
+        flex-direction: column;
+        span {
+          font-weight: $font-weight_500;
+        }
+
+        &:not(:first-child) {
+          span {
+            margin-top: 1.3rem;
+          }
+        }
+
+        input {
+          margin-top: 0.8rem;
+          padding: 1rem 0.7rem;
+          border-radius: 0.5rem;
+          border: 1px solid $gray_200;
+          background-color: $gray_100;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .button {
+      width: 27%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-top: 2rem;
+
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        width: 65%;
+      }
+
+      span {
+        cursor: pointer;
+        color: $blue_01;
+      }
+    }
+  }
+}

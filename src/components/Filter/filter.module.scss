@@ -1,0 +1,291 @@
+@import "../../styles/variables.scss";
+
+.filter {
+  position: relative;
+  .filter_title {
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      display: none;
+    }
+  }
+
+  .filter_button {
+    left: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 5.8rem;
+    padding: 11px 0.9rem;
+    border: 1px solid $gray_200;
+    border-radius: 0.5rem;
+    display: none;
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .filter_product {
+    margin-top: 2.7rem;
+    min-width: 17rem;
+    height: auto;
+    border: 1px solid $gray_200;
+    border-radius: 1rem;
+    padding: 1.8rem 1.4rem;
+
+    @media screen and (max-width: 1200px) and (min-width: 767px) {
+      max-width: 14rem;
+      margin-top: 3rem;
+    }
+
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      display: none;
+    }
+
+    .brandsFilter {
+      margin-top: 2.5rem;
+    }
+
+    .ratingFilter {
+      margin-top: 2.5rem;
+      li {
+        margin-bottom: 0.3rem;
+      }
+    }
+
+    .range {
+      margin-top: 2rem;
+    }
+
+    .colorsFilter {
+      margin-top: 3.2rem;
+      width: 17rem;
+
+      .colors {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        min-height: auto;
+
+        span {
+          position: relative;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          margin-right: 1rem;
+          margin-bottom: 1rem;
+          cursor: pointer;
+          position: relative;
+          transition: 0.2s ease-in-out;
+
+          // @media screen and (max-width: 1200px) and (min-width: 767px) {
+          //   height: 1.2rem;
+          //   width: 20px;
+          //   height: 20px;
+          // }
+
+          .border_color {
+            width: 36px;
+            height: 35px;
+            top: -2px;
+            left: -3.4px;
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            transition: box-shadow 0.5s ease;
+            opacity: 1;
+
+            @media screen and (max-width: 1200px) and (min-width: 767px) {
+              width: 34px;
+              height: 34px;
+              top: -2px;
+              left: -2.4px;
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      margin-top: 1.6rem;
+
+      li {
+        margin-bottom: 0.7rem;
+
+        span {
+          margin-right: 0.7rem;
+          cursor: pointer;
+          color: $gray_600;
+        }
+      }
+    }
+  }
+}
+
+.filter_product_mobile {
+  ul {
+    list-style-type: none;
+  }
+  display: none;
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    .mobile {
+      padding: 1rem 1.4rem;
+      overflow-x: hidden;
+      .back_menu {
+        display: flex;
+        align-items: center;
+        stroke: $gray_500;
+        cursor: pointer;
+        .back_menu_title {
+          font-size: 0.7rem;
+          margin-left: 6px;
+          font-weight: $font-weight_500;
+          color: $gray_500;
+        }
+      }
+
+      .categoriesFilter {
+        margin-top: 1rem;
+      }
+
+      .brandsFilter {
+        margin-top: 2.5rem;
+      }
+
+      .ratingFilter {
+        margin-top: 2.5rem;
+        li {
+          margin-bottom: 0.3rem;
+        }
+      }
+
+      .range {
+        margin-top: 2rem;
+      }
+
+      .colorsFilter {
+        margin-top: 3.2rem;
+
+        .colors {
+          display: flex;
+          margin-top: 1rem;
+
+          span {
+            width: 1.65rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+            cursor: pointer;
+            position: relative;
+          }
+        }
+      }
+
+      ul {
+        margin-top: 1.6rem;
+
+        li {
+          margin-bottom: 0.7rem;
+
+          span {
+            margin-right: 0.7rem;
+            cursor: pointer;
+            color: $gray_600;
+          }
+        }
+      }
+    }
+
+    .gray_bar {
+      display: block;
+      height: 2px;
+      background-color: $gray_200;
+      margin: 0;
+      padding: 0;
+    }
+
+    .button_filter {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+  }
+}
+
+.active {
+  @include menu_mobile_filteredActive;
+}
+
+.activeOf {
+  @include menu_mobile_filteredOff;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+label {
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .check_box {
+    content: "";
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    position: relative;
+    background: $gray_050;
+    border: 1px solid $gray_300;
+    transition: 250ms cubic-bezier(0.4, 0, 0.23, 1);
+    display: inline-block;
+    margin-right: 0.5em;
+    border-radius: 3px;
+
+    &::after {
+      left: 34%;
+      top: 10%;
+      width: 26%;
+      height: 50%;
+      border: solid rgba(138, 120, 120, 0.2);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) scale(0);
+      display: block;
+      position: absolute;
+      opacity: 0;
+      transition: 250ms cubic-bezier(0.4, 0, 0.23, 1);
+      content: "";
+      cursor: pointer;
+    }
+
+    &:hover {
+      border: 1px solid $blue_01;
+      transition: 0.2s ease-in;
+    }
+  }
+
+  input[type="checkbox"] {
+    &:checked {
+      + span {
+        background: $blue_01;
+        border: 1px solid $blue_01;
+      }
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    ~ span:after {
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      margin-left: -1px;
+      transform: rotate(45deg) scale(1);
+      opacity: 1;
+    }
+  }
+}

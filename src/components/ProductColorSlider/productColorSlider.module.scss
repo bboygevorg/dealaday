@@ -1,0 +1,85 @@
+@import "../../styles/variables.scss";
+
+.sliderColor {
+  position: relative;
+
+  .wrapper {
+    max-width: $container_width;
+    margin: 0 auto;
+
+    .slider_navigate {
+      position: absolute;
+      width: 100%;
+      top: 10rem;
+      column-gap: 20px;
+      z-index: 1;
+
+      .slider_navigate_arrow {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        @media screen and (max-width: 1200px) and (min-width: 320px) {
+          display: none;
+        }
+
+        .arrow_left {
+          @include arrow;
+          transition: 0.2s ease-in-out;
+          left: 0;
+
+          svg {
+            stroke: $gray_900;
+          }
+
+          &:hover {
+            background-color: $blue_01;
+          }
+
+          &:hover > svg {
+            stroke: $white_01;
+          }
+        }
+
+        .arrow_right {
+          @include arrow;
+          transition: 0.2s ease-in-out;
+
+          svg {
+            stroke: $gray_900;
+          }
+
+          &:hover {
+            background-color: $blue_01;
+          }
+
+          &:hover > svg {
+            stroke: $white_01;
+          }
+        }
+      }
+    }
+    .slider_carousel {
+      overflow: hidden;
+
+      .carousel {
+        display: grid;
+        grid-template-columns: repeat(9, 18rem);
+        gap: 20px;
+        transition: transform 0.3s ease-in-out;
+
+        @media screen and (max-width: 1200px) and (min-width: 767px) {
+          display: flex;
+          padding: 0 1rem;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          display: flex;
+          padding: 0 1rem;
+          transition: transform 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}

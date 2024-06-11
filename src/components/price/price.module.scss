@@ -1,0 +1,37 @@
+@import "../../styles/variables.scss";
+
+.oneCart_info_price {
+  align-items: center;
+  width: 11rem;
+  display: flex;
+  justify-content: flex-start;
+
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    width: 11rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+    font-weight: $font-weight_700;
+    color: $blue_01;
+  }
+
+  .price_center {
+    font-size: 1.5rem;
+    font-weight: $font-weight_700;
+    color: $blue_01;
+    margin: 0 auto;
+  }
+
+  .price_discount {
+    font-size: 1.1rem;
+    font-weight: $font-weight_500;
+    color: $gray_500;
+    position: relative;
+    margin-left: 0.4rem;
+
+    &::after {
+      @include line_text;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.input {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid $gray_200;
+  background-color: $gray_050;
+  transition: 0.2s ease-in;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $blue_01;
+  }
+}

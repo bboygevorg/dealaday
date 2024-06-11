@@ -6,7 +6,7 @@ import {
   fetchMostSLider,
   fetchToptSLider,
 } from "../../redux/allRequests/allRequests";
-import Slider from "../../components/Regular/Slider/Slider";
+import Slider from "../../components/Slider/Slider";
 
 import {
   CartTodays,

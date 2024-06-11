@@ -1,0 +1,74 @@
+@import "../../styles/variables.scss";
+
+.wrapper_search {
+  display: flex;
+
+  .input_search {
+    width: 100%;
+    box-sizing: border-box;
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+    border: 1px solid $gray_500;
+    border-right: none;
+    padding: 0.5rem 1rem;
+
+    @media screen and (max-width: 1200px) and (min-width: 767px) {
+      width: 70%;
+    }
+
+    &::placeholder {
+      color: $gray_400;
+      font-family: $font-family;
+    }
+
+    &:focus {
+      border-color: $blue_02;
+      transition: $transition;
+    }
+
+    &:focus + .logo_search {
+      background-color: $blue_02;
+      border-color: $blue_02;
+      transition: $transition;
+    }
+  }
+
+  .logo_search {
+    width: 2.5rem;
+    height: 2.4rem;
+    border: 1px solid $gray_500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+  }
+}
+
+.search_block {
+  box-sizing: border-box;
+  margin-top: 1rem;
+  width: 100%;
+  height: 200px;
+  background-color: #ffffff;
+  color: gray;
+  overflow-y: scroll;
+  padding: 1rem;
+
+  @media screen and (max-width: 1200px) and (min-width: 767px) {
+    width: 75%;
+  }
+
+  .product_dont {
+    width: 100%;
+    text-align: center;
+    img {
+      width: 40%;
+    }
+  }
+
+  .search {
+    padding: 0 0 2rem;
+    border-top: 1px solid $gray_900;
+  }
+}

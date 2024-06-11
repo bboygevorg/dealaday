@@ -19,7 +19,7 @@ import { fetchWishlist } from "../../redux/userSlice/userSlice";
 import { RootState } from "../../redux/store/store";
 
 import img_empty from "../../assets/img/product_dont_found.jpg";
-import Quantity from "../../components/Regular/Quantity/Quantity";
+import Quantity from "../../components/Quantity/Quantity";
 
 interface CartItem {
   selectedOption: number;
