@@ -14,8 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "outDir": "./build"
+    "jsx": "react-jsx"
   },
   "include": [
     "src/**/*.ts",
@@ -24,7 +23,6 @@
     "src/**/*.scss",
     "src/helper/handleOutsideClick.js",
     "src/Routes.tsx",
-    "src/helper/infoBarIcon.tsx",
-    "src/**/*.js"
+    "src/helper/infoBarIcon.tsx"
   ]
 }
