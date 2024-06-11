@@ -21,7 +21,7 @@ import {
   Loader,
   ProductEmpty,
 } from "../../../helper/index";
-import Filter from "./Filter/Filter";
+import Filter from "../Filter/Filter";
 import Sort from "../../UI/Sort/Sort";
 
 interface ToggleFilter {

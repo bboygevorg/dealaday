@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import classes from "./sort.module.scss";
 import { handleOutsideClick } from "../../../helper/handleOutsideClick";
 
-interface Sort {
+interface SortFunc {
   onSortChange: (criterion: string) => void;
 }
 
-const Sort: React.FC<Sort> = ({ onSortChange }) => {
+const Sort: React.FC<SortFunc> = ({ onSortChange }) => {
   const [sortingOption, setSortingOption] = useState("Default");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleRef = useRef(null);

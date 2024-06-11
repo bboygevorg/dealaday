@@ -9,7 +9,6 @@ import {
   Loader,
   ProductColorSlider,
   ProductDetail,
-  Reviews,
 } from "../../../helper/index";
 import axios from "axios";
 import { apiUrl } from "../../../helper/env";

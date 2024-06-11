@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import classes from "./filter.module.scss";
-import { RangeSlider, Button } from "../../../../helper/index";
+import { RangeSlider, Button } from "../../../helper/index";
 import axios from "axios";
-import { apiUrl } from "../../../../helper/env";
+import { apiUrl } from "../../../helper/env";
 
 interface FilterProps {
   toggleActive: () => void;
