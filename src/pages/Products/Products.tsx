@@ -3,7 +3,7 @@ import classes from "./products.module.scss";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-import BannerProduct from "../../components/UI/Banner/Banner";
+import BannerProduct from "../../components/Ui/Banner/Banner";
 import Catalog from "../../components/Regular/catalog/Catalog";
 import { ButtonScroll, Search } from "../../helper";
 import { useAppSelector, useAppDisptach } from "../../redux/store/hook";
