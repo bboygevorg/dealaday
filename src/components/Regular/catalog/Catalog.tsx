@@ -22,7 +22,7 @@ import {
   ProductEmpty,
 } from "../../../helper/index";
 import Filter from "../Filter/Filter";
-import Sort from "../../UI/Sort/Sort";
+import Sort from "./../../UI/Sort/Sort";
 
 interface ToggleFilter {
   toggleMenu: boolean;
