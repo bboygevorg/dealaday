@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import classes from "./oneCart.module.scss";
-import { getStarRaiting } from "../../../../helper/star";
-import { addToCart } from "../../../../redux/cartSlice/cartSlice";
-import { Price, WatchProduct } from "../../../../helper";
-import { useAppDisptach } from "../../../../redux/store/hook";
+import { getStarRaiting } from "../../../helper/star";
+import { addToCart } from "../../../redux/cartSlice/cartSlice";
+import { Price, WatchProduct } from "../../../helper";
+import { useAppDisptach } from "../../../redux/store/hook";
 import { useNavigate } from "react-router-dom";
-import { postWishlist } from "../../../../redux/userSlice/userSlice";
+import { postWishlist } from "../../../redux/userSlice/userSlice";
 import axios from "axios";
-import { apiUrl } from "../../../../helper/env";
+import { apiUrl } from "../../../helper/env";
 import {
   handleHover,
   handleMouseLeave,
   percentageView,
-} from "../../../../helper/globalFunction";
+} from "../../../helper/globalFunction";
 
 interface CartTodays {
   id: any;
@@ -119,4 +119,4 @@ const OneCart: React.FC<CartTodays> = ({
   );
 };
 
-export { OneCart };
+export default OneCart;
