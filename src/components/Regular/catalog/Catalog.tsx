@@ -16,13 +16,13 @@ import {
 } from "../../../redux/products/products";
 
 import {
-  Filter,
-  Sort,
   ProductCart,
   Pagination,
   Loader,
   ProductEmpty,
 } from "../../../helper/index";
+import Filter from "./Filter/Filter";
+import Sort from "../../UI/Sort/Sort";
 
 interface ToggleFilter {
   toggleMenu: boolean;

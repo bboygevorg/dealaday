@@ -10,11 +10,11 @@ import {
 import {
   CartTodays,
   InfoBar,
-  Slider,
   Search,
   BannerProducts,
   ButtonScroll,
 } from "../../helper/index";
+import Slider from "../../components/UI/Slider/Slider";
 
 const HomePage: React.FC = () => {
   const { topSlider, mostSlider } = useAppSelector(

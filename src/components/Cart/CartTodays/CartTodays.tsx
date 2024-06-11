@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import classes from "./cartTodays.module.scss";
 
-import { OneCart, ProductEmpty, Loader } from "../../../helper/index";
+import { ProductEmpty, Loader } from "../../../helper/index";
 import { useAppSelector, useAppDisptach } from "../../../redux/store/hook";
 import { fetchDealsProduct } from "../../../redux/allRequests/allRequests";
+import OneCart from "./OneCart/OneCart";
 
 const CartTodays: React.FC = () => {
   const { dealsProducts, loading } = useAppSelector(

@@ -10,7 +10,6 @@ import {
   ProductColorSlider,
   ProductDetail,
   Reviews,
-  Slider,
 } from "../../../helper/index";
 import axios from "axios";
 import { apiUrl } from "../../../helper/env";
@@ -24,6 +23,7 @@ import {
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import Slider from "../../UI/Slider/Slider";
 
 const Product: React.FC = () => {
   const [activeAccordion, setActiveAccordion] = useState<number>(1);

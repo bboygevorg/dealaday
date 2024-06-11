@@ -3,7 +3,8 @@ import classes from "./productColorSlider.module.scss";
 import SliderSlick from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CartColor } from "../../../helper";
+import CartColor from "../../Cart/CartColor/CartColor";
+// import { CartColor } from "../../../helper";
 
 interface ColorType {
   _id: string;
