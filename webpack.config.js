@@ -54,6 +54,7 @@ module.exports = (env, options) => {
     },
     resolve: {
       extensions: [".js", ".jsx", ".ts", ".tsx"],
+      modules: ["node_modules", path.resolve(__dirname, "src")],
     },
     plugins: [
       new HtmlWebpackPlugin({
