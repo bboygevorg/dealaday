@@ -25,7 +25,10 @@ module.exports = (env, options) => {
         },
         {
           test: /\.css$/,
-          use: ["style-loader", "css-loader"],
+          use: [
+            isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
+          ],
         },
         {
           test: /\.scss$/,
@@ -62,8 +65,8 @@ module.exports = (env, options) => {
         filename: "index.html",
       }),
       new MiniCssExtractPlugin({
-        filename: isDevelopment ? "[name].css" : "[name].[contenthash].css",
-        chunkFilename: isDevelopment ? "[id].css" : "[id].[contenthash].css",
+        filename: "[name].css",
+        chunkFilename: "[id].css",
       }),
       new CopyWebpackPlugin({
         patterns: [
