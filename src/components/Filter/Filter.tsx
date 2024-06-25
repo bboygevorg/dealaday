@@ -102,46 +102,49 @@ const Filter: React.FC<FilterProps> = ({
   }, []);
 
   // To correct
-  const handleChangeCategory = (category: any) => {
-    setSearchParams((prevSearchParams: any) => {
-      const newSearchParams = new URLSearchParams(prevSearchParams);
-      const existingCategories =
-        newSearchParams.get("category")?.split(",") || [];
 
-      if (!existingCategories.includes(category)) {
-        existingCategories.push(category);
+  const handleChangeCategory = (category: any) => {
+    setSearchParams((prevSearchParams: URLSearchParams) => {
+      const newSearchParams = new URLSearchParams(prevSearchParams.toString());
+
+      let existingCategories: string[] = [];
+      const currentCategoryParam = newSearchParams.get("category");
+
+      if (currentCategoryParam !== null) {
+        existingCategories = currentCategoryParam.split(",");
       }
 
-      console.log(existingCategories);
+      if (existingCategories.includes(category)) {
+        // Remove the category from the existing list
+        existingCategories = existingCategories.filter(
+          (cat) => cat !== category
+        );
 
-      newSearchParams.set("category", existingCategories.join(","));
+        if (existingCategories.length > 0) {
+          newSearchParams.set("category", existingCategories.join(","));
+        } else {
+          newSearchParams.delete("category");
+        }
+      } else {
+        // Add the category to the list
+        existingCategories.push(category);
+        newSearchParams.set("category", existingCategories.join(","));
+      }
+
       return newSearchParams;
     });
+
     const categoriesFromURL = new URLSearchParams(window.location.search).get(
       "category"
     );
 
-    // if (categoriesFromURL) {
-    //   const categoriesArray = categoriesFromURL.split(",");
-    //   categoriesArray.forEach((category) => {
-    //     onCategoryChange(category);
-    //   });
-    // }
-
-    onCategoryChange(category);
+    if (categoriesFromURL) {
+      const categoriesArray = categoriesFromURL.split(",");
+      categoriesArray.forEach((categoryFromURL) => {
+        onCategoryChange(categoryFromURL);
+      });
+    }
   };
-
-  // const handleChangeCategory = (category: any) => {
-  //   setSearchParams((prevSearchParams: any) => {
-  //     const newSearchParams = new URLSearchParams(prevSearchParams);
-  //     newSearchParams.set("category", category);
-  //     return newSearchParams;
-  //   });
-  //   const catgoryFromURL = new URLSearchParams(window.location.search).get(
-  //     "category"
-  //   );
-  //   if (catgoryFromURL) onCategoryChange(catgoryFromURL);
-  // };
 
   // To correct
   const handleBrandChange = (brand: string) => {

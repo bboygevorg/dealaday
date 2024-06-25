@@ -6,6 +6,9 @@ const webpack = require("webpack");
 
 module.exports = (env, options) => {
   const isDevelopment = options.mode === "development";
+  const apiURL = isDevelopment
+    ? "http://192.168.2.153:5000"
+    : "https://dealaday-backend.vercel.app";
 
   return {
     entry: "./src/index.tsx",
@@ -77,8 +80,8 @@ module.exports = (env, options) => {
         ],
       }),
       new webpack.EnvironmentPlugin({
-        NODE_ENV: "development",
-        API_URL: "https://dealaday-backend.vercel.app",
+        NODE_ENV: options.mode,
+        API_URL: apiURL,
       }),
     ],
     devServer: {

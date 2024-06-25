@@ -31,6 +31,7 @@ interface ToggleFilter {
 
 const Catalog: React.FC<ToggleFilter> = ({ toggleMenu, setToggleMenu }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const {
     product,
     loading,
