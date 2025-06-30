@@ -1,7 +1,7 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .text {
-  color: $gray_500;
-  font-weight: $font-weight_500;
+  color: variables.$gray_500;
+  font-weight: variables.$font-weight_500;
   text-transform: uppercase;
 }

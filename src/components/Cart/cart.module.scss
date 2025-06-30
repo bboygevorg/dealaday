@@ -1,7 +1,7 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .cart_container {
-  border: 1px solid $gray_300;
+  border: 1px solid variables.$gray_300;
   border-radius: 0.8rem;
   padding: 1rem;
   position: relative;
@@ -13,7 +13,7 @@
 
   .cart_info {
     h3 {
-      color: $gray_800;
+      color: variables.$gray_800;
       letter-spacing: 0.7px;
     }
     .custom_dropdown {
@@ -21,7 +21,7 @@
 
       .selected_option {
         padding: 0.8rem;
-        border: 1px solid $gray_300;
+        border: 1px solid variables.$gray_300;
         margin-top: 0.8rem;
         border-radius: 0.8rem;
         cursor: pointer;
@@ -55,8 +55,8 @@
           cursor: pointer;
 
           &:hover {
-            background-color: $blue_01;
-            color: $white_01;
+            background-color: variables.$blue_01;
+            color: variables.$white_01;
             border-radius: 0.8rem;
           }
         }
@@ -79,19 +79,19 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      color: $gray_600;
-      border-top: 1px solid $gray_300;
+      color: variables.$gray_600;
+      border-top: 1px solid variables.$gray_300;
       margin-top: 1.4rem;
       padding-top: 1rem;
 
       span {
         &:nth-child(1) {
-          color: $gray_600;
+          color: variables.$gray_600;
         }
 
         &:nth-child(2) {
-          color: $gray_900;
-          font-weight: $font-weight_600;
+          color: variables.$gray_900;
+          font-weight: variables.$font-weight_600;
         }
       }
     }
@@ -100,19 +100,19 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      color: $gray_600;
-      border-top: 1px solid $gray_300;
+      color: variables.$gray_600;
+      border-top: 1px solid variables.$gray_300;
       margin-top: 1.4rem;
       padding-top: 1rem;
 
       span {
         &:nth-child(1) {
-          color: $gray_600;
+          color: variables.$gray_600;
         }
 
         &:nth-child(2) {
           color: $gray_900;
-          font-weight: $font-weight_600;
+          font-weight: variables.$font-weight_600;
         }
       }
     }
@@ -121,19 +121,19 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      color: $gray_600;
-      border-top: 1px solid $gray_300;
+      color: variables.$gray_600;
+      border-top: 1px solid variables.$gray_300;
       margin-top: 1.4rem;
       padding-top: 1rem;
 
       span {
         &:nth-child(1) {
-          color: $gray_600;
+          color: variables.$gray_600;
         }
 
         &:nth-child(2) {
-          color: $gray_900;
-          font-weight: $font-weight_600;
+          color: variables.$gray_900;
+          font-weight: variables.$font-weight_600;
         }
       }
     }
@@ -142,8 +142,8 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      color: $gray_600;
-      border-top: 1px solid $gray_300;
+      color: variables.$gray_600;
+      border-top: 1px solid variables.$gray_300;
       margin-top: 1.4rem;
       padding-top: 1rem;
 
@@ -154,7 +154,7 @@
 
         &:nth-child(2) {
           color: green;
-          font-weight: $font-weight_600;
+          font-weight: variables.$font-weight_600;
         }
       }
     }

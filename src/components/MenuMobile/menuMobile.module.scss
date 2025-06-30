@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .menu_nav {
   height: 100vh;
@@ -26,7 +26,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: $white_01;
+    background-color: variables.$white_01;
     overflow-x: hidden;
     transition: 5s;
   }
@@ -42,7 +42,7 @@
 
       &:nth-child(1) {
         span {
-          color: $gray_500;
+          color: variables.$gray_500;
           margin-left: 0.75rem;
           font-weight: 600;
         }
@@ -81,10 +81,10 @@
       align-items: center;
       cursor: pointer;
       padding-right: 2rem;
-      color: $gray_900;
+      color: variables.$gray_900;
 
       .arrow_right {
-        border: solid $gray_500;
+        border: solid variables.$gray_500;
         border-radius: 2px;
         border-width: 0 3px 3px 0;
         display: inline-block;

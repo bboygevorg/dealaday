@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .button {
   border: none;
@@ -20,20 +20,20 @@
 
 .hoverWhite {
   &:hover {
-    background-color: $blue_02 !important;
+    background-color: variables.$blue_02 !important;
   }
 
   &:focus {
-    background-color: $blue_02 !important;
+    background-color: variables.$blue_02 !important;
   }
 }
 
 .colorGray {
-  background-color: $gray_300;
+  background-color: variables.$gray_300;
   color: $gray_900;
 
   &:focus {
-    background-color: $blue_01;
+    background-color: variables.$blue_01;
     color: $white_01;
   }
 }

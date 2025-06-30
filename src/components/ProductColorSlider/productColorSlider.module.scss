@@ -1,10 +1,10 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .sliderColor {
   position: relative;
 
   .wrapper {
-    max-width: $container_width;
+    max-width: variables.$container_width;
     margin: 0 auto;
 
     .slider_navigate {
@@ -29,15 +29,15 @@
           left: 0;
 
           svg {
-            stroke: $gray_900;
+            stroke: variables.$gray_900;
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
           }
 
           &:hover > svg {
-            stroke: $white_01;
+            stroke: variables.$white_01;
           }
         }
 
@@ -46,15 +46,15 @@
           transition: 0.2s ease-in-out;
 
           svg {
-            stroke: $gray_900;
+            stroke: variables.$gray_900;
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
           }
 
           &:hover > svg {
-            stroke: $white_01;
+            stroke: variables.$white_01;
           }
         }
       }

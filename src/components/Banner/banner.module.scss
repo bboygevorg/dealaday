@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .banner_product {
   position: relative;
@@ -18,7 +18,7 @@
   .banner_info {
     width: 90rem;
     margin: 0 auto;
-    max-width: $container_width;
+    max-width: variables.$container_width;
     position: absolute;
     top: 3.7rem;
 
@@ -41,7 +41,7 @@
   }
 
   .banner_description {
-    background-color: $white_01;
+    background-color: variables.$white_01;
     opacity: 0.8;
     width: 50%;
     margin-top: 1.7rem;
@@ -61,19 +61,19 @@
     display: block;
     margin: 1rem 1.5rem;
     padding: 1rem;
-    background-color: $white_01;
+    background-color: variables.$white_01;
     opacity: 0.8;
     border-radius: 1rem;
-    border: 1px solid $gray_200;
+    border: 1px solid variables.$gray_200;
   }
 
   @media screen and (max-width: 767px) and (min-width: 320px) {
     display: block;
     margin: 1rem 1.5rem;
     padding: 1rem;
-    background-color: $white_01;
+    background-color: variables.$white_01;
     opacity: 0.8;
     border-radius: 1rem;
-    border: 1px solid $gray_200;
+    border: 1px solid variables.$gray_200;
   }
 }

@@ -1,10 +1,10 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .infoBar {
-  background-color: $gray_050;
+  background-color: variables.$gray_050;
 
   .wrapper {
-    max-width: $container_width;
+    max-width: variables.$container_width;
     height: auto;
     margin: 0 auto;
     padding: 0 2.4rem;

@@ -1,22 +1,22 @@
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .delivery_container_add {
-  border: 1px solid $gray_300;
+  border: 1px solid variables.$gray_300;
   padding: 1rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
 
   p {
-    font-weight: $font-weight_500;
+    font-weight: variables.$font-weight_500;
   }
 
   input {
     margin-top: 0.5rem;
     padding: 0.5rem;
     border-radius: 0.3rem;
-    border: 1px solid $gray_300;
-    background-color: $gray_050;
+    border: 1px solid variables.$gray_300;
+    background-color: variables.$gray_050;
   }
 
   .delivery_container_add_send {
@@ -31,8 +31,8 @@
 
     span {
       cursor: pointer;
-      color: $blue_01;
-      font-weight: $font-weight_500;
+      color: variables.$blue_01;
+      font-weight: variables.$font-weight_500;
     }
   }
 }
@@ -49,7 +49,7 @@
     border-radius: 0.5rem;
     display: flex;
     justify-content: space-between;
-    border: 1px solid $gray_200;
+    border: 1px solid variables.$gray_200;
     padding: 1.5rem;
 
     @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -67,9 +67,9 @@
         align-items: center;
         justify-content: center;
         border-radius: 2.5rem;
-        border: 1px solid $gray_200;
+        border: 1px solid variables.$gray_200;
         margin-right: 2rem;
-        font-weight: $font-weight_500;
+        font-weight: variables.$font-weight_500;
       }
 
       .item_text {

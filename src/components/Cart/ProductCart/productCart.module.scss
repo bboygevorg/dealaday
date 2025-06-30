@@ -1,10 +1,10 @@
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .product_cart {
   box-sizing: border-box;
   min-width: 16rem;
   background-color: white;
-  border: 1px solid $gray_300;
+  border: 1px solid variables.$gray_300;
   border-radius: 1rem;
   height: auto;
   position: relative;
@@ -25,7 +25,7 @@
     row-gap: 1rem;
     padding-top: 2rem;
     position: absolute;
-    background-color: $rgba_white;
+    background-color: variables.$rgba_white;
     width: 100%;
     height: 9.5rem;
 
@@ -42,7 +42,7 @@
       justify-content: center;
 
       .watch {
-        background-color: $white_01;
+        background-color: variables.$white_01;
         padding: 0.48rem 0.7rem;
         display: flex;
         align-items: center;
@@ -58,13 +58,13 @@
           background-color: $blue_01;
 
           svg {
-            fill: $white_01;
+            fill: variables.$white_01;
           }
         }
       }
 
       .wish {
-        background-color: $white_01;
+        background-color: variables.$white_01;
         padding: 0.48rem 0.7rem;
         height: 2.5rem;
         display: flex;
@@ -75,14 +75,14 @@
         cursor: pointer;
 
         svg {
-          stroke: $gray_900;
+          stroke: variables.$gray_900;
         }
 
         &:hover {
-          background-color: $blue_01;
+          background-color: variables.$blue_01;
 
           svg {
-            stroke: $white_01;
+            stroke: variables.$white_01;
           }
         }
       }

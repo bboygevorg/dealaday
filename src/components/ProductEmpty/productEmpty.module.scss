@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .deals_container {
   width: 100%;
@@ -13,7 +13,7 @@
     width: 100%;
     margin: 0 auto;
     font-size: 5rem;
-    color: $gray_600;
+    color: variables.$gray_600;
 
     @media screen and (max-width: 767px) and (min-width: 320px) {
       font-size: 2rem;

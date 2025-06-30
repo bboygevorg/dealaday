@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .scrollToTopButton {
   position: fixed;
@@ -8,7 +8,7 @@
   border: none;
   @include arrow;
   transition: 0.2s ease-in-out;
-  background-color: $blue_01;
+  background-color: variables.$blue_01;
 
   @media screen and (max-width: 1200px) and (min-width: 767px) {
     right: 0.2rem;
@@ -24,7 +24,7 @@
   }
 
   &:hover {
-    background-color: $gray_200;
+    background-color: variables.$gray_200;
   }
 
   &:hover > svg {

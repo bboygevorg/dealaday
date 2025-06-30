@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .slider {
   margin-top: 4.7rem;
@@ -9,7 +9,7 @@
   }
 
   .wrapper {
-    max-width: $container_width;
+    max-width: variables.$container_width;
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -31,9 +31,9 @@
 
         span {
           margin-left: 1rem;
-          color: $blue_01;
-          font-weight: $font-weight_600;
-          border-bottom: 1px solid $blue_01;
+          color: variables.$blue_01;
+          font-weight: variables.$font-weight_600;
+          border-bottom: 1px solid variables.$blue_01;
         }
       }
 
@@ -49,15 +49,15 @@
           transition: 0.2s ease-in-out;
 
           svg {
-            stroke: $gray_900;
+            stroke: variables.$gray_900;
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
           }
 
           &:hover > svg {
-            stroke: $white_01;
+            stroke: variables.$white_01;
           }
         }
 
@@ -66,15 +66,15 @@
           transition: 0.2s ease-in-out;
 
           svg {
-            stroke: $gray_900;
+            stroke: variables.$gray_900;
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
           }
 
           &:hover > svg {
-            stroke: $white_01;
+            stroke: variables.$white_01;
           }
         }
       }
@@ -106,7 +106,7 @@
   position: relative;
 
   .wrapper {
-    max-width: $container_width;
+    max-width: variables.$container_width;
     margin: 0 auto;
 
     .slider_navigate {
@@ -127,15 +127,15 @@
           left: 0;
 
           svg {
-            stroke: $gray_900;
+            stroke: variables.$gray_900;
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
           }
 
           &:hover > svg {
-            stroke: $white_01;
+            stroke: variables.$white_01;
           }
         }
 
@@ -144,15 +144,15 @@
           transition: 0.2s ease-in-out;
 
           svg {
-            stroke: $gray_900;
+            stroke: variables.$gray_900;
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
           }
 
           &:hover > svg {
-            stroke: $white_01;
+            stroke: variables.$white_01;
           }
         }
       }

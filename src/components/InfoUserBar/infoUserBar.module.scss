@@ -1,8 +1,8 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .info_bar {
   padding: 1rem;
-  border: 1px solid $gray_300;
+  border: 1px solid variables.$gray_300;
   border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
@@ -32,20 +32,20 @@
     cursor: pointer;
 
     span {
-      stroke: $gray_500;
-      color: $gray_500;
-      font-weight: $font-weight_500;
+      stroke: variables.$gray_500;
+      color: variables.$gray_500;
+      font-weight: variables.$font-weight_500;
     }
   }
 
   .active {
-    background-color: $gray_100;
+    background-color: variables.$gray_100;
     padding: 0.5rem 1rem;
     border-radius: 0.8rem;
 
     span {
-      stroke: $gray_900;
-      font-weight: $font-weight_500;
+      stroke: variables.$gray_900;
+      font-weight: variables.$font-weight_500;
     }
   }
 
@@ -57,7 +57,7 @@
 
   .line {
     width: 100%;
-    border-top: 1px solid $gray_200;
+    border-top: 1px solid variables.$gray_200;
   }
 
   .sign_out {
@@ -65,9 +65,9 @@
     cursor: pointer;
 
     span {
-      stroke: $gray_500;
-      color: $gray_500;
-      font-weight: $font-weight_500;
+      stroke: variables.$gray_500;
+      color: variables.$gray_500;
+      font-weight: variables.$font-weight_500;
     }
   }
 }
@@ -81,7 +81,7 @@
     width: 90%;
     max-width: 30rem;
     margin: 0 auto;
-    border: 1px solid $gray_100;
+    border: 1px solid variables.$gray_100;
     padding: 0.5rem 1rem;
     border-radius: 0.8rem;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
@@ -94,11 +94,11 @@
       }
 
       .active {
-        stroke: $blue_01;
+        stroke: variables.$blue_01;
       }
 
       .accordion_item {
-        stroke: $gray_500;
+        stroke: variables.$gray_500;
       }
 
       span {
@@ -113,8 +113,8 @@
       }
 
       .span_active {
-        background-color: $blue_01;
-        border-bottom: 1px solid $blue_01;
+        background-color: variables.$blue_01;
+        border-bottom: 1px solid variables.$blue_01;
       }
     }
   }

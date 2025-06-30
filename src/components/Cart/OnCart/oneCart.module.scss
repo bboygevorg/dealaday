@@ -1,10 +1,10 @@
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .oneCart {
   box-sizing: border-box;
-  background-color: $gray_100;
+  background-color: variables.$gray_100;
   border-radius: 1rem;
-  border: 1px solid $gray_200;
+  border: 1px solid variables.$gray_200;
   width: calc(33.33% - 20px);
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -28,8 +28,8 @@
     width: 7rem;
     background-color: red;
     padding: 0.2rem 0;
-    color: $white_01;
-    font-weight: $font-weight_500;
+    color: variables.$white_01;
+    font-weight: variables.$font-weight_500;
     font-size: 1rem;
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;

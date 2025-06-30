@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .icon {
   margin-right: 2rem;
@@ -23,7 +23,7 @@
       width: 15px;
       height: 15px;
       text-align: center;
-      background-color: $blue_01;
+      background-color: variables.$blue_01;
       border-radius: 1rem;
       color: antiquewhite;
       font-size: 12px;
@@ -43,7 +43,7 @@
       width: 15px;
       height: 15px;
       text-align: center;
-      background-color: $blue_01;
+      background-color: variables.$blue_01;
       border-radius: 1rem;
       color: antiquewhite;
       font-size: 12px;

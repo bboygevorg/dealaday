@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .resset {
   width: 100%;
@@ -10,7 +10,7 @@
         display: flex;
         flex-direction: column;
         span {
-          font-weight: $font-weight_500;
+          font-weight: variables.$font-weight_500;
         }
 
         &:not(:first-child) {
@@ -23,8 +23,8 @@
           margin-top: 0.8rem;
           padding: 1rem 0.7rem;
           border-radius: 0.5rem;
-          border: 1px solid $gray_200;
-          background-color: $gray_100;
+          border: 1px solid variables.$gray_200;
+          background-color: variables.$gray_100;
           font-size: 1rem;
         }
       }
@@ -44,7 +44,7 @@
 
       span {
         cursor: pointer;
-        color: $blue_01;
+        color: variables.$blue_01;
       }
     }
   }

@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .wrapper_search {
   display: flex;
@@ -8,7 +8,7 @@
     box-sizing: border-box;
     border-top-left-radius: 0.4rem;
     border-bottom-left-radius: 0.4rem;
-    border: 1px solid $gray_500;
+    border: 1px solid variables.$gray_500;
     border-right: none;
     padding: 0.5rem 1rem;
 
@@ -17,26 +17,26 @@
     }
 
     &::placeholder {
-      color: $gray_400;
-      font-family: $font-family;
+      color: variables.$gray_400;
+      font-family: variables.$font-family;
     }
 
     &:focus {
-      border-color: $blue_02;
-      transition: $transition;
+      border-color: variables.$blue_02;
+      transition: variables.$transition;
     }
 
     &:focus + .logo_search {
-      background-color: $blue_02;
-      border-color: $blue_02;
-      transition: $transition;
+      background-color: variables.$blue_02;
+      border-color: variables.$blue_02;
+      transition: variables.$transition;
     }
   }
 
   .logo_search {
     width: 2.5rem;
     height: 2.4rem;
-    border: 1px solid $gray_500;
+    border: 1px solid variables.$gray_500;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,6 +69,6 @@
 
   .search {
     padding: 0 0 2rem;
-    border-top: 1px solid $gray_900;
+    border-top: 1px solid variables.$gray_900;
   }
 }

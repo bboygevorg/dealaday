@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .dropdown {
   position: relative;
@@ -8,17 +8,17 @@
   .dropdown_trigger {
     cursor: pointer;
     padding: 0.7rem 0.9rem;
-    border: 1px solid $gray_200;
+    border: 1px solid variables.$gray_200;
     border-radius: 0.5rem;
     position: relative;
 
     &:hover {
-      border-color: $blue_01;
+      border-color: variables.$blue_01;
       transition: 0.2s ease-in;
     }
 
     &:not(:hover) {
-      border-color: $gray_200;
+      border-color: variables.$gray_200;
       transition: 0.2s ease-out;
     }
 
@@ -50,7 +50,7 @@
     top: 4rem;
     margin: 0 auto;
     width: 100%;
-    border: 1px solid $gray_200;
+    border: 1px solid variables.$gray_200;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -58,7 +58,7 @@
     cursor: pointer;
     z-index: 5;
     display: none;
-    background-color: $white_01;
+    background-color: variables.$white_01;
 
     &.open {
       display: block;
@@ -66,15 +66,15 @@
 
     li {
       padding: 0.5rem 1rem;
-      color: $gray_600;
+      color: variables.$gray_600;
 
       &:hover {
-        background-color: $gray_200;
+        background-color: variables.$gray_200;
       }
     }
   }
 }
 
 .selectedColor {
-  color: $blue_01 !important;
+  color: variables.$blue_01 !important;
 }
