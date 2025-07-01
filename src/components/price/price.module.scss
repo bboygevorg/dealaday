@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .oneCart_info_price {
   align-items: center;
@@ -12,21 +12,21 @@
 
   .price {
     font-size: 1.5rem;
-    font-weight: $font-weight_700;
-    color: $blue_01;
+    font-weight: variables.$font-weight_700;
+    color: variables.$blue_01;
   }
 
   .price_center {
     font-size: 1.5rem;
-    font-weight: $font-weight_700;
-    color: $blue_01;
+    font-weight: variables.$font-weight_700;
+    color: variables.$blue_01;
     margin: 0 auto;
   }
 
   .price_discount {
     font-size: 1.1rem;
-    font-weight: $font-weight_500;
-    color: $gray_500;
+    font-weight: variables.$font-weight_500;
+    color: variables.$gray_500;
     position: relative;
     margin-left: 0.4rem;
 

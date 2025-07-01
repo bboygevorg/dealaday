@@ -1,13 +1,13 @@
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .footer {
-  background-color: $gray_900;
+  background-color: variables.$gray_900;
   color: $gray_100;
   margin-top: 4rem;
   padding-bottom: 2.9rem;
 
   .container {
-    max-width: $container_width;
+    max-width: variables.$container_width;
     margin: 0 auto;
     height: auto;
     padding: 4rem 0;
@@ -40,7 +40,7 @@
       }
 
       .footer_information_text {
-        color: $gray_300;
+        color: variables.$gray_300;
         margin-top: 1.3rem;
         width: 15.5rem;
 
@@ -60,7 +60,7 @@
         }
 
         span {
-          background-color: $gray_100;
+          background-color: variables.$gray_100;
           width: 2.5rem;
           height: 2.5rem;
           margin-right: 1rem;
@@ -75,12 +75,12 @@
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
             transition: 0.3s ease-in;
           }
 
           &:hover > svg {
-            stroke: $gray_050;
+            stroke: variables.$gray_050;
             transition: 0.3s ease-in;
           }
         }
@@ -89,8 +89,8 @@
 
     .footer_categories {
       p {
-        color: $gray_200;
-        font-weight: $font-weight_500;
+        color: variables.$gray_200;
+        font-weight: variables.$font-weight_500;
         font-size: 1rem;
       }
 
@@ -120,8 +120,8 @@
 
     .footer_about {
       p {
-        color: $gray_200;
-        font-weight: $font-weight_500;
+        color: variables.$gray_200;
+        font-weight: variables.$font-weight_500;
         font-size: 1rem;
       }
 
@@ -151,8 +151,8 @@
 
     .footer_legal {
       p {
-        color: $gray_200;
-        font-weight: $font-weight_500;
+        color: variables.$gray_200;
+        font-weight: variables.$font-weight_500;
         font-size: 1rem;
       }
 
@@ -182,8 +182,8 @@
 
     .footer_subscribe {
       p {
-        color: $gray_200;
-        font-weight: $font-weight_500;
+        color: variables.$gray_200;
+        font-weight: variables.$font-weight_500;
         font-size: 1rem;
 
         &:nth-child(2) {
@@ -226,27 +226,27 @@
           border-radius: 0.5rem;
           background-color: inherit;
           border: none;
-          border: 1px solid $gray_400;
+          border: 1px solid variables.$gray_400;
           color: $gray_200;
 
           @media screen and (max-width: 1200px) and (min-width: 767px) {
             width: 100%;
-            background-color: $gray_050;
-            color: $gray_900;
+            background-color: variables.$gray_050;
+            color: variables.$gray_900;
           }
 
           @media screen and (max-width: 767px) and (min-width: 320px) {
-            background-color: $gray_050;
-            color: $gray_900;
+            background-color: variables.$gray_050;
+            color: variables.$gray_900;
           }
 
           &:hover {
-            border-color: $blue_01;
+            border-color: variables.$blue_01;
             transition: 0.5s ease-in;
           }
 
           &:not(:hover) {
-            border-color: $gray_400;
+            border-color: variables.$gray_400;
             transition: 0.5s ease-out;
           }
         }
@@ -256,13 +256,13 @@
           border-radius: 0.5rem;
           position: absolute;
           right: 0;
-          background-color: $blue_01;
+          background-color: variables.$blue_01;
           color: $white_01;
           border: none;
           cursor: pointer;
 
           &:hover {
-            background-color: $blue_02;
+            background-color: variables.$blue_02;
             transition: 0.2s ease-in;
           }
         }
@@ -272,11 +272,11 @@
 }
 
 .footer_bottom {
-  background-color: $gray_800;
-  color: $gray_100;
+  background-color: variables.$gray_800;
+  color: variables.$gray_100;
 
   .container {
-    max-width: $container_footer;
+    max-width: variables.$container_footer;
     margin: 0 auto;
     padding-top: 1.8rem;
     padding-bottom: 1.8rem;
@@ -294,7 +294,7 @@
 
     div {
       p {
-        color: $gray_400;
+        color: variables.$gray_400;
       }
     }
 
@@ -314,8 +314,8 @@
         &:nth-child(2),
         &:nth-child(3),
         &:nth-child(5) {
-          background-color: $white_01;
-          border: 1px solid $gray_300;
+          background-color: variables.$white_01;
+          border: 1px solid variables.$gray_300;
         }
 
         &:nth-child(4) {
@@ -325,7 +325,7 @@
 
         &:nth-child(6) {
           background-color: #b2fce5;
-          border: 1px solid $gray_300;
+          border: 1px solid variables.$gray_300;
         }
       }
     }

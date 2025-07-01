@@ -1,9 +1,9 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .product_info {
   margin-top: 3.5rem;
   .container {
-    max-width: $container_width;
+    max-width: variables.$container_width;
     margin: 0 auto;
 
     @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -11,7 +11,7 @@
     }
 
     .product_info_name {
-      font-weight: $font-weight_400;
+      font-weight: variables.$font-weight_400;
       font-size: 1.6rem;
 
       @media screen and (max-width: 1200px) and (min-width: 767px) {
@@ -51,7 +51,7 @@
         .vertical_line {
           display: block;
           width: 100%;
-          border-left: 1px solid $gray_300;
+          border-left: 1px solid variables.$gray_300;
           margin: 10px 0;
         }
       }
@@ -61,7 +61,7 @@
       }
 
       .vertical_line {
-        border-left: 1px solid $gray_300;
+        border-left: 1px solid variables.$gray_300;
         width: 15px;
         height: 18px;
         margin: 0 1px;
@@ -173,7 +173,7 @@
     }
 
     .accordeon_container {
-      border-top: 1px solid $gray_300;
+      border-top: 1px solid variables.$gray_300;
       margin-top: 2.5rem;
       display: flex;
       padding-top: 3.2rem;
@@ -193,7 +193,7 @@
       .accordion_item {
         margin-right: 2rem;
         text-transform: uppercase;
-        font-weight: $font-weight_600;
+        font-weight: variables.$font-weight_600;
         color: $gray_500;
         cursor: pointer;
         position: relative;
@@ -216,7 +216,7 @@
           bottom: -9px;
           width: 0%;
           height: 3px;
-          background-color: $blue_01;
+          background-color: variables.$blue_01;
           transition: width 0.3s ease;
         }
 
@@ -229,8 +229,8 @@
       .active {
         margin-right: 2rem;
         text-transform: uppercase;
-        font-weight: $font-weight_600;
-        color: $blue_01;
+        font-weight: variables.$font-weight_600;
+        color: variables.$blue_01;
         cursor: pointer;
         position: relative;
 
@@ -249,7 +249,7 @@
           bottom: -9px;
           width: 100%;
           height: 3px;
-          background-color: $blue_01;
+          background-color: variables.$blue_01;
           transition: width 0.3s ease;
         }
       }
@@ -313,7 +313,7 @@
 
               &:nth-child(1) {
                 font-size: 2rem;
-                font-weight: $font-weight_600;
+                font-weight: variables.$font-weight_600;
               }
             }
 
@@ -325,9 +325,9 @@
               }
 
               button {
-                background: $white_01;
-                border: 1px solid $blue_01;
-                color: $blue_01;
+                background: variables.$white_01;
+                border: 1px solid variables.$blue_01;
+                color: variables.$blue_01;
                 padding: 0.8rem 1rem;
                 border-radius: 0.5rem;
                 cursor: pointer;
@@ -338,7 +338,7 @@
           .line {
             height: 100%;
             width: 1px;
-            background-color: $gray_200;
+            background-color: variables.$gray_200;
 
             @media screen and (max-width: 767px) and (min-width: 320px) {
               display: none;
@@ -365,13 +365,13 @@
                 display: block;
 
                 button {
-                  background: $white_01;
-                  border: 1px solid $blue_01;
-                  color: $blue_01;
+                  background: variables.$white_01;
+                  border: 1px solid variables.$blue_01;
+                  color: variables.$blue_01;
                   padding: 0.5rem 1.5rem;
                   border-radius: 0.5rem;
                   cursor: pointer;
-                  font-weight: $font-weight_600;
+                  font-weight: variables.$font-weight_600;
                   font-size: 1rem;
                 }
               }
@@ -426,7 +426,7 @@
               padding: 1rem;
               width: 30rem;
               border-radius: 0.5rem;
-              border: 1px solid $gray_300;
+              border: 1px solid variables.$gray_300;
               transition: 0.2s ease;
 
               @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -434,7 +434,7 @@
               }
               &:hover,
               &:focus {
-                border: 1px solid $blue_01;
+                border: 1px solid variables.$blue_01;
               }
             }
           }
@@ -460,16 +460,16 @@
             display: flex;
             flex-direction: column;
             padding-top: 2rem;
-            border-top: 1px solid $gray_200;
+            border-top: 1px solid variables.$gray_200;
 
             span {
               height: 2rem;
               &:nth-child(2) {
-                font-weight: $font-weight_600;
+                font-weight: variables.$font-weight_600;
               }
               &:nth-child(3) {
                 font-size: 13px;
-                color: $gray_500;
+                color: variables.$gray_500;
               }
             }
 
@@ -485,7 +485,7 @@
                 padding: 1rem;
                 width: 30rem;
                 border-radius: 0.5rem;
-                border: 1px solid $gray_300;
+                border: 1px solid variables.$gray_300;
                 transition: 0.2s ease;
 
                 @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -493,7 +493,7 @@
                 }
                 &:hover,
                 &:focus {
-                  border: 1px solid $blue_01;
+                  border: 1px solid variables.$blue_01;
                 }
               }
             }
@@ -556,12 +556,12 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: $blue_01;
+    background-color: variables.$blue_01;
     transition: background-color 0.3s ease;
     cursor: pointer;
 
     &:hover {
-      background-color: $blue_02;
+      background-color: variables.$blue_02;
     }
 
     .additional_buttons {

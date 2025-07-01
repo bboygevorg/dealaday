@@ -1,15 +1,15 @@
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .footer {
   background-color: #f9fafb;
-  color: $gray_700;
+  color: variables.$gray_700;
   bottom: 0;
   width: 100%;
   margin-top: 4rem;
   padding-bottom: 2.9rem;
 
   .container {
-    max-width: $container_footer;
+    max-width: variables.$container_footer;
     margin: 0 auto;
     display: grid;
     height: auto;
@@ -27,7 +27,7 @@
 
     div {
       p {
-        color: $gray_400;
+        color: variables.$gray_400;
       }
     }
 
@@ -46,8 +46,8 @@
         &:nth-child(2),
         &:nth-child(3),
         &:nth-child(5) {
-          background-color: $white_01;
-          border: 1px solid $gray_300;
+          background-color: variables.$white_01;
+          border: 1px solid variables.$gray_300;
         }
 
         &:nth-child(4) {
@@ -57,7 +57,7 @@
 
         &:nth-child(6) {
           background-color: #b2fce5;
-          border: 1px solid $gray_300;
+          border: 1px solid variables.$gray_300;
         }
       }
     }

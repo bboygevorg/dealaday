@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .slider_container {
   margin-top: 2rem;
@@ -25,20 +25,20 @@
     }
 
     .slider_track {
-      background-color: $gray_200;
+      background-color: variables.$gray_200;
       width: 100%;
       z-index: 1;
     }
 
     .slider_range {
-      background-color: $blue_01;
+      background-color: variables.$blue_01;
       z-index: 2;
     }
 
     .slider_left_value,
     .slider_right_value {
-      color: $gray_600;
-      font-weight: $font-weight_500;
+      color: variables.$gray_600;
+      font-weight: variables.$font-weight_500;
       font-size: 12px;
       margin-top: 20px;
     }
@@ -80,7 +80,7 @@
 
     /* For Chrome browsers */
     .thumb::-webkit-slider-thumb {
-      background-color: $blue_01;
+      background-color: variables.$blue_01;
       border: none;
       border-radius: 50%;
       box-shadow: 0 0 1px 1px #ced4da;
@@ -94,7 +94,7 @@
 
     /* For Firefox browsers */
     .thumb::-moz-range-thumb {
-      background-color: $blue_01;
+      background-color: variables.$blue_01;
       border: none;
       border-radius: 50%;
       box-shadow: 0 0 1px 1px #ced4da;

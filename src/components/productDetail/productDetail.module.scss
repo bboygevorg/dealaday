@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .product_detail {
   display: flex;
@@ -23,19 +23,19 @@
     }
     .price {
       font-size: 1.5rem;
-      font-weight: $font-weight_700;
-      color: $blue_01;
+      font-weight: variables.$font-weight_700;
+      color: variables.$blue_01;
     }
 
     .price_center {
       font-size: 1.5rem;
-      font-weight: $font-weight_700;
+      font-weight: variables.$font-weight_700;
       color: $blue_01;
     }
 
     .price_discount {
       font-size: 1.1rem;
-      font-weight: $font-weight_500;
+      font-weight: variables.$font-weight_500;
       color: $gray_500;
       position: relative;
 
@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 1.75rem;
-    background-color: $gray_050;
+    background-color: variables.$gray_050;
     max-width: 32rem;
     padding: 1rem;
     border-radius: 0.8rem;
@@ -85,7 +85,7 @@
 
       a {
         color: $blue_01;
-        border-bottom: 1px solid $blue_01;
+        border-bottom: 1px solid variables.$blue_01;
       }
     }
   }

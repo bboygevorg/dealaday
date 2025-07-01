@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .pagination {
   width: 100%;
@@ -27,8 +27,8 @@
       }
 
       button {
-        background-color: $gray_200;
-        border: 1px solid $gray_400;
+        background-color: variables.$gray_200;
+        border: 1px solid variables.$gray_400;
         width: 2rem;
         height: 2rem;
         margin: 0 5px;
@@ -49,14 +49,14 @@
       }
 
       .page.active {
-        background-color: $blue_01;
-        border: 1px solid $blue_01;
+        background-color: variables.$blue_01;
+        border: 1px solid variables.$blue_01;
         color: $white_01;
       }
 
       .page:not(.active):hover {
-        background-color: $blue_01;
-        border: 1px solid $blue_01;
+        background-color: variables.$blue_01;
+        border: 1px solid variables.$blue_01;
         color: $white_01;
       }
     }
@@ -64,14 +64,14 @@
 }
 
 .active {
-  background-color: $blue_01 !important;
+  background-color: variables.$blue_01 !important;
   color: $white_01 !important;
-  border: 1px solid $blue_01;
+  border: 1px solid variables.$blue_01;
 }
 
 .overlay {
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: $gray_900;
+  background-color: variables.$gray_900;
 }
