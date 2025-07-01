@@ -111,7 +111,7 @@
         }
 
         &:nth-child(2) {
-          color: $gray_900;
+          color: variables.$gray_900;
           font-weight: variables.$font-weight_600;
         }
       }

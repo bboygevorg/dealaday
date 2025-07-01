@@ -45,7 +45,7 @@
 
       span {
         font-weight: variables.$font-weight_500;
-        color: $gray_900;
+        color: variables.$gray_900;
 
         @media screen and (max-width: 767px) and (min-width: 320px) {
           font-weight: variables.$font-weight_600;

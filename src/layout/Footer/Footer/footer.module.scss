@@ -2,7 +2,7 @@
 
 .footer {
   background-color: variables.$gray_900;
-  color: $gray_100;
+  color: variables.$gray_100;
   margin-top: 4rem;
   padding-bottom: 2.9rem;
 
@@ -102,16 +102,16 @@
         }
 
         span {
-          color: $gray_300;
+          color: variables.$gray_300;
           font-size: 1rem;
 
           &:hover {
-            color: $blue_01;
+            color: variables.$blue_01;
             transition: 0.2s ease-in;
           }
 
           &:not(:hover) {
-            color: $gray_300;
+            color: variables.$gray_300;
             transition: 0.2s ease-out;
           }
         }
@@ -133,16 +133,16 @@
         }
 
         span {
-          color: $gray_300;
+          color: variables.$gray_300;
           font-size: 1rem;
 
           &:hover {
-            color: $blue_01;
+            color: variables.$blue_01;
             transition: 0.2s ease-in;
           }
 
           &:not(:hover) {
-            color: $gray_300;
+            color: variables.$gray_300;
             transition: 0.2s ease-out;
           }
         }
@@ -164,16 +164,16 @@
         }
 
         span {
-          color: $gray_300;
+          color: variables.$gray_300;
           font-size: 1rem;
 
           &:hover {
-            color: $blue_01;
+            color: variables.$blue_01;
             transition: 0.2s ease-in;
           }
 
           &:not(:hover) {
-            color: $gray_300;
+            color: variables.$gray_300;
             transition: 0.2s ease-out;
           }
         }
@@ -227,7 +227,7 @@
           background-color: inherit;
           border: none;
           border: 1px solid variables.$gray_400;
-          color: $gray_200;
+          color: variables.$gray_200;
 
           @media screen and (max-width: 1200px) and (min-width: 767px) {
             width: 100%;
@@ -257,7 +257,7 @@
           position: absolute;
           right: 0;
           background-color: variables.$blue_01;
-          color: $white_01;
+          color: variables.$white_01;
           border: none;
           cursor: pointer;
 

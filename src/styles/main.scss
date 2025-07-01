@@ -1,5 +1,5 @@
-@import "./normalize.scss";
-@import "../styles/variables.scss";
+@use "./normalize.scss";
+@use "./variables.scss";
 
 // navigate
 .navigate {
@@ -11,7 +11,7 @@
 }
 
 .container {
-  max-width: $container_width;
+  max-width: variables.$container_width;
   margin: 0 auto;
   padding: 1rem 0;
   padding-right: 1rem;

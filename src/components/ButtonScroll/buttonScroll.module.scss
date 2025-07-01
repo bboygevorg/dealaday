@@ -6,7 +6,7 @@
   right: 5rem;
   z-index: 1;
   border: none;
-  @include arrow;
+  @include variables.arrow;
   transition: 0.2s ease-in-out;
   background-color: variables.$blue_01;
 
@@ -20,7 +20,7 @@
   }
 
   svg {
-    stroke: $white_01;
+    stroke: variables.$white_01;
   }
 
   &:hover {
@@ -28,6 +28,6 @@
   }
 
   &:hover > svg {
-    stroke: $blue_01;
+    stroke: variables.$blue_01;
   }
 }

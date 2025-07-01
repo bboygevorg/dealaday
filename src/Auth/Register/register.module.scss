@@ -58,7 +58,7 @@
 
           &:hover,
           &:focus {
-            border: 1px solid $blue_01;
+            border: 1px solid variables.$blue_01;
           }
         }
       }

@@ -31,7 +31,7 @@
     margin-left: 0.4rem;
 
     &::after {
-      @include line_text;
+      @include variables.line_text;
     }
   }
 }

@@ -229,7 +229,7 @@
         justify-content: center;
 
         .watch {
-          background-color: $white_01;
+          background-color: variables.$white_01;
           padding: 0.48rem 0.7rem;
           display: flex;
           align-items: center;
@@ -237,14 +237,14 @@
           transition: 0.2s;
 
           svg {
-            fill: $gray_900;
+            fill: variables.$gray_900;
           }
 
           &:hover {
-            background-color: $blue_01;
+            background-color: variables.$blue_01;
 
             svg {
-              fill: $white_01;
+              fill: variables.$white_01;
             }
           }
         }
@@ -329,7 +329,7 @@
         margin-top: 0.6rem;
 
         .delivery_info {
-          color: $gray_600;
+          color: variables.$gray_600;
           margin-left: 0.5rem;
           margin-top: 0.1rem;
           font-size: 0.8rem;

@@ -72,7 +72,7 @@
         align-items: center;
 
         .review {
-          color: $gray_600;
+          color: variables.$gray_600;
           font-size: 0.8rem;
           margin-left: -0.5rem;
         }
@@ -194,7 +194,7 @@
         margin-right: 2rem;
         text-transform: uppercase;
         font-weight: variables.$font-weight_600;
-        color: $gray_500;
+        color: variables.$gray_500;
         cursor: pointer;
         position: relative;
 

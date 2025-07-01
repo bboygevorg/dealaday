@@ -30,17 +30,17 @@
     .price_center {
       font-size: 1.5rem;
       font-weight: variables.$font-weight_700;
-      color: $blue_01;
+      color: variables.$blue_01;
     }
 
     .price_discount {
       font-size: 1.1rem;
       font-weight: variables.$font-weight_500;
-      color: $gray_500;
+      color: variables.$gray_500;
       position: relative;
 
       &::after {
-        @include line_text;
+        @include variables.line_text;
       }
     }
   }
@@ -84,7 +84,7 @@
       margin-top: 5px;
 
       a {
-        color: $blue_01;
+        color: variables.$blue_01;
         border-bottom: 1px solid variables.$blue_01;
       }
     }

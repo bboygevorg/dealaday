@@ -39,7 +39,7 @@
         justify-content: center;
         align-items: center;
         font-size: 16px;
-        color: $gray_900;
+        color: variables.$gray_900;
       }
 
       button[disabled] {
@@ -51,13 +51,13 @@
       .page.active {
         background-color: variables.$blue_01;
         border: 1px solid variables.$blue_01;
-        color: $white_01;
+        color: variables.$white_01;
       }
 
       .page:not(.active):hover {
         background-color: variables.$blue_01;
         border: 1px solid variables.$blue_01;
-        color: $white_01;
+        color: variables.$white_01;
       }
     }
   }
@@ -65,7 +65,7 @@
 
 .active {
   background-color: variables.$blue_01 !important;
-  color: $white_01 !important;
+  color: variables.$white_01 !important;
   border: 1px solid variables.$blue_01;
 }
 

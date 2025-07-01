@@ -121,7 +121,7 @@
       }
 
       .review {
-        color: $gray_600;
+        color: variables.$gray_600;
         margin-left: 0.5rem;
 
         @media screen and (max-width: 1200px) and (min-width: 767px) {

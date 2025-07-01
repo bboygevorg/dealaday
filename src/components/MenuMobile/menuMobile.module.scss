@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   left: -240px;
-  background-color: $white_01;
+  background-color: variables.$white_01;
   overflow-x: hidden;
   transition: 0.3s ease-in;
 
@@ -57,7 +57,7 @@
   }
 
   .horizonal_line {
-    @include horizonal_line;
+    @include variables.horizonal_line;
 
     &:nth-child(2) {
       margin-top: -1.2rem;

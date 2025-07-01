@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@use "./variables.scss";
 
 * {
   padding: 0;
@@ -16,7 +16,7 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: $gray_900;
+  color: variables.$gray_900;
 }
 
 a,
@@ -28,7 +28,7 @@ h2,
 h3,
 h4,
 h5 {
-  color: $gray_900;
+  color: variables.$gray_900;
 }
 
 h1 {

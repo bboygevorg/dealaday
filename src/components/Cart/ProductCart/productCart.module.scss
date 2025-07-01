@@ -51,11 +51,11 @@
         transition: 0.2s;
 
         svg {
-          fill: $gray_900;
+          fill: variables.$gray_900;
         }
 
         &:hover {
-          background-color: $blue_01;
+          background-color: variables.$blue_01;
 
           svg {
             fill: variables.$white_01;
@@ -123,7 +123,7 @@
 
     .product_cart_info_text {
       font-size: 0.9rem;
-      font-weight: $font-weight_400;
+      font-weight: variables.$font-weight_400;
       line-height: 1.5;
     }
 
@@ -133,7 +133,7 @@
       margin-top: 0.8rem;
 
       .review {
-        color: $gray_600;
+        color: variables.$gray_600;
         font-size: 0.8rem;
         margin-left: 0.5rem;
       }
@@ -144,7 +144,7 @@
       margin-top: 0.6rem;
 
       .delivery_info {
-        color: $gray_600;
+        color: variables.$gray_600;
         margin-left: 0.5rem;
         margin-top: 0.1rem;
         font-size: 0.8rem;

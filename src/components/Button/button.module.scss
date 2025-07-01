@@ -30,10 +30,10 @@
 
 .colorGray {
   background-color: variables.$gray_300;
-  color: $gray_900;
+  color: variables.$gray_900;
 
   &:focus {
     background-color: variables.$blue_01;
-    color: $white_01;
+    color: variables.$white_01;
   }
 }

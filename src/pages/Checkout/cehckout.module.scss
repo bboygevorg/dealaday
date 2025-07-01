@@ -1,10 +1,10 @@
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .checkout {
   margin-top: 4.5rem;
 
   .container {
-    max-width: $container_width;
+    max-width: variables.$container_width;
     margin: 0 auto;
     height: auto;
 
@@ -15,13 +15,13 @@
 
       .left_block {
         .top_block {
-          border: 1px solid $gray_200;
+          border: 1px solid variables.$gray_200;
           border-radius: 0.8rem;
           width: 34rem;
           padding: 1rem;
           h3 {
-            color: $gray_900;
-            font-weight: $font-weight_500;
+            color: variables.$gray_900;
+            font-weight: variables.$font-weight_500;
           }
           form {
             margin-top: 1rem;
@@ -29,7 +29,7 @@
             input {
               margin-top: 0.5rem;
               padding: 0.8rem;
-              border: 1px solid $gray_200;
+              border: 1px solid variables.$gray_200;
               border-radius: 0.5rem;
               width: 100%;
             }
@@ -37,15 +37,15 @@
         }
 
         .middle_block {
-          border: 1px solid $gray_200;
+          border: 1px solid variables.$gray_200;
           border-radius: 0.8rem;
           width: 34rem;
           padding: 1rem;
           margin-top: 1.5rem;
 
           h3 {
-            color: $gray_900;
-            font-weight: $font-weight_500;
+            color: variables.$gray_900;
+            font-weight: variables.$font-weight_500;
           }
 
           form {
@@ -54,7 +54,7 @@
             input {
               margin-top: 0.5rem;
               padding: 0.8rem;
-              border: 1px solid $gray_200;
+              border: 1px solid variables.$gray_200;
               border-radius: 0.5rem;
               width: 100%;
             }
@@ -62,15 +62,15 @@
         }
 
         .bottom_block {
-          border: 1px solid $gray_200;
+          border: 1px solid variables.$gray_200;
           border-radius: 0.8rem;
           width: 34rem;
           padding: 1rem;
           margin-top: 1.5rem;
 
           h3 {
-            color: $gray_900;
-            font-weight: $font-weight_500;
+            color: variables.$gray_900;
+            font-weight: variables.$font-weight_500;
           }
 
           .save_details {
@@ -90,7 +90,7 @@
 
           .payment {
             margin-top: 1rem;
-            border: 1px solid $gray_200;
+            border: 1px solid variables.$gray_200;
             padding: 0.8rem;
             border-radius: 0.5rem;
             display: flex;
@@ -103,8 +103,8 @@
 
           .payment_active {
             margin-top: 1rem;
-            border: 1px solid $blue_01;
-            background-color: $gray_050;
+            border: 1px solid variables.$blue_01;
+            background-color: variables.$gray_050;
             height: 100%;
             padding: 0.5rem;
             border-radius: 0.8rem;
@@ -126,7 +126,7 @@
                 input {
                   margin-top: 0.5rem;
                   padding: 0.8rem;
-                  border: 1px solid $gray_200;
+                  border: 1px solid variables.$gray_200;
                   border-radius: 0.5rem;
                   width: 100%;
                 }
@@ -139,7 +139,7 @@
                 input {
                   margin-top: 0.5rem;
                   padding: 0.8rem;
-                  border: 1px solid $gray_200;
+                  border: 1px solid variables.$gray_200;
                   border-radius: 0.5rem;
                   width: 100%;
                 }
@@ -151,7 +151,7 @@
 
       .right_block {
         .top_block {
-          border: 1px solid $gray_200;
+          border: 1px solid variables.$gray_200;
           border-radius: 0.8rem;
           width: 34rem;
           padding: 1rem;
@@ -171,7 +171,7 @@
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            border-top: 1px solid $gray_200;
+            border-top: 1px solid variables.$gray_200;
             margin-top: 1.2rem;
             padding-top: 1.7rem;
 
@@ -180,22 +180,22 @@
               width: 23rem;
               padding: 10px;
               border-radius: 0.5rem;
-              border: 1px solid $gray_200;
+              border: 1px solid variables.$gray_200;
             }
 
             .coupon_button {
               border-radius: 0.5rem;
               padding: 0 10px;
-              border: 1px solid $blue_01;
-              background-color: $white_01;
-              color: $blue_01;
+              border: 1px solid variables.$blue_01;
+              background-color: variables.$white_01;
+              color: variables.$blue_01;
               cursor: pointer;
             }
           }
 
           .cart_subtotal {
             width: 100%;
-            border-top: 1px solid $gray_200;
+            border-top: 1px solid variables.$gray_200;
             margin-top: 1.2rem;
             padding-top: 1.7rem;
             display: flex;
@@ -203,14 +203,14 @@
 
             span {
               &:first-child {
-                color: $gray_600;
+                color: variables.$gray_600;
               }
             }
           }
 
           .cart_shipping {
             width: 100%;
-            border-top: 1px solid $gray_200;
+            border-top: 1px solid variables.$gray_200;
             margin-top: 1.2rem;
             padding-top: 1.7rem;
             display: flex;
@@ -218,7 +218,7 @@
 
             span {
               &:first-child {
-                color: $gray_600;
+                color: variables.$gray_600;
               }
             }
           }
@@ -227,20 +227,20 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            border-top: 1px solid $gray_200;
+            border-top: 1px solid variables.$gray_200;
             margin-top: 1.2rem;
             padding-top: 1.7rem;
 
             span {
               font-size: 1.4rem;
-              font-weight: $font-weight_600;
+              font-weight: variables.$font-weight_600;
 
               &:first-child {
-                color: $gray_900;
+                color: variables.$gray_900;
               }
 
               &:last-child {
-                color: $blue_01;
+                color: variables.$blue_01;
               }
             }
           }
@@ -255,7 +255,7 @@
               .image {
                 width: 8rem;
                 height: 8rem;
-                background-color: $gray_100;
+                background-color: variables.$gray_100;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -279,7 +279,7 @@
               .number {
                 padding: 5px 10px;
                 height: 30px;
-                border: 1px solid $gray_200;
+                border: 1px solid variables.$gray_200;
 
                 &:first-child {
                   border-top-left-radius: 5px;
@@ -316,7 +316,7 @@
               left: 0;
               width: 100%;
               height: 1px;
-              background-color: $gray_200;
+              background-color: variables.$gray_200;
             }
           }
         }
@@ -331,8 +331,8 @@
   min-width: 16px;
   height: 16px;
   position: relative;
-  background: $gray_050;
-  border: 1px solid $gray_300;
+  background: variables.$gray_050;
+  border: 1px solid variables.$gray_300;
   transition: 250ms cubic-bezier(0.4, 0, 0.23, 1);
   display: inline-block;
   margin-right: 0.5em;
@@ -355,7 +355,7 @@
   }
 
   &:hover {
-    border: 1px solid $blue_01;
+    border: 1px solid variables.$blue_01;
     transition: 0.2s ease-in;
   }
 }
@@ -363,8 +363,8 @@
 input[type="checkbox"] {
   &:checked {
     + span {
-      background: $blue_01;
-      border: 1px solid $blue_01;
+      background: variables.$blue_01;
+      border: 1px solid variables.$blue_01;
     }
   }
 }

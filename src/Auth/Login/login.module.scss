@@ -68,7 +68,7 @@
 
           &:hover,
           &:focus {
-            border: 1px solid $blue_01;
+            border: 1px solid variables.$blue_01;
           }
         }
       }
@@ -109,7 +109,7 @@
         padding-top: 1rem;
 
         span {
-          color: $blue_01;
+          color: variables.$blue_01;
           font-weight: variables.$font-weight_600;
           font-size: 14px;
           cursor: pointer;
